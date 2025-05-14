@@ -1,0 +1,141 @@
+
+/* ============= 🖥 Extra large devices (large desktops) ============= */
+/* 1200px فأكتر */
+@media (min-width: 1200px) {
+  /* styles هنا */
+}
+
+/* ============= 🖥 Large devices (desktops) ============= */
+/* من 992px لـ 1199px */
+@media (max-width: 1199.98px) {
+  /* styles هنا */
+  .content{
+    width: 95%;
+  }
+}
+
+/* ============= 💻 Medium devices (tablets) ============= */
+/* من 768px لـ 991px */
+@media (max-width: 991.98px) {
+  /* styles هنا */
+ 
+  /* header in all component*/
+  .header.content{
+    width: 100%;
+  }
+  .header.content h2{
+    font-size: 25px;
+  }
+  /* home page land */
+  .homeLandPage-container{
+    min-height: 45vh;
+  }
+  .homeLandPage-container .homeLandPage-content{
+    transform: translate(50%,-50%);
+  }
+  .homeLandPage-container .homeLandPage-content h2,
+  .homeLandPage-container .homeLandPage-content p{
+    width: 100%;
+  }
+  .homeLandPage-container .homeLandPage-content h2{
+    font-size: 28px;
+  }
+  /* three cards */
+  .threeCards-container .threeCards-content{
+    position: relative;
+    top: 0;
+    transform: translate(-50% , 0);
+  }
+  .threeCards-container .threeCards-content .card{
+    flex: 1;
+  }
+  /* page number one in home page */
+  .one-container .one-content .cards{
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .one-container .one-content .cards .card{
+    min-width: 100%;
+  }
+  .one-container .one-content .cards .card:first-child::after,
+  .one-container .one-content .cards .card:nth-child(2)::after{
+    border-top: none;
+    width: 0;
+  }
+
+  /* page number two in home page */
+  .two-container .cards .card{
+    width: 48%;
+  }
+
+  /* content */
+  .login-container .login-content{
+    flex-direction: column !important;
+    gap: 20px;
+  }
+  .login-container .login-content .rightLogin{
+    padding: 10px ;
+  }
+
+.three-container .three-content .information{
+  flex-direction: column;
+}
+
+}
+/* ============= 📱 Small devices (landscape phones) ============= */
+/* من 576px لـ 767px */
+@media (max-width: 767.98px) {
+  /* styles هنا */
+  /* p */
+  p{
+    font-size: 16px;
+  }
+  /* topbar */
+  .topbar-container .topbar-content{
+    justify-content: center ;
+    padding: 10px 0;
+  }
+  /* navbar */
+  .navbar-container .navbar-content .links,
+  .navbar-container .navbar-content .btns{
+    display: none;
+  }
+  .navbar-container .navbar-content .icon{
+    display: flex;
+  }
+  /* home land page */
+  .homeLandPage-container .homeLandPage-content h2,
+  .homeLandPage-container .homeLandPage-content p{
+    width: 100%;
+  }
+   /* page number two in home page */
+   .two-container .cards .card{
+    width: 90%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .homeLandPage-container{
+    min-height: 75vh;
+  }
+}
+
+/* ============= 📱 Extra Small devices (phones) ============= */
+/* أقل من 576px */
+@media (max-width: 575.98px) {
+  /* styles هنا */
+}
+@media (max-width: 447.98px) {
+  /* styles هنا */
+  /* home land page */
+  .homeLandPage-container .homeLandPage-content h2{
+    font-size:19px ;
+  }
+  .homeLandPage-container .homeLandPage-content p{
+    font-size: 13px;
+  }
+.homeLandPage-container .homeLandPage-content .btns{
+  flex-direction: column;
+
+}
+
+}

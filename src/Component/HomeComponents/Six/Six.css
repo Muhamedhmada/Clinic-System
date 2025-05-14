@@ -1,0 +1,32 @@
+.six-container .six-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap:50px 10px;
+}
+.six-container .six-content .card{
+  /* height: 150px; */
+  width: calc(96% / 3);
+  min-width: 300px;
+  display: flex;
+  gap: 50px;
+  flex: 1;
+
+}
+.six-container .six-content .card .icon{
+  color: var(--primary-color);
+}
+.six-container .six-content .card .info{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.six-container .six-content .card .info h3{
+  color: var(--secondary-color);
+  font-size: 20px;
+}
+.six-container .six-content .card .info p{
+  color: var(--fourth-color);
+  font-size: 15px;
+}

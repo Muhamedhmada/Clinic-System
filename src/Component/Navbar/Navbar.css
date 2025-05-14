@@ -1,0 +1,183 @@
+.navbar-container{
+  background-color: var(--third-color); 
+  overflow: hidden;
+  padding: 0 !important;
+}
+.navbar-container .navbar-content{
+  height: 8vh;
+  min-height: 65px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-container .navbar-content .links {
+  height: 100%;
+  gap: 30px;
+}
+.navbar-container.animated{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999999999;
+  box-shadow: 0px 0px 13px #00000054;
+  animation: navbarAnimation .6s ease-in;
+}
+@keyframes navbarAnimation {
+  from{
+    top: -100px;
+  }
+  to{
+    top: 0;
+  }
+}
+.navbar-container .navbar-content .links a{
+  color: var(--secondary-color);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition-duration: var(--transition-duration);
+}
+.navbar-container .navbar-content .links a:hover{
+  color: var(--primary-color);
+}
+.navbar-container .navbar-content .links a::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary-color);
+  bottom: -2px;
+  transform: scale(0);
+  transform-origin: left;
+  transition: transform var(--transition-duration) ease-in;
+  border-radius: 3px;
+}
+.navbar-container .navbar-content .links a:hover::after{
+  transform: scale(1);
+}
+
+.navbar-container .navbar-content .btns{
+  display: flex;
+  /* gap: 10px; */
+  /* gap: -10px; */
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.navbar-container .navbar-content .btns button{
+  background-color: var(--primary-color);
+  background-color: transparent;
+  color: var(--third-color);
+  background-color: var(--primary-color);
+}
+.navbar-container .navbar-content .btns button:first-child{
+  border-radius:var(--btn-border-radius) 0 0 var(--btn-border-radius) ;
+}
+.navbar-container .navbar-content .btns button:nth-child(2){
+  border-radius: 0 var(--btn-border-radius) var(--btn-border-radius) 0;
+}
+/* .navbar-container .navbar-content .btns button::before{
+  background-color: red;
+  background-color: var(--primary-color);
+  /* opacity: .8; */
+  /* transform: skewX(-45deg); */
+  /* position: absolute; */
+  /* content: "";
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100%;
+  z-index: -2;
+  border-radius: var(--btn-border-radius); */
+  /* z-index: 999999999999999999 !important; */
+/* } */ */
+.navbar-container .navbar-content .btns button:after{
+  transform: scaleX(0) skewX(-45deg);
+}
+.navbar-container .navbar-content .btns button:hover:after{
+  /* transform: scaleX(1) skewX(-45deg); */
+  background-color: var(--secondary-color);
+}
+.navbar-container .navbar-content .icon{
+  color: var(--primary-color);
+  cursor: pointer !important;
+  display: none;
+  z-index: 9999999999999999999;
+  transition-duration: var(--transition-duration);
+}
+.navbar-container .navbar-content .icon:hover{
+  transform: rotate(-180deg);
+}
+/* mobile menu */
+.menu{
+  padding: 20px;
+  background-color: var(--primary-color);
+  /* background-color: var(--secondary-color);
+  background-color: var(--third-color); */
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  opacity: 0;
+  transition: all .3s ease-in;
+  z-index: 999999999999999;
+  display: flex;
+  flex-direction: column ;
+  gap: 20px ;
+}
+.menu.show{
+  left: 0 !important;
+  opacity: 2;
+}
+.menu-header{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--secondary-color);
+}
+.menu .mobileMenu-btns div:nth-child(2){
+  display: flex;
+  gap: 10px;
+}
+.menu .mobileMenu-links{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color:black;
+}
+.menu .mobileMenu-links a{
+  color: var(--secondary-color);
+  font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--third-color);
+  padding: 10px;
+  border-radius: 4px;
+  /* opacity: .8; */
+}
+.menu .icon{
+  color: var(--third-color);
+  transition-duration: var(--transition-duration);
+}
+.menu .icon:hover{
+  transform: rotate(-90deg);
+}
+.menu-btns{
+  display: flex;
+  gap: 10px;
+}
+.menu-btns button:hover{
+  color: var(--third-color);
+}
+.menu-btns button:hover:after{
+  transform: scaleX(1);
+  color: var(--third-color);
+  background-color: var(--secondary-color);
+}

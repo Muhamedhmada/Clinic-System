@@ -1,0 +1,11 @@
+:root{
+  --primary-color:#1a76d1;
+  --secondary-color:#2c2d3f;
+  --third-color:white;
+  --fourth-color:#888;
+  --border-color:#eee;
+
+  --btn-border-radius:4px;
+
+  --transition-duration: .4s;
+}

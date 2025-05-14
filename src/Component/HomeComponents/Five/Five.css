@@ -1,0 +1,73 @@
+.five-container .five-content{
+  display: flex;
+  width: 95%;
+}
+.five-container .five-content{
+  display: flex;
+  gap: 10px;
+}
+.five-container .five-content .image{
+  width: 350px;
+  position: relative;
+}
+.five-container .five-content .image img{
+  width: 100%;
+  height: 100%;
+}
+.five-container .five-content .image::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  background-color: transparent;
+  left:0;
+  top: 0;
+  opacity: .7;
+  transition-duration: var(--transition-duration);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.five-container .five-content .image:hover::after{
+  background-color: var(--primary-color);
+}
+.five-container .five-content .image button{
+  position: absolute;
+  width: fit-content;
+  transform: translate(-50% , -50%);
+  left: 50%;
+  top: 50%;
+  background-color: var(--third-color);
+  color: var(--primary-color);
+  font-size: small;
+  padding: 15px 20px;
+  display: none;
+}
+.five-container .five-content .image:hover button{
+  display: flex;
+}
+.five-container .five-content .image button:hover{
+  color: var(--third-color);
+}
+.five-container .five-content .image button:after{
+  background-color: var(--secondary-color);
+}
+.five-container .swiper .swiper-slide{
+  width: 400px;
+  width: 100%;
+}
+.five-container .swiper .swiper-slide .image{
+  width: 100%;
+  height: 100%;
+}
+.five-container .swiper .swiper-slide .image img{
+  width: 100%;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after{
+  display: none;
+}
+.swiper-notification{
+  display: none;
+}

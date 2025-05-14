@@ -1,0 +1,29 @@
+.topbar-container{
+  background-color: var(--third-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0;
+}
+.topbar-container .topbar-content{
+  padding: 15px 0;
+  margin: auto;
+  display: flex;
+  gap: 10px 100px ;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.topbar-container .topbar-content .links a{
+  color: var(--secondary-color);
+}
+.topbar-container .contact{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.topbar-container .contact a{
+  color: var(--secondary-color);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}

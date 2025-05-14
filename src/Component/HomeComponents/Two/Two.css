@@ -1,0 +1,59 @@
+.two-container{
+  background-image: url('../../../Assets//Images/hands.jpg');
+  min-height: 35vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.two-container:after{
+  position: absolute;
+  content: "";
+  background-color: var(--primary-color);
+  width: 100%;
+  height: 100%;
+  opacity: .8;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.two-container .cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.two-container .cards .card{
+  width: calc(90% / 4);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.two-container .cards .card h2{
+  color: var(--third-color) ;
+}
+.two-container .cards .card .icon{
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  border: 2px solid var(--third-color);
+  transition-duration: var(--transition-duration);
+}
+.two-container .cards .card:hover .icon{
+  color: var(--primary-color);
+  background-color: var(--third-color);
+}
+.two-container .cards .card div:nth-child(2) {
+  color: var(--third-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
