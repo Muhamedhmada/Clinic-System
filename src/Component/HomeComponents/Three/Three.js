@@ -1,5 +1,5 @@
 import Header from '../../Header/Header'
-import img from '../../../Assets/Images/hands.jpg'
+// import img from '../../../Assets/Images/hands.jpg'
 import './Three.css'
 function Three(){
   return(

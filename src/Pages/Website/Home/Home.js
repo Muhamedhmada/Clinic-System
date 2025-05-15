@@ -1,13 +1,13 @@
-import Five from "../../../Component/HomeComponents/Five/Five"
 import One from "../../../Component/HomeComponents/One/One"
-import PlansSection from "../../../Component/HomeComponents/PlansSection/PlansSection"
-import Six from "../../../Component/HomeComponents/Six/Six"
-import SponserSection from "../../../Component/HomeComponents/SponserSection/SponserSection"
-import Three from "../../../Component/HomeComponents/Three/Three"
 import Two from "../../../Component/HomeComponents/Two/Two"
+import Three from "../../../Component/HomeComponents/Three/Three"
+import Five from "../../../Component/HomeComponents/Five/Five"
+import Six from "../../../Component/HomeComponents/Six/Six"
 import HomeLandPage from "../../../Component/HomeLandPage/HomeLandPage"
-import Navbar from "../../../Component/Navbar/Navbar"
 import Topbar from "../../../Component/Topbar/Topbar"
+import Navbar from "../../../Component/Navbar/Navbar"
+import PlansSection from "../../../Component/HomeComponents/PlansSection/PlansSection"
+import SponserSection from "../../../Component/HomeComponents/SponserSection/SponserSection"
 import Footer from "../Footer/Footer"
 
 function Home(){
@@ -21,7 +21,8 @@ function Home(){
         <Two/>
         <Three/>
         <Five/>
-        <Six/>
+        <Six/> 
+        
         <PlansSection/>
         <SponserSection/>
         <Footer/>

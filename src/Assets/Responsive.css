@@ -18,7 +18,9 @@
 /* من 768px لـ 991px */
 @media (max-width: 991.98px) {
   /* styles هنا */
- 
+  .container{
+    /* padding: 10px 0; */
+  }
   /* header in all component*/
   .header.content{
     width: 100%;

@@ -14,11 +14,11 @@ function Navbar(){
     if (navBarRef.current) {
       observer.observe(navBarRef.current);
     }
-    return () => {
-      if (navBarRef.current) {
-        observer.unobserve(navBarRef.current);
-      }
-    };
+    // return () => {
+    //   if (navBarRef.current) {
+    //     observer.unobserve(navBarRef.current);
+    //   }
+    // };
   })
   const [showMobileMenu , setShowMobileMenu] = useState(false)
   return(
