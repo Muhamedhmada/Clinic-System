@@ -57,7 +57,7 @@
   font-weight: bold;
   color: var(--secondary-color);
 }
-.btns{
+.modal .btns{
   display: flex;
   gap: 10px;
   align-items: center;
@@ -66,17 +66,17 @@
   padding: 20px 0 0;
   width: 100%;
 }
-.btns button{
+.modal .btns button{
   flex: 1;
   padding: 10px 10px;
   font-size: 20px !important;
   width: 100%;
   transition-duration: var(--transition-duration);
 }
-.btns button:nth-child(1){
+.modal .btns button:nth-child(1){
   background-color: var(--primary-color);
   color: var(--third-color);
 }
-.btns button:nth-child(2):hover{
+.modal .btns button:nth-child(2):hover{
   color: var(--third-color);
 }
