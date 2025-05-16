@@ -7,7 +7,7 @@ import './Booking.css'
 import Modal from '../../../CustomComponent/Modal/Modal.jsx'
 import { Check } from '../../../Assets/SVGS'
 function Booking(){
-  const [modal , setModal] = useState(true)
+  const [modal , setModal] = useState(false)
   const [selectedDay , setSelectedDay] = useState()
   const [selectedHour , setSelectedHour] = useState()
   const weeklySchedule = [
