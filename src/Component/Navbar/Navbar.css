@@ -95,10 +95,11 @@
   /* z-index: 999999999999999999 !important; */
 /* } */
 .navbar-container .navbar-content .btns button:after{
-  transform: scaleX(0) skewX(-45deg);
+  /* transform: scaleX(0) skewX(-45deg); */
 }
 .navbar-container .navbar-content .btns button:hover:after{
   /* transform: scaleX(1) skewX(-45deg); */
+  transform: scale(1);
   background-color: var(--secondary-color);
 }
 .navbar-container .navbar-content .icon{

@@ -69,7 +69,8 @@ input{
   border: 1px solid var(--fourth-color);
   padding: 20px;
 }
-input::placeholder{
+input::placeholder,
+td , th{
   text-transform: capitalize;
 }
 button , input{
@@ -84,6 +85,7 @@ button{
   position: relative;
   transition-duration: var(--transition-duration);
   z-index: 1;
+  overflow: hidden;
 }
 button:after{
   position: absolute;

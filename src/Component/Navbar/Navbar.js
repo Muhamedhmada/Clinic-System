@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Bars, Exit } from '../../Assets/SVGS'
 import './Navbar.css'
 function Navbar(){
+  const nav = useNavigate()
   const navBarRef = useRef()
   const [isFixed , setIsFixed] = useState(false)
   useEffect(()=>{
@@ -36,8 +38,8 @@ function Navbar(){
               <a href="/contact-us">contact us</a>
             </div>
             <div className="btns">
-              <button>book appointment</button>
-              <button>login</button>
+              <button onClick={()=>nav('/book-appointment')}>book appointment</button>
+              <button onClick={()=>nav("/login")}>login</button>
             </div>
             <div className="icon" onClick={()=>{setShowMobileMenu((prev)=>!prev);console.log("ge")}}>
               <Bars width="40px"/>
@@ -57,8 +59,8 @@ function Navbar(){
             <a href="/contact-us">contact us</a>
           </div>
           <div className="btns">
-            <button>book appointment</button>
-            <button>login</button>
+            <button onClick={()=>nav('/book-appointment')}>book appointment</button>
+            <button onClick={()=>nav("/login")}>login</button>
           </div>
           <div className="icon" onClick={()=>{setShowMobileMenu((prev)=>!prev);console.log("ge")}}>
             <Bars width="40px"/>
@@ -80,8 +82,8 @@ function Navbar(){
               <a href="/contact-us">contact us <ArrowRight width="30px" /></a>
             </div>
              <div className='menu-btns'>
-                <button>book appointment</button>
-                <button>login</button>
+                <button onClick={()=>nav('/book-appointment')}>book appointment</button>
+                <button onClick={()=>nav('/login')}>login</button>
               </div>
           </div>
         </div>

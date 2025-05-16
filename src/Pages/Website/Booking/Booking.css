@@ -1,0 +1,77 @@
+.booking-container{
+  background-color: var(--border-color);
+}
+.booking-container .booking-content{
+  margin: 50px auto;
+  overflow: auto;
+}
+.booking-container .booking-content table{
+  width: 100%;
+  text-align: center;
+  /* padding: 10px; */
+  border: 0;
+  border-collapse: collapse;
+  background-color: var(--third-color);
+  box-shadow: 0px 0px 10px #00000024;
+  
+}
+.booking-container .booking-content table tr th{
+  background-color: var(--primary-color);
+  color: var(--third-color);
+  white-space: 0;
+}
+.booking-container .booking-content table tr td.hour >p{
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  background-color: var(--fourth-color);
+  background-color: var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--primary-color);
+}
+.booking-container .booking-content table tr td{
+  transition-duration: var(--transition-duration);
+  font-size: larger;
+}
+.booking-container .booking-content table tr td , th{
+  padding: 30px;
+}
+.booking-container .booking-content table tr td:hover{
+  background-color: var(--fourth-color);
+  background-color: var(--border-color);
+}
+.booking-container .booking-content table tr td.available{
+  cursor: pointer;
+}
+.booking-container .booking-content table tr td.booked{
+  cursor: not-allowed;
+}
+
+/* modal */
+
+.booking-container .modal{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.booking-container .modal .icon{
+  color: var(--primary-color);
+}
+.booking-container .modal p{
+  color: var(--fourth-color);
+  font-size: 17px;
+  text-transform: capitalize;
+  /* text-align: center; */
+}
+.booking-container .bookingInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  /* justify-content: space-between; */
+}

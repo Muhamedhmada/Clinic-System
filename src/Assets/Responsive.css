@@ -141,3 +141,12 @@
 }
 
 }
+
+@media (max-width:376px) {
+  .modal{
+    min-width: 100%;
+  }
+  .modal .btns{
+    flex-direction: column;
+  }
+}
