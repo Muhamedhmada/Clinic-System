@@ -1,0 +1,48 @@
+.contactForm-container{
+
+}
+.contactForm-container .contactForm-content{
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0px 0px 10px #00000024;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+.contactForm-container .contactForm-content >div{
+  flex: 1;
+}
+.contactForm-container .contactForm-content .map{
+  height: 100%;
+  width: 100%;
+  min-height: 400px;
+}
+.leaflet-control-attribution{
+  display: none;
+}
+.contactForm-container .contactForm-content .rightSide{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+}
+.contactForm-container .contactForm-content .rightSide .header{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contactForm-container .contactForm-content .rightSide .header h2.h-after-effect:after{
+  bottom: -10px;
+}
+.contactForm-container .contactForm-content .rightSide form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contactForm-container .contactForm-content .rightSide form .twoInputs input{
+  flex: 1;
+}
+.contactForm-container .contactForm-content .rightSide form button{
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}

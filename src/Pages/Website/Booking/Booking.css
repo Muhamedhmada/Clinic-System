@@ -31,6 +31,11 @@
   justify-content: center;
   border-radius: 50%;
   color: var(--primary-color);
+  transition-duration: var(--transition-duration);
+}
+.booking-container .booking-content table tr td.hour:hover >p{
+  background-color: var(--primary-color);
+  color: var(--third-color);
 }
 .booking-container .booking-content table tr td{
   transition-duration: var(--transition-duration);
@@ -43,21 +48,57 @@
   background-color: var(--fourth-color);
   background-color: var(--border-color);
 }
+/* available cell */
 .booking-container .booking-content table tr td.available{
+  background-color: none !important;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition-duration: var(--transition-duration);
 }
 .booking-container .booking-content table tr td.available:hover{
-  background-color: var(--primary-color);
   color: var(--third-color);
 }
+.booking-container .booking-content table tr td.available::after{
+  background-color: var(--primary-color);
+  transform: scale(0);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition-duration: var(--transition-duration);
+}
+.booking-container .booking-content table tr td.available:hover::after{
+  transform: scale(1);
+}
+/* booke row */
 .booking-container .booking-content table tr td.booked{
   cursor: not-allowed;
+  position: relative;
+  z-index: 1;
+}
+.booking-container .booking-content table tr td.booked::after{
+  position: absolute;
+  content: "";
+  background-image: url('../../../Assets/Images/iconamoon--unavailable-fill.svg');
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%,-50%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+
 }
 
 /* modal */
 
 .booking-container .modal{
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   align-items: center;

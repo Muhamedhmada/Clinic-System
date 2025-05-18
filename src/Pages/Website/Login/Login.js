@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import LandPage from '../../../Component/LandPage/LandPage'
 import Navbar from '../../../Component/Navbar/Navbar'
+import Topbar from '../../../Component/Topbar/Topbar'
 import Footer from '../Footer/Footer'
 import './Login.css'
 function Login(){
   return(
     <>
+      <Topbar/>
       <Navbar/>
       <LandPage header='Login' link='Login' href='/login'/>
       <div className="login-container container">
@@ -26,7 +28,7 @@ function Login(){
                 <input type="email" placeholder='your email' />
               </div>
               <div className="twoInputs">
-                <input type="password" placeholder='password' />
+                <input type="password" autoComplete='' placeholder='password' />
                 {/* <input type="password" placeholder='confirm password' /> */}
               </div>
             </div>

@@ -71,7 +71,7 @@ function Navbar(){
                 <h2>logo</h2>
               </div>
               <div className="icon"  onClick={()=>setShowMobileMenu((prev)=>!prev)}>
-                <Exit width="40px" color="white"/>
+                <Exit width="40px"/>
               </div>
             </div>
             <div className="mobileMenu-links">

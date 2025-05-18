@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import LandPage from '../../../Component/LandPage/LandPage'
 import Navbar from '../../../Component/Navbar/Navbar'
+import Topbar from '../../../Component/Topbar/Topbar'
 import Footer from '../Footer/Footer'
 import './SignUp.css'
 function SignUp(){
   return(
     <>
+      <Topbar/>
       <Navbar/>
       <LandPage header='Sign up' link='Sign up' href='/sign-up'/>
       <div className="login-container container">

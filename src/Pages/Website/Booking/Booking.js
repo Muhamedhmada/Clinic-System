@@ -7,7 +7,10 @@ import './Booking.css'
 import Modal from '../../../CustomComponent/Modal/Modal.jsx'
 import { Check } from '../../../Assets/SVGS'
 function Booking(){
-  const [modal , setModal] = useState(false)
+  const [modal , setModal] = useState({
+    confirmation:false,
+    data:false,
+  })
   const [selectedDay , setSelectedDay] = useState()
   const [selectedHour , setSelectedHour] = useState()
   const weeklySchedule = [
@@ -86,9 +89,13 @@ function Booking(){
 
   console.log(weeklySchedule[0].slots)
   const AppointmentConfirm = (day , hour)=>{
-    setModal(true)
+    setModal((prev)=>({...prev,confirmation:true}))
     setSelectedDay(day)
     setSelectedHour(hour)
+  }
+
+  const handleNextStep = ()=>{
+    setModal((prev)=>({...prev,confirmation:false , data:true}))
   }
   return (
     <>
@@ -137,11 +144,13 @@ function Booking(){
             })}
           </table>
 
+            {/* confirmation modal */}
           <Modal
-            isOpen={modal}
-            onClose={() => setModal(false)}
-            handleCancel={() => setModal(false)}
-            AcceptBtn='confrirm & pay'
+            isOpen={modal.confirmation}
+            onClose={() =>setModal((prev)=>({...prev,confirmation:false}))}
+            handleCancel={() =>setModal((prev)=>({...prev,confirmation:false}))}
+            AcceptBtn=' next step'
+            handleAdd={()=>handleNextStep()}
             CancelBtn='cancel'
             showModalsBtns='true'
           >
@@ -164,6 +173,28 @@ function Booking(){
                 </p>
                 </div>
                 
+            </div>
+          </Modal>
+
+          {/* user data collection modal */}
+          <Modal
+            isOpen={modal.data}
+            onClose={() =>setModal((prev)=>({...prev,data:false}))}
+            handleCancel={() =>setModal((prev)=>({...prev,data:false}))}
+            AcceptBtn='confrirm & pay'
+            CancelBtn='cancel'
+            showModalsBtns='true'
+          >
+            {/* <div className='icon'>
+              <Check width='70px' />
+            </div> */}
+            <h3>confirm your booking</h3>
+
+            <div className='userData'>
+              <div className="twoInputs">
+                <input type="text" placeholder='enter your name' />
+                <input type="number" placeholder='enter your number' />
+              </div>
             </div>
           </Modal>
         </div>

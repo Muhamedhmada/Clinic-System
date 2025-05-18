@@ -24,7 +24,6 @@ function SponserSection(){
           pagination={{clickable: true}}
           scrollbar={{draggable: true}}
           onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
           breakpoints={{
             1200: {
               slidesPerView: 4,

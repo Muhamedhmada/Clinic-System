@@ -64,21 +64,42 @@ button ,a {
 }
 input{
   height: 50px;
-  border-radius: 3px;
   font-size: 14px;
-  border: 1px solid var(--fourth-color);
+}
+textarea , input{
+  border: 1px solid var(--border-color);
+  transition-duration: var(--transition-duration);
+  border-radius: 3px;
   padding: 20px;
 }
+textarea{
+  resize: none;
+  height: 200px;
+  /* width: 100%; */
+}
+input:focus , textarea:focus{
+  border-color: var(--primary-color);
+}
+.Toastify__toast-container{
+  z-index: 9999999999999999999999;
+}
+/* two inputs */
+.twoInputs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
 input::placeholder,
+textarea,
 td , th{
   text-transform: capitalize;
 }
-button , input{
+button , input ,textarea{
   font-size: 16px;
   outline: 0;
-  border: 0;
 }
-button{
+.container button{
   padding: 10px 20px;
   border-radius: var(--btn-border-radius);
   font-weight: 600;
@@ -86,8 +107,9 @@ button{
   transition-duration: var(--transition-duration);
   z-index: 1;
   overflow: hidden;
+  border: none;
 }
-button:after{
+.container button:after{
   position: absolute;
   content: "";
   width: 100%;

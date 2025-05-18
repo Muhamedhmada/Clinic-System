@@ -10,7 +10,7 @@
 .modal{
   background-color: var(--third-color) ;
 
-  min-width: 400px;
+  min-width: 450px;
   border-radius: 6px;
   padding: 30px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -40,6 +40,7 @@
 .modal input{
   min-height: 50px;
   width: 100%;
+  border: 1px solid #eee;
   /* background-color: var(--background-color); */
 }
 .modal input , .modal textarea{
@@ -63,7 +64,7 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 20px 0 0;
+  /* padding: 20px 0 0; */
   width: 100%;
 }
 .modal .btns button{

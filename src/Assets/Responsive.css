@@ -79,9 +79,22 @@
     padding: 10px ;
   }
 
-.three-container .three-content .information{
-  flex-direction: column;
-}
+  .three-container .three-content .information{
+    flex-direction: column;
+  }
+
+  /* contact us page */
+  .contactForm-container .contactForm-content{
+    flex-direction: column !important;
+  }
+  .contactForm-container .contactForm-content .map{
+    width: 100%;
+  }
+  /* contact us  */
+  .contactCard-container .contactCard-content .card{
+    justify-content: start;
+  }
+
 
 }
 /* ============= 📱 Small devices (landscape phones) ============= */
@@ -119,6 +132,14 @@
   .homeLandPage-container{
     min-height: 75vh;
   }
+  /* error page */
+  .error-container .error-content h2.error{
+    font-size: 17px;
+  }
+  /* copy right */
+  .copyRight p{
+    font-size: 14px;
+  }
 }
 
 /* ============= 📱 Extra Small devices (phones) ============= */
@@ -139,14 +160,11 @@
   flex-direction: column;
 
 }
-
+.modal{
+  min-width: 95%;
+}
+.modal .btns{
+  flex-direction: column;
 }
 
-@media (max-width:376px) {
-  .modal{
-    min-width: 100%;
-  }
-  .modal .btns{
-    flex-direction: column;
-  }
 }

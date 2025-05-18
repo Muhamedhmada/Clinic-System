@@ -1,0 +1,39 @@
+.contactCard-container{
+  margin-bottom: 50px;
+}
+.contactCard-container .contactCard-content{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+.contactCard-container .contactCard-content .card{
+  background-color: var(--primary-color);
+  width: calc(90%  / 3);
+  min-width: 300px;
+  min-height: 150px;
+  flex: 1;
+  padding: 20px ;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  transition-duration: var(--transition-duration);
+  position: relative;
+  bottom: 0;
+  cursor: pointer;
+}
+.contactCard-container .contactCard-content .card:hover{
+  box-shadow: 4px 0px 5px #00000036;
+  bottom: 10px;
+}
+.contactCard-container .contactCard-content .card .icon{
+  color: var(--third-color);
+}
+.contactCard-container .contactCard-content .card .info{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--third-color);
+}

@@ -2,6 +2,7 @@
   background-color: var(--third-color); 
   overflow: hidden;
   padding: 0 !important;
+  border-bottom: 1px solid var(--border-color);
 }
 .navbar-container .navbar-content{
   height: 8vh;
@@ -58,11 +59,8 @@
 .navbar-container .navbar-content .links a:hover::after{
   transform: scale(1);
 }
-
 .navbar-container .navbar-content .btns{
   display: flex;
-  /* gap: 10px; */
-  /* gap: -10px; */
   position: relative;
   border-radius: 20px;
   overflow: hidden;
@@ -79,26 +77,7 @@
 .navbar-container .navbar-content .btns button:nth-child(2){
   border-radius: 0 var(--btn-border-radius) var(--btn-border-radius) 0;
 }
-/* .navbar-container .navbar-content .btns button::before{
-  background-color: red;
-  background-color: var(--primary-color);
-  /* opacity: .8; */
-  /* transform: skewX(-45deg); */
-  /* position: absolute; */
-  /* content: "";
-  left: 0;
-  top: 0;
-  width: 100% !important;
-  height: 100%;
-  z-index: -2;
-  border-radius: var(--btn-border-radius); */
-  /* z-index: 999999999999999999 !important; */
-/* } */
-.navbar-container .navbar-content .btns button:after{
-  /* transform: scaleX(0) skewX(-45deg); */
-}
 .navbar-container .navbar-content .btns button:hover:after{
-  /* transform: scaleX(1) skewX(-45deg); */
   transform: scale(1);
   background-color: var(--secondary-color);
 }
@@ -163,7 +142,7 @@
   border-radius: 4px;
   /* opacity: .8; */
 }
-.menu .icon{
+.navbar-container .navbar-content .menu .icon{
   color: var(--third-color);
   transition-duration: var(--transition-duration);
 }

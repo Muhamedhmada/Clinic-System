@@ -2,7 +2,7 @@
 import { Exit } from "../../Assets/SVGS";
 
   import './Modal.css'
-  const Modal = ({ isOpen, onClose, children , modalTitle , CancelBtn , AcceptBtn  ,showModalsBtns , handleAdd , handleCancel  , checked , setChecked}) => {
+  const Modal = ({ isOpen, onClose, children , modalTitle , CancelBtn , AcceptBtn  ,showModalsBtns , handleAdd , handleCancel}) => {
     if (!isOpen) return null; // Hide the modal when it's closed
     return (
       <div className='modal-container'>
@@ -13,9 +13,9 @@ import { Exit } from "../../Assets/SVGS";
           transition={{duration: 0.1, ease: "easeOut"}}
           className='modal'
         >
-          <button className='btnCloseModal' onClick={onClose}>
+          {/* <button className='btnCloseModal' onClick={onClose}>
             <Exit width='20' />
-          </button>
+          </button> */}
 
           {children}
 
