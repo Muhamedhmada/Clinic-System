@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Modal from '../../CustomComponent/Modal/Modal';
 import './LastVisits.css'
-import img from '../../Assets/Images/doctor.jpeg'
+import img from '../../Assets/Images/rosheta1.jpg'
+import img2 from '../../Assets/Images/rosheta2.jpg'
 import { Exit } from '../../Assets/SVGS';
 function LastVisits(){
   const patientRecords = [
@@ -13,7 +14,7 @@ function LastVisits(){
       treatment: "Rest, warm fluids, and Paracetamol",
       attachments: [
         img,
-        img,
+        img2,
         img
       ]
     },
@@ -32,7 +33,7 @@ function LastVisits(){
       diagnosis: "Back Pain",
       treatment: "Physical therapy sessions for 2 weeks",
       attachments: [
-        img
+        img2
       ]
     }
   ];
