@@ -99,7 +99,7 @@
 }
 /* ============= 📱 Small devices (landscape phones) ============= */
 /* من 576px لـ 767px */
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
   /* styles هنا */
   /* p */
   p{
@@ -140,6 +140,17 @@
   .copyRight p{
     font-size: 14px;
   }
+  /* table */
+  table tr td , th{
+    padding: 20px;
+  }
+  table tr td , th{
+    font-size: small;
+  }
+  table tr td.hour >p{
+    font-size: small;
+  }
+
 }
 
 /* ============= 📱 Extra Small devices (phones) ============= */
@@ -156,15 +167,18 @@
   .homeLandPage-container .homeLandPage-content p{
     font-size: 13px;
   }
-.homeLandPage-container .homeLandPage-content .btns{
-  flex-direction: column;
-
-}
-.modal{
-  min-width: 95%;
-}
-.modal .btns{
-  flex-direction: column;
-}
+  .homeLandPage-container .homeLandPage-content .btns{
+    flex-direction: column;
+  }
+  .modal{
+    min-width: 95%;
+  }
+  .modal .btns{
+    flex-direction: column;
+  }
+  /* table */
+  table tr td , th{
+    padding: 10px;
+  }
 
 }

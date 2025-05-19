@@ -9,6 +9,7 @@ import Booking from './Pages/Website/Booking/Booking';
 import ErrorPage from './Pages/Website/Error/Error';
 import ToTop from './Component/ToTop/ToTop';
 import { useEffect } from 'react';
+import MedicalHistory from './Pages/Website/MedicalHistory/MedicalHistory';
 function App() {
   const location = useLocation()
   useEffect(()=>{
@@ -25,6 +26,7 @@ function App() {
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/book-appointment' element={<Booking />} />
           <Route path='*' element={<ErrorPage />} />
+          <Route path='/medical_history' element={<MedicalHistory />} />
         </Routes>
       </header>
     </div>

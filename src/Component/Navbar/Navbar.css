@@ -12,6 +12,16 @@
   align-items: center;
   justify-content: space-between;
 }
+.navbar-container .navbar-content .logo{
+  width: 80px;
+  /* height: 150px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-container .navbar-content .logo img{
+  width: 100%;
+}
 .navbar-container .navbar-content .links {
   height: 100%;
   gap: 30px;

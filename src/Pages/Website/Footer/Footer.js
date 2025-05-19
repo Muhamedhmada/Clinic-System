@@ -6,7 +6,7 @@ function Footer(){
     <>
       <div className='footer-container container'>
         <div className='footer-content content'>
-          <h2>Pharmacy Name</h2>
+          <h2>Clinic Name</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam iusto
             ipsa odit laudantium adipisci, quis vero in ut, a, voluptas beatae

@@ -9,7 +9,7 @@
 }
 .modal{
   background-color: var(--third-color) ;
-
+  max-height: 90%;
   min-width: 450px;
   border-radius: 6px;
   padding: 30px 20px;

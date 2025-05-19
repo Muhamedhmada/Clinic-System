@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Bars, Exit } from '../../Assets/SVGS'
 import './Navbar.css'
+import logo from '../../Assets/Images/clinicLogo.png' 
+// import logo from '../../Assets/Images/clinicLogo.jpg' 
 function Navbar(){
   const nav = useNavigate()
   const navBarRef = useRef()
@@ -28,13 +30,14 @@ function Navbar(){
       {isFixed && <div className="navbar-container container animated">
           <div className="navbar-content content">
             <div className="logo">
-              <h2>logo</h2>
+              <img src={logo} alt="logo" />
             </div>
             <div className="links">
               <a href="/">Home</a>
-              <a href="/">doctors</a>
+              {/* <a href="/">doctors</a> */}
               <a href="/">services</a>
-              <a href="/">pages</a>
+              {/* <a href="/">pages</a> */}
+              <a href="/medical_history">medical history</a>
               <a href="/contact-us">contact us</a>
             </div>
             <div className="btns">
@@ -49,13 +52,14 @@ function Navbar(){
       <div className="navbar-container container" ref={navBarRef}>
         <div className="navbar-content content">
           <div className="logo">
-            <h2>logo</h2>
+            <img src={logo} alt="logo" />
           </div>
           <div className="links">
             <a href="/">Home</a>
-            <a href="/">doctors</a>
+            {/* <a href="/">doctors</a> */}
             <a href="/">services</a>
-            <a href="/">pages</a>
+            {/* <a href="/">pages</a> */}
+            <a href="/medical_history">medical history</a>
             <a href="/contact-us">contact us</a>
           </div>
           <div className="btns">
@@ -76,9 +80,10 @@ function Navbar(){
             </div>
             <div className="mobileMenu-links">
               <a href="/">Home  <ArrowRight width="30px" /></a>
-              <a href="/">doctors <ArrowRight width="30px" /></a>
+              {/* <a href="/">doctors <ArrowRight width="30px" /></a> */}
               <a href="/">services <ArrowRight width="30px" /></a>
-              <a href="/">pages <ArrowRight width="30px"/></a>
+              {/* <a href="/">pages <ArrowRight width="30px"/></a> */}
+              <a href="/medical_history">medical history <ArrowRight width="30px"/></a>
               <a href="/contact-us">contact us <ArrowRight width="30px" /></a>
             </div>
              <div className='menu-btns'>

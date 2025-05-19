@@ -22,9 +22,8 @@ function Home(){
         <Three/>
         <Five/>
         <Six/> 
-        
-        <PlansSection/>
         <SponserSection/>
+        <PlansSection/>
         <Footer/>
       </div>
     </>
