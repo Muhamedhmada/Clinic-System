@@ -7,7 +7,7 @@
   right: -50px;
   top: 130px;
   background-color: var(--primary-color);
-  z-index: 99999999999999999999999999999999999999;
+  z-index: 999999999 !important;
   display: flex;
   align-items: center;
   gap: 10px;

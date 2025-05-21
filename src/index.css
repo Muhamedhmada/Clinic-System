@@ -83,7 +83,7 @@ input:focus , textarea:focus{
   border-color: var(--primary-color);
 }
 .Toastify__toast-container{
-  z-index: 9999999999999999999999;
+  z-index: 9999999999 !important;
 }
 /* two inputs */
 .twoInputs{
