@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowRight, Bars, Exit } from '../../Assets/SVGS'
+import { ArrowRight, Bars, Call, Exit, Moon } from '../../Assets/SVGS'
 import './Navbar.css'
 import logo from '../../Assets/Images/clinicLogo.png' 
 // import logo from '../../Assets/Images/clinicLogo.jpg' 
@@ -35,13 +35,13 @@ function Navbar(){
             <div className="links">
               <a href="/">Home</a>
               {/* <a href="/">doctors</a> */}
-              <a href="/">services</a>
+              <a href="/book-appointment">book appointment</a>
               {/* <a href="/">pages</a> */}
               <a href="/medical_history">medical history</a>
               <a href="/contact-us">contact us</a>
             </div>
             <div className="btns">
-              <button onClick={()=>nav('/book-appointment')}>book appointment</button>
+              <button onClick={()=>nav('/booking')}>book appointment</button>
               <button onClick={()=>nav("/login")}>login</button>
             </div>
             <div className="icon" onClick={()=>{setShowMobileMenu((prev)=>!prev);console.log("ge")}}>
@@ -57,13 +57,13 @@ function Navbar(){
           <div className="links">
             <a href="/">Home</a>
             {/* <a href="/">doctors</a> */}
-            <a href="/">services</a>
+            <a href="/book-appointment">book appointment</a>
             {/* <a href="/">pages</a> */}
             <a href="/medical_history">medical history</a>
             <a href="/contact-us">contact us</a>
           </div>
           <div className="btns">
-            <button onClick={()=>nav('/book-appointment')}>book appointment</button>
+            <button onClick={()=>nav('/booking')}>book appointment</button>
             <button onClick={()=>nav("/login")}>login</button>
           </div>
           <div className="icon" onClick={()=>{setShowMobileMenu((prev)=>!prev);console.log("ge")}}>
@@ -81,13 +81,13 @@ function Navbar(){
             <div className="mobileMenu-links">
               <a href="/">Home  <ArrowRight width="30px" /></a>
               {/* <a href="/">doctors <ArrowRight width="30px" /></a> */}
-              <a href="/">services <ArrowRight width="30px" /></a>
+              <a href="/book-appointment">book appointment <ArrowRight width="30px" /></a>
               {/* <a href="/">pages <ArrowRight width="30px"/></a> */}
               <a href="/medical_history">medical history <ArrowRight width="30px"/></a>
               <a href="/contact-us">contact us <ArrowRight width="30px" /></a>
             </div>
              <div className='menu-btns'>
-                <button onClick={()=>nav('/book-appointment')}>book appointment</button>
+                <button onClick={()=>nav('/booking')}>book appointment</button>
                 <button onClick={()=>nav('/login')}>login</button>
               </div>
           </div>

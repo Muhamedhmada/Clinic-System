@@ -1,7 +1,7 @@
 .topbar-container{
   background-color: var(--third-color);
   border-bottom: 1px solid var(--border-color);
-  padding: 0;
+  padding: 0 !important;
 }
 .topbar-container .topbar-content{
   padding: 15px 0;

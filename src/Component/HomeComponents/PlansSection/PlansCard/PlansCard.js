@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom"
 import { Check } from "../../../../Assets/SVGS"
 
-function PlansCard({icon , header , price , list}){
+function PlansCard({icon , header , price , list , link}){
+  const nav  = useNavigate()
   return(
     <div className="card">
       <div className="cardHeader">
@@ -24,7 +26,7 @@ function PlansCard({icon , header , price , list}){
           })
         }
       </ul>
-      <button>book now</button>
+      <button onClick={()=>nav(`/${link}`)}>book now</button>
     </div>
   )
 }

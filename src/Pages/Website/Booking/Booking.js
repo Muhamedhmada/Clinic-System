@@ -1,11 +1,11 @@
 import { useState } from 'react'
+import './Booking.css'
 import LandPage from '../../../Component/LandPage/LandPage'
 import Navbar from '../../../Component/Navbar/Navbar'
 import Topbar from '../../../Component/Topbar/Topbar'
 import Footer from '../Footer/Footer'
-import './Booking.css'
 import Modal from '../../../CustomComponent/Modal/Modal.jsx'
-import { Check } from '../../../Assets/SVGS'
+import { Check, NotAvailable } from '../../../Assets/SVGS'
 function Booking(){
   const [modal , setModal] = useState({
     confirmation:false,
@@ -102,104 +102,112 @@ function Booking(){
       <Topbar />
       <Navbar />
       <LandPage
-        header='book appointment'
-        link='book appointment'
-        href='/book-appointment'
+        header='booking'
+        link='booking'
+        href='/booking'
       />
       <div className='booking-container container'>
-        <div className='booking-content content'>
-          <table>
-            <tr>
-              <th>time</th>
-              {weeklySchedule.map((item, index) => {
+          <div className='booking-content content'>
+            <table>
+              <tr>
+                <th>time</th>
+                {weeklySchedule.map((item, index) => {
+                  return (
+                    <>
+                      <th>{item.date}</th>
+                    </>
+                  );
+                })}
+              </tr>
+              {Array.from({length: 8}, (_, i) => i + 14).map((hour, index) => {
                 return (
-                  <>
-                    <th>{item.date}</th>
-                  </>
+                  <tr>
+                    <td className='hour'>
+                      <p>{hour > 12 ? hour - 12 + ":00 Pm" : hour + ":00 Am"}</p>
+                    </td>
+                    {weeklySchedule.map((day) => {
+                      const slot = day.slots.find((s) => s.hour === hour);
+                      return (
+                        <td
+                          onClick={() => {
+                            !slot.booked && AppointmentConfirm(day, hour);
+                          }}
+                          key={day.date + hour}
+                          className={slot.booked ? "booked" : "available"}
+                        >
+                          {slot.booked ? "Booked" : "Available"}
+                          {
+                            slot.booked&&(
+                              <div className="icon">
+                                <NotAvailable/>
+                              </div>
+                            )
+                          }
+                        </td>
+                      );
+                    })}
+                  </tr>
                 );
               })}
-            </tr>
-            {Array.from({length: 8}, (_, i) => i + 14).map((hour, index) => {
-              return (
-                <tr>
-                  <td className='hour'>
-                    <p>{hour > 12 ? hour - 12 + ":00 Pm" : hour + ":00 Am"}</p>
-                  </td>
-                  {weeklySchedule.map((day) => {
-                    const slot = day.slots.find((s) => s.hour === hour);
-                    return (
-                      <td
-                        onClick={() => {
-                          !slot.booked && AppointmentConfirm(day, hour);
-                        }}
-                        key={day.date + hour}
-                        className={slot.booked ? "booked" : "available"}
-                      >
-                        {slot.booked ? "Booked" : "Available"}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </table>
+            </table>
 
-            {/* confirmation modal */}
-          <Modal
-            isOpen={modal.confirmation}
-            onClose={() =>setModal((prev)=>({...prev,confirmation:false}))}
-            handleCancel={() =>setModal((prev)=>({...prev,confirmation:false}))}
-            AcceptBtn=' next step'
-            handleAdd={()=>handleNextStep()}
-            CancelBtn='cancel'
-            showModalsBtns='true'
-          >
-            <div className='icon'>
-              <Check width='70px' />
-            </div>
-            <h3>confirm your booking</h3>
-
-            <div className='bookingInfo'>
-              <p style={{textAlign:"center"}}>are you sure you want to book this time</p>
-              <div>
-                <p>
-                  <span>Date</span>: {selectedDay?.date}
-                </p>
-                <p>
-                  <span>Time</span>:{" "}
-                  {selectedHour > 12
-                    ? selectedHour - 12 + ":00 Pm"
-                    : selectedHour + ":00 Am"}
-                </p>
-                </div>
-                
-            </div>
-          </Modal>
-
-          {/* user data collection modal */}
-          <Modal
-            isOpen={modal.data}
-            onClose={() =>setModal((prev)=>({...prev,data:false}))}
-            handleCancel={() =>setModal((prev)=>({...prev,data:false}))}
-            AcceptBtn='confrirm & pay'
-            CancelBtn='cancel'
-            showModalsBtns='true'
-          >
-            {/* <div className='icon'>
-              <Check width='70px' />
-            </div> */}
-            <h3>confirm your booking</h3>
-
-            <div className='userData'>
-              <div className="twoInputs">
-                <input type="text" placeholder='enter your name' />
-                <input type="number" placeholder='enter your number' />
+              {/* confirmation modal */}
+            <Modal
+              isOpen={modal.confirmation}
+              onClose={() =>setModal((prev)=>({...prev,confirmation:false}))}
+              handleCancel={() =>setModal((prev)=>({...prev,confirmation:false}))}
+              AcceptBtn=' next step'
+              handleAdd={()=>handleNextStep()}
+              CancelBtn='cancel'
+              showModalsBtns='true'
+            >
+              <div className='icon'>
+                <Check width='70px' />
               </div>
-            </div>
-          </Modal>
-        </div>
+              <h3>confirm your booking</h3>
+
+              <div className='bookingInfo'>
+                <p style={{textAlign:"center"}}>are you sure you want to book this time</p>
+                <div>
+                  <p>
+                    <span>Date</span>: {selectedDay?.date}
+                  </p>
+                  <p>
+                    <span>Time</span>:{" "}
+                    {selectedHour > 12
+                      ? selectedHour - 12 + ":00 Pm"
+                      : selectedHour + ":00 Am"}
+                  </p>
+                  </div>
+                  
+              </div>
+            </Modal>
+
+            {/* user data collection modal */}
+            <Modal
+              isOpen={modal.data}
+              onClose={() =>setModal((prev)=>({...prev,data:false}))}
+              handleCancel={() =>setModal((prev)=>({...prev,data:false}))}
+              AcceptBtn='confrirm & pay'
+              CancelBtn='cancel'
+              showModalsBtns='true'
+            >
+              {/* <div className='icon'>
+                <Check width='70px' />
+              </div> */}
+              <h3>confirm your booking</h3>
+
+              <div className='userData'>
+                <div className="twoInputs">
+                  <input type="text" placeholder='enter your name' />
+                  <input type="number" placeholder='enter your number' />
+                </div>
+              </div>
+            </Modal>
+          </div>
       </div>
       <Footer />
+
     </>
   );
 }

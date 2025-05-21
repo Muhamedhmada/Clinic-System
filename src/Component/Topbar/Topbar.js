@@ -2,22 +2,22 @@ import { Call, Mail } from '../../Assets/SVGS'
 import './Topbar.css'
 function Topbar(){
   return(
-    <div className="topbar-container">
+    <div className="topbar-container container">
       <div className="topbar-content content">
         <div className="links">
           <a href="/">about</a>
           <a href="/">doctors</a>
-          <a href="/">contact</a>
+          <a href="/contact-us">contact</a>
           <a href="/">FAQ</a>
         </div>
         <div className="contact">
-          <a href="tel:+880123456789">
-            <Call width="20px" color="#1a76d1"/>
-            +880123456789
+          <a href="tel:+201000473458">
+            <Call width="20px"/>
+            +2 0100 047 3458
           </a>
-          <a href="mailto:email@domain.com">
-            <Mail width="20px" color="#1a76d1"/>
-            email@domain.com
+          <a href="mailto:hmada@gmail.com">
+            <Mail width="20px"/>
+            hmada@gamil.com
           </a>
         </div>
       </div>

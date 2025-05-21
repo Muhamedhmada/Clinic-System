@@ -4,7 +4,6 @@ function ContactCard(){
   return(
     <div className="contactCard-container container" >
       <div className="contactCard-content content">
-
         <div className="card">
           <div className="icon">
             <Call width="50px"/>

@@ -1,0 +1,28 @@
+.darkMode-container{
+  position: relative;
+}
+.darkMode-container .moon-sun-icon{
+  width: 100px;
+  position: fixed;
+  right: -50px;
+  top: 130px;
+  background-color: var(--primary-color);
+  z-index: 99999999999999999999999999999999999999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  transition: all ease-in var(--transition-duration);
+  cursor: pointer;
+  box-shadow: 4px 0px 5px #00000036;
+}
+.darkMode-container .moon-sun-icon:hover{
+  right: 0px;
+}
+.darkMode-container .moon-sun-icon .moon{
+  color: var(--secondary-color);
+}
+.darkMode-container .moon-sun-icon p{
+  color: var(--third-color);
+}

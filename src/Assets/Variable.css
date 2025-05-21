@@ -9,3 +9,10 @@
 
   --transition-duration: .4s;
 }
+body.dark {
+  --primary-color: #1e88e5;       /* أزرق فاتح مريح وواضح */
+  --secondary-color: #f1f1f1;     /* لون للنص أو العناوين */
+  --third-color: #1e1e1e;         /* الخلفيات */
+  --fourth-color: #aaaaaa;        /* رمادي للنصوص الثانوية */
+  --border-color: #333;           /* حدود غامقة */
+}

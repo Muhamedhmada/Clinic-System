@@ -14,22 +14,22 @@ function Footer(){
           </p>
           <div className="icons">
             <div className="icon">
-              <Facebook width="25px"/>
+              <Facebook width="20px"/>
             </div>
             <div className="icon">
-              <LinkedIn width="25px"/>
+              <LinkedIn width="20px"/>
             </div>
             <div className="icon">
-              <Instagram width="25px"/>
+              <Instagram width="20px"/>
             </div>
             <div className="icon">
-              <Twitter width="25px"/>
+              <Twitter width="20px"/>
             </div>
           </div>
           <ul>
-            <li>home</li>
-            <li>about</li>
-            <li>contact</li>
+            <li><a href="/">home</a></li>
+            <li><a href="/">about</a></li>
+            <li><a href="/contact-us">contact us</a></li>
           </ul>
         </div>
       </div>

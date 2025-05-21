@@ -48,6 +48,7 @@ p{
   line-height: 15px;
   font-size: large;
   line-height: 24px;
+  text-transform: capitalize;
 
   /* font-size: 14px; */
 }
@@ -71,6 +72,7 @@ textarea , input{
   transition-duration: var(--transition-duration);
   border-radius: 3px;
   padding: 20px;
+  color: #777777;
 }
 textarea{
   resize: none;
@@ -89,6 +91,9 @@ input:focus , textarea:focus{
   flex-wrap: wrap;
   gap: 10px;
   width: 100%;
+}
+.twoInputs input{
+  flex: 1;
 }
 input::placeholder,
 textarea,

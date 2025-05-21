@@ -7,7 +7,6 @@
 .login-container .login-content .leftLogin{
   width: 100%;
   min-height: 400px;
-  background-color: red;
   flex: 1;
   background: url('../../../Assets/Images/doctor.jpg');
   background-position: center;
@@ -35,22 +34,6 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: 20px;
-}
-.login-container .login-content .rightLogin .twoInputs{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 100%;
-
-}
-
-.login-container .login-content .rightLogin input{
-  border: 1px solid var(--border-color);
-  flex: 1;
-  transition-duration: var(--transition-duration);
-}
-.login-container .login-content .rightLogin input:focus{
-  border: 1px solid var(--primary-color);
 }
 .login-container .login-content button{
   background-color: var(--primary-color);

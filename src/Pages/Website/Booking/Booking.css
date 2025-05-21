@@ -64,22 +64,16 @@
   position: relative;
   z-index: 1;
 }
-.booking-container .booking-content table tr td.booked::after{
+.booking-container .booking-content table tr td.booked .icon{
   position: absolute;
-  content: "";
-  background-image: url('../../../Assets/Images/iconamoon--unavailable-fill.svg');
-  width: 80%;
-  height: 80%;
-  transform: translate(-50%,-50%);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  left: 50%;
-  top: 50%;
   z-index: -1;
-
+  color: var(--border-color);
+  width: 80%;
+  left: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
 }
-
 /* modal */
 
 .booking-container .modal{

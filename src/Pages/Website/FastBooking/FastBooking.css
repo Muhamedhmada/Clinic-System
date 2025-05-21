@@ -1,0 +1,21 @@
+.fastBooking-container .fastBooking-content{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 50px auto;
+}
+.fastBooking-container .fastBooking-content h2:after{
+  bottom: -10px;
+}
+.fastBooking-container .fastBooking-content form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.fastBooking-container .fastBooking-content form button{
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}
+.fastBooking-container .fastBooking-content p{
+  color: var(--secondary-color);
+}

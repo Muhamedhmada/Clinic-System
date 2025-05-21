@@ -71,9 +71,20 @@
 }
 .navbar-container .navbar-content .btns{
   display: flex;
+  /* align-items: center; */
   position: relative;
   border-radius: 20px;
   overflow: hidden;
+}
+.navbar-container .navbar-content .btns .moon-sun-icon{
+  background-color: var(--primary-color);
+  color:var(--third-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 10px;
+  cursor: pointer;
 }
 .navbar-container .navbar-content .btns button{
   background-color: var(--primary-color);
@@ -162,6 +173,9 @@
 .menu-btns{
   display: flex;
   gap: 10px;
+}
+.menu-btns button{
+  flex: 1;
 }
 .menu-btns button:hover{
   color: var(--third-color);

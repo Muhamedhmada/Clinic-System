@@ -5,7 +5,7 @@ function ThreeCards(){
     <div className="threeCards-container container">
       <div className="threeCards-content">
         <div className="card">
-          <h3>opening Hours</h3>
+          <h3>emergency cases</h3>
           <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
           <button>learn more</button>
           <div className="icon">

@@ -1,0 +1,114 @@
+/* .dark .topbar-container{
+  background-color: var(--secondary-color);
+}
+.dark .navbar-container {
+  background-color: #1e1e1e; /* لون غامق مريح للعين */
+  /* border-bottom: 1px solid #333; حدود خفيفة */
+/* } */
+
+.dark .container{
+  background-color: black;
+  /* position: relative;
+  z-index: 1; */
+}
+/* .dark .container:after{
+  position: absolute;
+  content: "";
+  background-image: url('../Assets/Images/stars-removebg-preview.png');
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.dark .sponserSection-container:after{
+  background-image: none;
+} */
+.dark .header p,
+.dark .card p{
+  color: var(--fourth-color);
+}
+.dark .contact-container .card,
+.dark .threeCards-container .card,
+.dark input , .dark textarea{
+  background-color: var(--border-color) !important;
+}
+.dark .card:after{
+  background-color: var(--fourth-color) !important;
+}
+.dark .one-container .one-content .card:after{
+  background-color: transparent !important;
+}
+.dark .card p,
+.dark .card a,
+.dark .card .icon,
+.dark .card h3,
+.dark table{
+  color: var(--secondary-color) !important;
+}
+.dark table .booked{
+  color: black;
+}
+.dark .menu,
+/* land page */
+.dark .landPage-container:after
+{
+  background-color: black;
+}
+.dark .menu .menu-header .icon{
+  color: white !important;
+}
+.dark .menu .mobileMenu-links a,
+.dark .homeLandPage-container{
+  background-color: var(--border-color);
+}
+.dark .landPage-container .landPage-content h2,
+.dark .landPage-container .landPage-content .links a,
+.dark .two-container .two-content .card,
+.dark .two-container .cards .card h2 span , .dark .two-container .cards .card p{
+  color: var(--secondary-color);
+}
+.dark .booking-container .booking-content table tr td.booked .icon{
+  color: var(--border-color);
+}
+
+/* three cards */
+.dark .threeCards-content .card{
+  box-shadow: 4px 0px 5px #00000036;
+}
+.dark .threeCards-container .threeCards-content .card{
+  background-color: var(--border-color);
+  color: var(--secondary-color);
+}
+/* two page in home page */
+.dark .two-container:after,
+.dark .sponserSection-container::after{
+  background-color: black;
+}
+/* plans card page */
+.dark .plansSection-container .plansSection-content .card h3{
+  color: var(--secondary-color);
+}
+.dark .plansSection-container .plansSection-content .card ul li p,
+.dark .plansSection-container .plansSection-content .card ul li .icon,
+.dark .fastBooking-container .fastBooking-content p ,
+/* footer */
+.dark .footer-container p , 
+.dark .footer-content .icons .icon,
+.dark .footer-content ul li a{
+  color: var(--fourth-color) !important;
+}
+
+/* six page in home page */
+.dark .six-content .icon{
+  color: var(--primary-color) !important;
+}
+
+/* modal */
+.dark .modal h3{
+  color: var(--secondary-color) !important;
+}
+/* input */
