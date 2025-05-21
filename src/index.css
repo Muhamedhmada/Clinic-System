@@ -94,6 +94,7 @@ input:focus , textarea:focus{
 }
 .twoInputs input{
   flex: 1;
+  width: 100%;
 }
 input::placeholder,
 textarea,

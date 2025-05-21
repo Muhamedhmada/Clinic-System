@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Booking.css'
 import LandPage from '../../../Component/LandPage/LandPage'
 import Navbar from '../../../Component/Navbar/Navbar'
@@ -7,9 +7,11 @@ import Footer from '../Footer/Footer'
 import Modal from '../../../CustomComponent/Modal/Modal.jsx'
 import { Check, NotAvailable } from '../../../Assets/SVGS'
 function Booking(){
+  const [minutes , setMinutes] = useState(5)
   const [modal , setModal] = useState({
     confirmation:false,
     data:false,
+    success:false
   })
   const [selectedDay , setSelectedDay] = useState()
   const [selectedHour , setSelectedHour] = useState()
@@ -97,6 +99,38 @@ function Booking(){
   const handleNextStep = ()=>{
     setModal((prev)=>({...prev,confirmation:false , data:true}))
   }
+
+  const handleConfirm =()=>{
+    console.log("ge")
+    setModal((prev)=>({...prev,data:false,success:true}))
+    setTimeout(() => {
+            setModal((prev) => ({ ...prev, success: false }));
+    }, 5000);
+    
+  }
+  // useEffect(() => {
+  //   if (!modal.data && modal.success) {
+  //     const timeout = setTimeout(() => {
+  //       setModal((prev) => ({ ...prev, success: false }));
+  //     }, 5000);
+  
+  //     const interval = setInterval(() => {
+  //       setMinutes((prev) => {
+  //         const updated = prev - 1;
+  //         if (prev <= 1) {
+  //           clearInterval(interval);
+  //           return 5;
+  //         }
+  //         return updated;
+  //       });
+  //     }, 1000);
+  
+  //     return () => {
+  //       clearTimeout(timeout);
+  //       clearInterval(interval);
+  //     };
+  //   }
+  // }, [modal.data]);
   return (
     <>
       <Topbar />
@@ -188,7 +222,8 @@ function Booking(){
               isOpen={modal.data}
               onClose={() =>setModal((prev)=>({...prev,data:false}))}
               handleCancel={() =>setModal((prev)=>({...prev,data:false}))}
-              AcceptBtn='confrirm & pay'
+              AcceptBtn='confrirm'
+              handleAdd={handleConfirm}
               CancelBtn='cancel'
               showModalsBtns='true'
             >
@@ -198,11 +233,28 @@ function Booking(){
               <h3>confirm your booking</h3>
 
               <div className='userData'>
-                <div className="twoInputs">
+                {/* <div className="twoInputs"> */}
                   <input type="text" placeholder='enter your name' />
                   <input type="number" placeholder='enter your number' />
-                </div>
+                {/* </div> */}
               </div>
+            </Modal>
+            {/* success modal */}
+
+            <Modal
+              className="successModal"
+              isOpen={modal.success}
+            >
+              <div className="successModal">
+                <div className='icon'>
+                  <Check width='70px' />
+                </div>
+                <h2>success</h2>
+                <p>appointment confirmed successfull<br></br>we are waiting for you</p>
+              </div>
+              <p className='disappearMsg'>this window will disappear in five secondes...</p>
+              {/* <p className='disappearMsg'>this window will disappear in {minutes} secondes...</p> */}
+
             </Modal>
           </div>
       </div>

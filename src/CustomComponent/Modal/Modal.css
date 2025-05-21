@@ -14,7 +14,7 @@
   border-radius: 6px;
   padding: 30px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
+  /* overflow-y: auto; */
   position: relative;
 }
 /* Close button */
@@ -40,7 +40,7 @@
 .modal input{
   min-height: 50px;
   width: 100%;
-  border: 1px solid #eee;
+  /* border: 1px solid #eee; */
   /* background-color: var(--background-color); */
 }
 .modal input , .modal textarea{

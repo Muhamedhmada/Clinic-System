@@ -105,6 +105,13 @@
   p{
     font-size: 16px;
   }
+  /* buttons */
+  .container button,
+  .modal .btns button{
+    font-size: 14px !important;
+    font-weight: 600;
+    padding: 7px 15px;
+  }
   /* topbar */
   .topbar-container .topbar-content{
     justify-content: center ;
