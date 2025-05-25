@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import MedicalHistory from './Pages/Website/MedicalHistory/MedicalHistory';
 import FastBooking from './Pages/Website/FastBooking/FastBooking';
 import DarkMode from './Component/DarkMode/DarkMode';
+import Feedback from './Pages/Website/Feedback/Feedback';
 function App() {
   const location = useLocation()
   useEffect(()=>{
@@ -36,6 +37,7 @@ function App() {
           <Route path='*' element={<ErrorPage />} />
           <Route path='/medical_history' element={<MedicalHistory />} />
           <Route path='/services' element={<Services />} />
+          <Route path='/feedback' element={<Feedback />} />
         </Routes>
       </header>
     </div>

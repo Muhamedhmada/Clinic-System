@@ -42,3 +42,12 @@
 .login-container .login-content button:after{
   background-color: var(--secondary-color);
 }
+.login-container .login-content .btns{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.login-container .login-content .btns p{
+  color: var(--secondary-color);
+  text-align: center;
+}

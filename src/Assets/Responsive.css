@@ -12,6 +12,24 @@
   .content{
     width: 95%;
   }
+  /* feedbacks */
+  .feedback-container .feedback-content .feedbacks .feedback{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap:20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .feedback-container .feedback-content .feedbacks .feedback .user ,
+  .feedback-container .feedback-content .feedbacks .feedback:nth-child(2n) .user{
+    position: relative ;
+    left: auto ;
+    right: auto ;
+    transform: translate(0);
+  }
+  .feedback-container .feedback-content .feedbacks .feedback:nth-child(2n) .user{
+    color: var(--third-color);
+  }
 }
 
 /* ============= 💻 Medium devices (tablets) ============= */

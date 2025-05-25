@@ -110,6 +110,9 @@ function Navbar(){
               <a href='/contact-us'>
                 contact us <ArrowRight width='30px' />
               </a>
+              <a href='/feedback'>
+                feedback <ArrowRight width='30px' />
+              </a>
             </div>
             <div className='menu-btns'>
               <button onClick={() => nav("/booking")}>book appointment</button>

@@ -3,10 +3,22 @@ import LandPage from '../../../Component/LandPage/LandPage'
 import Navbar from '../../../Component/Navbar/Navbar'
 import Topbar from '../../../Component/Topbar/Topbar'
 import Footer from '../Footer/Footer'
+import {jwtDecode} from 'jwt-decode';
+import {GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google'
 import './SignUp.css'
+import { toast, ToastContainer } from 'react-toastify'
 function SignUp(){
+  const handleSuccess = (credentialResponse)=>{
+    const decoded = jwtDecode(credentialResponse.credential);
+    console.log(decoded); // فيه name, email, picture
+    toast.success("successful login")
+  }
+  const handleError = ()=>{
+    toast.error("failed login")
+  }
   return(
-    <>
+    <GoogleOAuthProvider clientId='917496785589-3bgc091uf923j4da5vattnoocqir337j.apps.googleusercontent.com'>
+      <ToastContainer/>
       <Topbar/>
       <Navbar/>
       <LandPage header='Sign up' link='Sign up' href='/sign-up'/>
@@ -36,12 +48,20 @@ function SignUp(){
                 <input type="password" placeholder='confirm password' />
               </div>
             </div>
-            <button>sign up</button>
+            <div className="btns">
+              <button>sign up</button>
+              <p>OR</p>
+              <GoogleLogin
+              onSuccess={handleSuccess}
+              onError={handleError}
+              >
+              </GoogleLogin>
+            </div>
           </div>
         </div>
       </div>
       <Footer/>
-    </>
+    </GoogleOAuthProvider>
   )
 }
 export default SignUp

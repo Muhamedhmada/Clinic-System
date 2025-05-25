@@ -7,6 +7,7 @@ function Topbar(){
         <div className="links">
           <a href="/">about</a>
           <a href="/">doctors</a>
+          <a href="/feedback">feedback</a>
           <a href="/contact-us">contact</a>
           <a href="/">FAQ</a>
         </div>
