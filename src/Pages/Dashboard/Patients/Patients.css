@@ -1,0 +1,29 @@
+.patients-container .patients-content{
+  /* overflow: scroll; */
+}
+.patients-container .patients-content table{
+  width: 100%;
+}
+.patients-container .patients-content table tbody tr{
+  transition-duration: var(--transition-duration);
+  font-size: 14px;
+}
+.patients-container .patients-content table tbody tr:hover{
+  background-color: var(--border-color);
+}
+.patients-container .patients-content table td button{
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+}
+.patients-container .patients-content .modal{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+.patients-container .patients-content .modal .inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

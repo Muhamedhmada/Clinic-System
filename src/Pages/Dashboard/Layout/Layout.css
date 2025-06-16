@@ -1,0 +1,11 @@
+.layout-container{
+  background-color: var(--third-color);
+  display: flex;
+  min-height: 100vh;
+  min-width: fit-content;
+}
+.layout-container >div:nth-child(2){
+  flex: 1;
+  position: sticky;
+  margin: 0 50px;
+}

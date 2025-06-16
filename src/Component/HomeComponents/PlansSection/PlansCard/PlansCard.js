@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { Check } from "../../../../Assets/SVGS"
+import Icon from "../../../Icon/Icon"
 
 function PlansCard({icon , header , price , list , link}){
   const nav  = useNavigate()
   return(
     <div className="card">
       <div className="cardHeader">
-        <div className="icon">
-          {icon}
-        </div>
+        <Icon icon={icon}/>
         <h3>{header}</h3>
         <p><span>${price}</span> / Per Visit</p>
       </div>
@@ -18,9 +17,7 @@ function PlansCard({icon , header , price , list , link}){
             return(
               <li>
                 <p>{item}</p>
-                <div className="icon">
-                  <Check width="24px"/>
-                </div>
+                <Icon icon={<Check width="24px"/>}/>
               </li>
             )
           })

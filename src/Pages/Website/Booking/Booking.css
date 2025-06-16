@@ -75,7 +75,6 @@
   transform: translate(-50% , -50%);
 }
 /* modal */
-
 .booking-container .modal{
   display: flex;
   flex-direction: column;
@@ -104,25 +103,4 @@
   gap: 5px;
   /* justify-content: space-between; */
   text-align: center;
-}
-
-/* success  modal*/
-.modal .successModal{
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  align-items: center;
-  position: relative;
-}
-.modal .successModal h2{
-  margin-bottom: 10px;
-}
-.modal .successModal p{
-  text-align: center;
-}
-.modal .disappearMsg{
-  content: "this window will disappear in five secondes...";
-  position: absolute;
-  top: -40px;
-  /* color: var(--third-color); */
 }

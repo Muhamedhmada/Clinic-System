@@ -5,8 +5,8 @@ import Topbar from '../../../Component/Topbar/Topbar'
 import Footer from '../Footer/Footer'
 import {jwtDecode} from 'jwt-decode';
 import {GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google'
-import './SignUp.css'
 import { toast, ToastContainer } from 'react-toastify'
+import TwoInputs from '../../../Component/TwoInputs/TwoInputs'
 function SignUp(){
   const handleSuccess = (credentialResponse)=>{
     const decoded = jwtDecode(credentialResponse.credential);
@@ -35,18 +35,24 @@ function SignUp(){
               </p>
             </div>
             <div className='inputs'>
-              <div className="twoInputs">
-                <input type="text" placeholder='First name' />
-                <input type="text" placeholder='last name' />
-              </div>
-              <div className="twoInputs">
-                <input type="number" placeholder='phone' />
-                <input type="email" placeholder='your email' />
-              </div>
-              <div className="twoInputs">
-                <input type="password" placeholder='password' />
-                <input type="password" placeholder='confirm password' />
-              </div>
+              <TwoInputs 
+                typeOne={"text"}
+                placeOne={"first name"}
+                typeTwo={"text"}
+                placeTwo={"last name"}
+              />
+              <TwoInputs 
+                typeOne={"number"}
+                placeOne={"phone"}
+                typeTwo={"email"}
+                placeTwo={"your email"}
+              />
+              <TwoInputs 
+                typeOne={"password"}
+                placeOne={"password"}
+                typeTwo={"password"}
+                placeTwo={"confirm password"}
+              />
             </div>
             <div className="btns">
               <button>sign up</button>

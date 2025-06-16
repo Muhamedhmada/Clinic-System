@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowRight, Bars, Call, Exit, Moon } from '../../Assets/SVGS'
+import { ArrowRight, Bars, Exit } from '../../Assets/SVGS'
 import './Navbar.css'
-import logo from '../../Assets/Images/clinicLogo.png' 
-// import logo from '../../Assets/Images/clinicLogo.jpg' 
+import Logo from '../Logo/Logo'
+import isLoginSlice from '../../Zustand/IsLoginSlice'
 function Navbar(){
   const nav = useNavigate()
   const navBarRef = useRef()
   const [isFixed , setIsFixed] = useState(false)
+
+  const {isLogin} = isLoginSlice()
+
+  // const [isLogin , setIsLogin] = useState(localStorage.getItem("newAcc")||false)
   useEffect(()=>{
     const observer = new IntersectionObserver(
       ([entry])=>{
@@ -30,9 +34,7 @@ function Navbar(){
       {isFixed && (
         <div className='navbar-container container animated'>
           <div className='navbar-content content'>
-            <div className='logo'>
-              <img src={logo} alt='logo' />
-            </div>
+            <Logo />
             <div className='links'>
               <a href='/'>Home</a>
               {/* <a href="/">doctors</a> */}
@@ -43,7 +45,9 @@ function Navbar(){
             </div>
             <div className='btns'>
               <button onClick={() => nav("/booking")}>book appointment</button>
-              <button onClick={() => nav("/login")}>login</button>
+              <button onClick={() => nav(isLogin?"/dashboard":"/login")}>
+                {isLogin ? "dashboard" : "login"}
+              </button>
             </div>
             <div
               className='icon'
@@ -59,9 +63,7 @@ function Navbar(){
       )}
       <div className='navbar-container container' ref={navBarRef}>
         <div className='navbar-content content'>
-          <div className='logo'>
-            <img src={logo} alt='logo' />
-          </div>
+          <Logo />
           <div className='links'>
             <a href='/'>Home</a>
             {/* <a href="/">doctors</a> */}
@@ -72,7 +74,9 @@ function Navbar(){
           </div>
           <div className='btns'>
             <button onClick={() => nav("/booking")}>book appointment</button>
-            <button onClick={() => nav("/login")}>login</button>
+            <button onClick={() => nav(isLogin?"/dashboard":"/login")}>
+                {isLogin ? "dashboard" : "login"}
+              </button>
           </div>
           <div
             className='icon'
@@ -85,9 +89,7 @@ function Navbar(){
           </div>
           <div className={showMobileMenu ? "menu show" : "menu"}>
             <div className='menu-header'>
-              <div className='logo'>
-                <img src={logo} alt='logo' />
-              </div>
+              <Logo />
               <div
                 className='icon'
                 onClick={() => setShowMobileMenu((prev) => !prev)}
@@ -116,7 +118,9 @@ function Navbar(){
             </div>
             <div className='menu-btns'>
               <button onClick={() => nav("/booking")}>book appointment</button>
-              <button onClick={() => nav("/login")}>login</button>
+              <button onClick={() => nav(isLogin?"/dashboard":"/login")}>
+                {isLogin ? "dashboard" : "login"}
+              </button>
             </div>
           </div>
         </div>

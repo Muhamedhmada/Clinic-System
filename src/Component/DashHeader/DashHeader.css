@@ -1,0 +1,32 @@
+.dashHeader-container{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 0px ;
+}
+.dashHeader-container >div{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.dashHeader-container .search-input{
+  flex-direction:row-reverse;
+  background-color: var(--third-color) !important;
+  border: 1px solid var(--border-color) ;
+  align-self: flex-start;
+  z-index: -1;
+}
+.dashHeader-container .search-input input{
+  background-color: var(--third-color) !important;
+}
+.dashHeader-container .search-input .icon{
+  color: var(--border-color) !important;
+}
+.dashHeader-container >div button{
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 30px;
+  border-radius: 40px;
+  align-self: stretch;
+}

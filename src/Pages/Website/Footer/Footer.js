@@ -1,4 +1,5 @@
 import { Facebook, Instagram, LinkedIn, Twitter } from '../../../Assets/SVGS';
+import Icon from '../../../Component/Icon/Icon';
 import './Footer.css'
 function Footer(){
   const date = new Date()
@@ -13,18 +14,10 @@ function Footer(){
             nostrum. Corrupti officia obcaecati iste repellat veniam ut quidem.
           </p>
           <div className="icons">
-            <div className="icon">
-              <Facebook width="20px"/>
-            </div>
-            <div className="icon">
-              <LinkedIn width="20px"/>
-            </div>
-            <div className="icon">
-              <Instagram width="20px"/>
-            </div>
-            <div className="icon">
-              <Twitter width="20px"/>
-            </div>
+            <Icon icon={<Facebook width="20px"/>}/>
+            <Icon icon={<LinkedIn width="20px"/>}/>
+            <Icon icon={<Instagram width="20px"/>}/>
+            <Icon icon={<Twitter width="20px"/>}/>
           </div>
           <ul>
             <li><a href="/">home</a></li>

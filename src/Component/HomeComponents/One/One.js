@@ -1,5 +1,6 @@
 import { Ambulance, MedicalEarPhone, Pharmecy } from '../../../Assets/SVGS'
 import Header from '../../Header/Header'
+import Icon from '../../Icon/Icon'
 import ThreeCards from '../../ThreeCards/ThreeCards'
 import './One.css'
 function One(){
@@ -12,23 +13,17 @@ function One(){
         </div>
         <div className="cards">
           <div className="card">
-            <div className="icon">
-              <Ambulance width="40px" color="#1a76d1"/>
-            </div>
+            <Icon icon={<Ambulance width="40px"/>}/>
             <h3>Emergency Help</h3>
             <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
           </div>
           <div className="card">
-            <div className="icon">
-              <Pharmecy width="40px" color="#1a76d1"/>
-            </div>
+            <Icon icon={<Pharmecy width="40px"/>}/>
             <h3>Emergency Help</h3>
             <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
           </div>
           <div className="card">
-            <div className="icon">
-              <MedicalEarPhone width="40px" color="#1a76d1"/>
-            </div>
+            <Icon icon={<MedicalEarPhone width="40px"/>}/>
             <h3>Emergency Help</h3>
             <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
           </div>

@@ -1,0 +1,22 @@
+.search-input{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--border-color);
+  border-radius: 30px;
+  padding: 0 20px;
+  overflow: hidden;
+  z-index: 999999999999999999999999999999999999999999999;
+}
+.search-input input{
+  position: relative;
+  border: none;
+  background-color: var(--border-color);
+}
+.search-input input:focus{
+  border: none;
+}
+.search-input .icon{
+  color: var(--secondary-color);
+  display: flex;
+}

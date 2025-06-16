@@ -1,0 +1,73 @@
+.patientDetails-container .patientDetails-content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.patientDetails-container .patientDetails-content .details{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.patientDetails-container .patientDetails-content .details >div{
+  display: flex;
+  gap: 20px;
+}
+.patientDetails-container .patientDetails-content table .attachments{
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+.patientDetails-container .patientDetails-content table .attachments img{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+
+.patientDetails-container .patientDetails-content .modal{
+  max-width: 660px;
+  max-height: 90%;
+  overflow: auto;
+}
+.patientDetails-container .patientDetails-content .modal .icon{
+  color: var(--secondary-color);
+  position: sticky;
+  display: flex;
+  text-align: right;
+  background-color: transparent;
+  justify-content: flex-end;
+  top: 0px;
+  cursor: pointer;
+}
+.patientDetails-container .patientDetails-content .modal .images{
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.patientDetails-container .patientDetails-content .modal .images .image{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.patientDetails-container .patientDetails-content .modal .images img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.patientDetails-container .patientDetails-content .modal .images .image button{
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+  font-size: smaller;
+  font-size: 12px;
+  font-weight: 200;
+  padding: 10px 15px;
+}
+.patientDetails-container .patientDetails-content .modal .images .image button:hover:after{
+  background-color: var(--primary-color);
+}

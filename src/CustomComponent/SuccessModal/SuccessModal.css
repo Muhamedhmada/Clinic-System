@@ -1,0 +1,78 @@
+/* success  modal*/
+.successModal-container {
+  z-index: 999999999999 !important;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.successModal-container .modal{
+  min-width: 350px ;
+  max-width: 99%;
+  padding: 0px ;
+}
+.successModal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.4s ease 1s;
+  /* transition-delay:10s; */
+  /* transition: all ; */
+  padding: 20px;  
+}
+.successModal.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.successModal.hide {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.successModal h2{
+  margin-bottom: 10px;
+}
+.successModal p{
+  text-align: center;
+}
+.successModal .icon {
+  animation: pulse 1s ease infinite;
+  margin-bottom: 10px;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.disappearMsg {
+  position: absolute;
+  top: -40px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.disappearMsg.showMsg {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.disappearMsg.hideMsg {
+  opacity: 0;
+  transform: translateY(10px);
+}

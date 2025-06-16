@@ -1,0 +1,16 @@
+.urgentReservations-container{
+  overflow: auto;
+  width: 100%;
+}
+.urgentReservations-container .urgentReservations-content table td.btns{
+  display: flex;
+  gap: 5px;
+}
+.urgentReservations-container .urgentReservations-content table td.btns button:first-child{
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}
+.urgentReservations-container .urgentReservations-content table td.btns button:nth-child(2){
+  color: var(--third-color);
+  background-color: var(--secondary-color);
+}

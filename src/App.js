@@ -9,13 +9,21 @@ import SignUp from './Pages/Website/SignUp/SignUp';
 import Booking from './Pages/Website/Booking/Booking';
 import BookAppointment from './Pages/Website/BookAppointment/BookAppointment';
 import Services from './Pages/Website/BookAppointment/BookAppointment';
-import ErrorPage from './Pages/Website/Error/Error';
+import ErrorPage from './Pages/Error/Error';
 import ToTop from './Component/ToTop/ToTop';
 import { useEffect } from 'react';
 import MedicalHistory from './Pages/Website/MedicalHistory/MedicalHistory';
 import FastBooking from './Pages/Website/FastBooking/FastBooking';
 import DarkMode from './Component/DarkMode/DarkMode';
 import Feedback from './Pages/Website/Feedback/Feedback';
+
+// dashobard
+import Dashboard from './Pages/Dashboard/Home/Home';
+import Layout from './Pages/Dashboard/Layout/Layout';
+import Patients from './Pages/Dashboard/Patients/Patients';
+import PatientDetails from './Pages/Dashboard/PatientDetails/PatientDetails';
+import UrgentReservations from './Pages/Dashboard/UrgentReservations/UrgentReservations';
+
 function App() {
   const location = useLocation()
   useEffect(()=>{
@@ -27,6 +35,14 @@ function App() {
         <ToTop />
         <DarkMode/>
         <Routes>
+
+          {/* dashboard */}
+          <Route path='/dashboard'element={<Layout children={<Dashboard/>}/>}/>
+          <Route path='/patients'element={<Layout children={<Patients/>}/>}/>
+          <Route path='/patients/:patientName'element={<Layout children={<PatientDetails/>}/>}/>
+          <Route path='/urgent-reservations'element={<Layout children={<UrgentReservations/>}/>}/>
+
+          {/* site */}
           <Route path='/' element={<Home />} />
           <Route path='/contact-us' element={<ContactUS />} />
           <Route path='/login' element={<Login />} />

@@ -4,6 +4,7 @@ import './LastVisits.css'
 import img from '../../Assets/Images/rosheta1.jpg'
 import img2 from '../../Assets/Images/rosheta2.jpg'
 import { Exit } from '../../Assets/SVGS';
+import Icon from '../Icon/Icon';
 function LastVisits(){
   const patientRecords = [
     {
@@ -89,8 +90,9 @@ function LastVisits(){
         >
           {/* <div className="modalHeader"> */}
             <div className="icon" onClick={()=>setAttachmentsModal(false)}>
-              <Exit width="30px"/>
+              <Icon icon={<Exit width="30px"/>}/>
             </div>
+
           {/* </div> */}
           <div className="images">
             {attachments?.length>0?

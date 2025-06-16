@@ -2,6 +2,7 @@ import './ContactForm.css'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import {toast, ToastContainer} from 'react-toastify'
+import TwoInputs from '../TwoInputs/TwoInputs';
 
 function ContactForm(){
   const handleSendBtn = (e)=>{
@@ -32,14 +33,8 @@ function ContactForm(){
             </p>
           </div>
           <form>
-            <div className='twoInputs'>
-              <input type='text' placeholder='name' />
-              <input type='email' placeholder='email' />
-            </div>
-            <div className='twoInputs'>
-              <input type='number' placeholder='phone' />
-              <input type='text' placeholder='subject' />
-            </div>
+            <TwoInputs typeOne={"text"} placeOne={"name"} typeTwo={"email"} placeTwo={"email"}/>
+            <TwoInputs typeOne={"number"} placeOne={"phone"} typeTwo={"text"} placeTwo={"subject"}/>
             <textarea placeholder='your message'></textarea>
             <button onClick={(e)=>handleSendBtn(e)}>send</button>
           </form>

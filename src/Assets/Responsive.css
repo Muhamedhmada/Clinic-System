@@ -30,15 +30,16 @@
   .feedback-container .feedback-content .feedbacks .feedback:nth-child(2n) .user{
     color: var(--third-color);
   }
+  /* homepage land page */
+  .homeLandPage-container .homeLandPage-content h2{
+    font-size: 28px;
+  }
 }
 
 /* ============= 💻 Medium devices (tablets) ============= */
 /* من 768px لـ 991px */
 @media (max-width: 991.98px) {
   /* styles هنا */
-  .container{
-    /* padding: 10px 0; */
-  }
   /* header in all component*/
   .header.content{
     width: 100%;
@@ -56,9 +57,6 @@
   .homeLandPage-container .homeLandPage-content h2,
   .homeLandPage-container .homeLandPage-content p{
     width: 100%;
-  }
-  .homeLandPage-container .homeLandPage-content h2{
-    font-size: 28px;
   }
   /* three cards */
   .threeCards-container .threeCards-content{
@@ -82,12 +80,10 @@
     border-top: none;
     width: 0;
   }
-
   /* page number two in home page */
   .two-container .cards .card{
     width: 48%;
   }
-
   /* content */
   .login-container .login-content{
     flex-direction: column !important;
@@ -96,11 +92,9 @@
   .login-container .login-content .rightLogin{
     padding: 10px ;
   }
-
   .three-container .three-content .information{
     flex-direction: column;
   }
-
   /* contact us page */
   .contactForm-container .contactForm-content{
     flex-direction: column !important;
@@ -112,8 +106,10 @@
   .contactCard-container .contactCard-content .card{
     justify-content: start;
   }
-
-
+  /* dashboard */
+  .layout-container >div:nth-child(2){
+    margin: 0 15px;
+  }
 }
 /* ============= 📱 Small devices (landscape phones) ============= */
 /* من 576px لـ 767px */
@@ -167,13 +163,16 @@
   }
   /* table */
   table tr td , th{
-    padding: 20px;
-  }
-  table tr td , th{
-    font-size: small;
+    font-size: 13px;
   }
   table tr td.hour >p{
     font-size: small;
+  }
+
+  /* dashboard */
+  .aside-container{
+    position: fixed;
+    z-index: 1;
   }
 
 }
@@ -205,5 +204,43 @@
   table tr td , th{
     padding: 10px;
   }
+  table tr td , th{
+    font-size: 10px;
+  }
+  table button{
+    font-size: small;
+    padding: 5px 10px !important;
+  }
+}
+@media (max-width:411.98px) {
+  /* land page */
+  .landPage-container .landPage-content h2{
+    font-size: 25px ;
+  }
+  h2{
+    font-size: 24px;
+  }
+  input{
+    height: 40px;
+  }
+}
 
+@media (max-width:376px) {
+  /* contact card */
+  .contactCard-container .contactCard-content .card{
+    min-height: 100px;
+    font-size: 14px;
+  }
+  .contactCard-container .contactCard-content .card p{
+    font-size: 13px;
+  }
+  .modal-container .modal{
+    width: 97% !important;
+  }
+  .successModal-container .modal{
+    min-width: 97% !important;
+  }
+  .disappearMsg {
+    top: -60px;
+  }
 }

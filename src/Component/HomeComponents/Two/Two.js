@@ -2,6 +2,7 @@ import { Calender, Home, Smile, User } from '../../../Assets/SVGS'
 import './Two.css'
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import Icon from '../../Icon/Icon';
 function Two(){
   const { ref, inView } = useInView({
     triggerOnce: true, // يشتغل مرة واحدة بس
@@ -13,9 +14,7 @@ function Two(){
       {inView&&<div className="two-content content">
         <div className="cards">
           <div className="card">
-            <div className="icon">
-              <Home width="30px"/>
-            </div>
+            <Icon icon={<Home width="30px"/>}/>
             <div>
               <h2>
                 <CountUp
@@ -28,9 +27,7 @@ function Two(){
             </div>
           </div>
           <div className="card">
-            <div className="icon">
-              <User width="30px"/>
-            </div>
+            <Icon icon={<User width="30px"/>}/>
             <div>
               <h2>
               <CountUp
@@ -43,9 +40,7 @@ function Two(){
             </div>
           </div>
           <div className="card">
-            <div className="icon">
-              <Calender width="30px"/>
-            </div>
+            <Icon icon={<Calender width="30px"/>}/>
             <div>
               <h2>
               <CountUp
@@ -58,9 +53,7 @@ function Two(){
             </div>
           </div>
           <div className="card">
-            <div className="icon">
-              <Smile width="30px"/>
-            </div>
+            <Icon icon={<Smile width="30px"/>}/>
             <div>
               <h2>
               <CountUp

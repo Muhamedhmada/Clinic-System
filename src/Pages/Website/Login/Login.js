@@ -1,12 +1,28 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
 import LandPage from '../../../Component/LandPage/LandPage'
 import Navbar from '../../../Component/Navbar/Navbar'
 import Topbar from '../../../Component/Topbar/Topbar'
+import isLoginSlice from '../../../Zustand/IsLoginSlice'
 import Footer from '../Footer/Footer'
 import './Login.css'
 function Login(){
+  const {createAccountSlice} = isLoginSlice()
+  const [data , setData] = useState({
+    email : "",
+    password :""
+  })
+  const createAccount = ()=>{
+    if(!data.email  || !data.password){
+      toast.warn("enter all fields first")
+    }
+    createAccountSlice(data)
+    toast.success("account created successfully")
+  }
   return(
     <>
+      <ToastContainer/>
       <Topbar/>
       <Navbar/>
       <LandPage header='Login' link='Login' href='/login'/>
@@ -23,16 +39,10 @@ function Login(){
                 </p>
             </div>
             <div className='inputs'>
-              <div className="twoInputs">
-                {/* <input type="text" placeholder='First name' /> */}
-                <input type="email" placeholder='your email' />
-              </div>
-              <div className="twoInputs">
-                <input type="password" autoComplete='' placeholder='password' />
-                {/* <input type="password" placeholder='confirm password' /> */}
-              </div>
+                <input onChange={(e)=>setData((prev)=>({...prev , email:e.target.value}))}  value={data.email} type="email" placeholder='your email' />
+                <input onChange={(e)=>setData((prev)=>({...prev , password:e.target.value}))}  value={data.password} type="password" autoComplete='' placeholder='password' />
             </div>
-            <button>login</button>
+            <button onClick={()=>createAccount()}>login</button>
           </div>
         </div>
       </div>

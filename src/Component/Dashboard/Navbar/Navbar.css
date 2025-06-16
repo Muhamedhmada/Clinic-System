@@ -1,0 +1,42 @@
+.dash-nav-container{
+  background-color: var(--third-color);
+  position: sticky;
+  top: 0px;
+}
+.dash-nav-container .dash-nav-content{
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  /* padding:20px 0px; */
+  width: 100%;
+}
+
+.dash-nav-container .dash-nav-content .icons{
+  display: flex;
+  gap: 20px;
+}
+.dash-nav-container .dash-nav-content .icons{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.dash-nav-container .dash-nav-content .icons .profileImage{
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.dash-nav-container .dash-nav-content .icons .profileImage img{
+  width: 100%;
+
+}
+.dash-nav-container .dash-nav-content .icons .icon{
+  color: var(--secondary-color);
+}

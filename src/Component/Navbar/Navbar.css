@@ -12,18 +12,9 @@
   align-items: center;
   justify-content: space-between;
 }
-.navbar-container .navbar-content .logo{
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.navbar-container .navbar-content .logo img{
-  width: 100%;
-}
 .navbar-container .navbar-content .links {
   height: 100%;
-  gap: 20px;
+  gap: 15px;
 }
 .navbar-container.animated{
   position: fixed;
@@ -74,6 +65,7 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
+  
 }
 .navbar-container .navbar-content .btns .moon-sun-icon{
   background-color: var(--primary-color);
@@ -81,7 +73,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0 10px;
   cursor: pointer;
 }
@@ -90,12 +81,15 @@
   background-color: transparent;
   color: var(--third-color);
   background-color: var(--primary-color);
+  /* padding: 7px 15px; */
 }
 .navbar-container .navbar-content .btns button:first-child{
-  border-radius:var(--btn-border-radius) 0 0 var(--btn-border-radius) ;
+  border-radius:var(--btn-border-radius) 0 0 var(--btn-border-radius);
+  margin-right: -8px;
 }
 .navbar-container .navbar-content .btns button:nth-child(2){
   border-radius: 0 var(--btn-border-radius) var(--btn-border-radius) 0;
+  margin-left: -8px;
 }
 .navbar-container .navbar-content .btns button:hover:after{
   transform: scale(1);
@@ -153,7 +147,7 @@
 }
 .menu .mobileMenu-links a{
   color: var(--secondary-color);
-  font-size: large;
+  /* font-size: large; */
   display: flex;
   align-items: center;
   justify-content: space-between;
