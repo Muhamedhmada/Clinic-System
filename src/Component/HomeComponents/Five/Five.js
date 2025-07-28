@@ -32,7 +32,6 @@ function Five(){
           navigation
           pagination={{clickable: true}}
           scrollbar={{draggable: true}}
-          onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             1200: {
               slidesPerView: 4,

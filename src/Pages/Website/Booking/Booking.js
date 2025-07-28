@@ -8,12 +8,15 @@ import Modal from '../../../CustomComponent/Modal/Modal.jsx'
 import { Check, NotAvailable } from '../../../Assets/SVGS'
 import Icon from '../../../Component/Icon/Icon'
 import SuccessModal from '../../../CustomComponent/SuccessModal/SuccessModal'
+import AppointmentCard from '../../../Component/AppointmentCard/AppointmentCard'
 function Booking(){
   const [modal , setModal] = useState({
     confirmation:false,
     data:false,
     success:false
   })
+
+  const [showBookingTable , setShowBookingTable] = useState(true)
   const [selectedDay , setSelectedDay] = useState()
   const [selectedHour , setSelectedHour] = useState()
   const weeklySchedule = [
@@ -90,7 +93,6 @@ function Booking(){
     }
   ];
 
-  console.log(weeklySchedule[0].slots)
   const AppointmentConfirm = (day , hour)=>{
     setModal((prev)=>({...prev,confirmation:true}))
     setSelectedDay(day)
@@ -111,42 +113,62 @@ function Booking(){
       <LandPage header='booking' link='booking' href='/booking' />
       <div className='booking-container container'>
         <div className='booking-content content'>
-          <table>
-            <tr>
-              <th>time</th>
-              {weeklySchedule.map((item, index) => {
+          <div className='tabs'>
+            <button
+              onClick={() => setShowBookingTable(true)}
+              className={showBookingTable ? "active" : null}
+            >
+              book appointment
+            </button>
+            <button
+              onClick={() => setShowBookingTable(false)}
+              className={!showBookingTable ? "active" : null}
+            >
+              comming appointment
+            </button>
+          </div>
+          {showBookingTable ? (
+            <table>
+              <tr>
+                <th>time</th>
+                {weeklySchedule.map((item, index) => {
+                  return (
+                    <>
+                      <th>{item.date}</th>
+                    </>
+                  );
+                })}
+              </tr>
+              {Array.from({length: 8}, (_, i) => i + 14).map((hour, index) => {
                 return (
-                  <>
-                    <th>{item.date}</th>
-                  </>
+                  <tr>
+                    <td className='hour'>
+                      <p>
+                        {hour > 12 ? hour - 12 + ":00 Pm" : hour + ":00 Am"}
+                      </p>
+                    </td>
+                    {weeklySchedule.map((day) => {
+                      const slot = day.slots.find((s) => s.hour === hour);
+                      return (
+                        <td
+                          onClick={() => {
+                            !slot.booked && AppointmentConfirm(day, hour);
+                          }}
+                          key={day.date + hour}
+                          className={slot.booked ? "booked" : "available"}
+                        >
+                          {slot.booked ? "Booked" : "Available"}
+                          {slot.booked && <Icon icon={<NotAvailable />} />}
+                        </td>
+                      );
+                    })}
+                  </tr>
                 );
               })}
-            </tr>
-            {Array.from({length: 8}, (_, i) => i + 14).map((hour, index) => {
-              return (
-                <tr>
-                  <td className='hour'>
-                    <p>{hour > 12 ? hour - 12 + ":00 Pm" : hour + ":00 Am"}</p>
-                  </td>
-                  {weeklySchedule.map((day) => {
-                    const slot = day.slots.find((s) => s.hour === hour);
-                    return (
-                      <td
-                        onClick={() => {
-                          !slot.booked && AppointmentConfirm(day, hour);
-                        }}
-                        key={day.date + hour}
-                        className={slot.booked ? "booked" : "available"}
-                      >
-                        {slot.booked ? "Booked" : "Available"}
-                        {slot.booked && <Icon icon={<NotAvailable />} />}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </table>
+            </table>
+          ) : (
+            <AppointmentCard/>
+          )}
 
           {/* confirmation modal */}
           <Modal
@@ -161,7 +183,7 @@ function Booking(){
             showModalsBtns='true'
           >
             <div className='icon'>
-              <Check width='70px' />
+              <Check width='70px' color="#1a76d1" />
             </div>
             <h3>confirm your booking</h3>
 
@@ -204,7 +226,14 @@ function Booking(){
             </div>
           </Modal>
           {/* success modal */}
-          {modal.success ? <SuccessModal isOpen={modal.success} onClose={()=>setModal((prev)=>({...prev , success:false}))} successMsg={"appointment created successfully"} welcomeMsg={"we are waiting for you"} /> : null}
+          {modal.success ? (
+            <SuccessModal
+              isOpen={modal.success}
+              onClose={() => setModal((prev) => ({...prev, success: false}))}
+              successMsg={"appointment created successfully"}
+              welcomeMsg={"we are waiting for you"}
+            />
+          ) : null}
         </div>
       </div>
       <Footer />

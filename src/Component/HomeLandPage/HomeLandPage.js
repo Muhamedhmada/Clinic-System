@@ -1,5 +1,7 @@
 import './HomeLandPage.css'
+import {useNavigate} from 'react-router-dom'
 function HomeLandPage(){
+  const nav = useNavigate()
   return (
     <div className='homeLandPage-container container'>
       <div className='homeLandPage-content content'>
@@ -14,7 +16,7 @@ function HomeLandPage(){
           labore eum rerum atque porro!
         </p>
         <div className="btns">
-          <button>get appointment</button>
+          <button onClick = {()=>nav('/booking')}>get appointment</button>
           <button>learn more</button>
         </div>
       </div>

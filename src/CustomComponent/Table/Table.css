@@ -18,8 +18,9 @@ table tr th{
   color: var(--third-color);
 }
 table tr td{
-  width: fit-content !important;
+  /* width: fit-content !important; */
   font-size: 14px;
+  justify-content: center;
 }
 table tr td button{
   color: var(--secondary-color);
@@ -27,4 +28,10 @@ table tr td button{
   border: 0;
   padding: 10px 15px;
   border-radius: 3px;
+}
+table td.no_data{
+  column-span: all;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
 }

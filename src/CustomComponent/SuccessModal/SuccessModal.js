@@ -4,21 +4,28 @@ import {motion} from "framer-motion";
 import {Check} from "../../Assets/SVGS";
 
 import "./SuccessModal.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 const SuccessModal = ({isOpen , onClose , successMsg , welcomeMsg}) => {
-
-  console.log(onClose)
  
+  const [timer , setTimer] = useState(3)
   useEffect(() => {
-    let timer;
+    console.log(timer)
     if (isOpen) {
-      timer = setTimeout(() => {
-        onClose(); // استدعاء الفنكشن اللي بتخفي المودال بعد 3 ثواني
-      }, 3000);
+      let counterInterval = setInterval(() => {
+        console.log(timer)
+          setTimer(prev=>{
+            if(prev > 0){
+              return prev-1
+            }
+            else{
+              onClose()
+              clearInterval(counterInterval)
+            }
+          })
+      }, 1000);
+      return () => clearInterval(counterInterval); // تنظيف التايمر عند إلغاء المكون أو تغيير `show`
     }
-
-    return () => clearTimeout(timer); // تنظيف التايمر عند إلغاء المكون أو تغيير `show`
-  }, [isOpen]);
+  }, [ isOpen]);
   return (
     <div className='successModal-container'>
       <motion.div
@@ -30,7 +37,7 @@ const SuccessModal = ({isOpen , onClose , successMsg , welcomeMsg}) => {
       >
         <div className={`successModal ${isOpen ? "show" : "hide"}`}>
           <div className='icon'>
-            <Check width='70px' />
+            <Check width='70px' color="#1a76d1" />
           </div>
           <h2>Success</h2>
           <p>
@@ -41,7 +48,7 @@ const SuccessModal = ({isOpen , onClose , successMsg , welcomeMsg}) => {
         </div>
 
         <p className={`disappearMsg ${isOpen ? "showMsg" : "hideMsg"}`}>
-          This window will disappear in 3 seconds...
+          This window will disappear in {timer} seconds...
         </p>
       </motion.div>
     </div>

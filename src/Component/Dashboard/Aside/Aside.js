@@ -17,11 +17,11 @@ function Aside({isClose , handleClose}){
           </li>
           <li>
             <Calender width='20px' />
-            <a href='/appointments'>appointments</a>
+            <a href='/confirmed-appointments'>appointments</a>
           </li>
           <li>
             <Calender width='20px' />
-            <a href='/urgent-reservations'>Urgent Reservations</a>
+            <a href='/pending-appointments'>Pending Appointments</a>
           </li>
           <li>
             <Home width='20px' />

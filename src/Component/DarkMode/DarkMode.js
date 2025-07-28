@@ -5,7 +5,6 @@ import './DarkMode.css'
 
 function DarkMode(){
   const {theme , changeMode} = darkModeSlice()
-  console.log(theme)
   return (
     <div className='darkMode-container'>
       <div className='moon-sun-icon' onClick={changeMode}>

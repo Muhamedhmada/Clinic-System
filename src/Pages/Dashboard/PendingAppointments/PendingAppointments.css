@@ -13,4 +13,5 @@
 .urgentReservations-container .urgentReservations-content table td.btns button:nth-child(2){
   color: var(--third-color);
   background-color: var(--secondary-color);
+  background-color: red;
 }

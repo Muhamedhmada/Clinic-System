@@ -68,8 +68,8 @@
   position: absolute;
   z-index: -1;
   color: var(--border-color);
-  width: 80%;
-  left: 80%;
+  width: 70%;
+  /* height: 100%; */
   top: 50%;
   left: 50%;
   transform: translate(-50% , -50%);
@@ -103,4 +103,27 @@
   gap: 5px;
   /* justify-content: space-between; */
   text-align: center;
+}
+
+.tabs{
+  background-color: var(--third-color);
+  width: fit-content;
+  border-radius: 4px;
+  margin-bottom: 50px ;
+}
+.tabs button{
+  background-color: transparent;
+  /* color: white; */
+}
+.dark .tabs button{
+  background-color: transparent;
+  color: white;
+}
+
+.tabs button.active{
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}
+.tabs button::after{
+  background-color: transparent !important;
 }

@@ -17,7 +17,7 @@ function PlansCard({icon , header , price , list , link}){
             return(
               <li>
                 <p>{item}</p>
-                <Icon icon={<Check width="24px"/>}/>
+                <Icon icon={<Check width="24px" color="#1a76d1"/>}/>
               </li>
             )
           })

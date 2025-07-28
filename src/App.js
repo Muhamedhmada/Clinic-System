@@ -22,7 +22,8 @@ import Dashboard from './Pages/Dashboard/Home/Home';
 import Layout from './Pages/Dashboard/Layout/Layout';
 import Patients from './Pages/Dashboard/Patients/Patients';
 import PatientDetails from './Pages/Dashboard/PatientDetails/PatientDetails';
-import UrgentReservations from './Pages/Dashboard/UrgentReservations/UrgentReservations';
+import PendingAppointments from './Pages/Dashboard/PendingAppointments/PendingAppointments';
+import ConfirmedAppointments from './Pages/Dashboard/ConfirmedAppointments/ConfirmedAppointments';
 
 function App() {
   const location = useLocation()
@@ -38,9 +39,10 @@ function App() {
 
           {/* dashboard */}
           <Route path='/dashboard'element={<Layout children={<Dashboard/>}/>}/>
+          <Route path='/confirmed-appointments'element={<Layout children={<ConfirmedAppointments/>}/>}/>
           <Route path='/patients'element={<Layout children={<Patients/>}/>}/>
           <Route path='/patients/:patientName'element={<Layout children={<PatientDetails/>}/>}/>
-          <Route path='/urgent-reservations'element={<Layout children={<UrgentReservations/>}/>}/>
+          <Route path='/pending-appointments'element={<Layout children={<PendingAppointments/>}/>}/>
 
           {/* site */}
           <Route path='/' element={<Home />} />

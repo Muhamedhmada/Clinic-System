@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Bars, Exit } from '../../Assets/SVGS'
 import './Navbar.css'
 import Logo from '../Logo/Logo'
-import isLoginSlice from '../../Zustand/IsLoginSlice'
+import isTokenSlice from '../../Zustand/isTokenSlice'
 function Navbar(){
   const nav = useNavigate()
   const navBarRef = useRef()
   const [isFixed , setIsFixed] = useState(false)
 
-  const {isLogin} = isLoginSlice()
+  const {isToken} = isTokenSlice()
 
-  // const [isLogin , setIsLogin] = useState(localStorage.getItem("newAcc")||false)
+  // const [isToken , setisToken] = useState(localStorage.getItem("newAcc")||false)
   useEffect(()=>{
     const observer = new IntersectionObserver(
       ([entry])=>{
@@ -45,8 +45,8 @@ function Navbar(){
             </div>
             <div className='btns'>
               <button onClick={() => nav("/booking")}>book appointment</button>
-              <button onClick={() => nav(isLogin?"/dashboard":"/login")}>
-                {isLogin ? "dashboard" : "login"}
+              <button onClick={() => nav(isToken?"/dashboard":"/login")}>
+                {isToken ? "dashboard" : "login"}
               </button>
             </div>
             <div
@@ -74,8 +74,8 @@ function Navbar(){
           </div>
           <div className='btns'>
             <button onClick={() => nav("/booking")}>book appointment</button>
-            <button onClick={() => nav(isLogin?"/dashboard":"/login")}>
-                {isLogin ? "dashboard" : "login"}
+            <button onClick={() => nav(isToken?"/dashboard":"/login")}>
+                {isToken ? "dashboard" : "login"}
               </button>
           </div>
           <div
@@ -118,8 +118,8 @@ function Navbar(){
             </div>
             <div className='menu-btns'>
               <button onClick={() => nav("/booking")}>book appointment</button>
-              <button onClick={() => nav(isLogin?"/dashboard":"/login")}>
-                {isLogin ? "dashboard" : "login"}
+              <button onClick={() => nav(isToken?"/dashboard":"/login")}>
+                {isToken ? "dashboard" : "login"}
               </button>
             </div>
           </div>

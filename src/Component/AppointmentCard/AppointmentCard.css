@@ -1,0 +1,13 @@
+/* .appointmentCard tr td:hover{
+  background-color: transparent !important;
+} */
+
+.appointmentCard td.btn button{
+  /* font-weight: 500; */
+}
+.appointmentCard td.btn:hover{
+  background-color: transparent !important;
+}
+.appointmentCard td button::after{
+  background-color: transparent !important;
+}

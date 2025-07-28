@@ -16,7 +16,7 @@ function Table({data , headers , keys  , renderAction}){
         </thead>
         <tbody>
           {
-            data?.map((item)=>{
+            data.length>0?data.map((item)=>{
               return(
                 <tr>
                   {
@@ -24,7 +24,7 @@ function Table({data , headers , keys  , renderAction}){
                       return(
                         <>
                           <td>
-                            {item[key]}
+                            {item[key]?item[key]:"-"}
                           </td>
                         </>
                       )
@@ -33,7 +33,7 @@ function Table({data , headers , keys  , renderAction}){
                   {renderAction && renderAction(item)}
                 </tr>
               )
-            })
+            }):<td  colSpan={keys.length + 1} className='no_data'>there is no data to display...</td>
           }
         </tbody>
       </table>

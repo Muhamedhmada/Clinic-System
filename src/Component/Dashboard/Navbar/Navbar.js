@@ -7,6 +7,7 @@ function Navbar(){
   return(
     <div className='dash-nav-container'>
       <div className="dash-nav-content content">
+        <h2>clinic managmenet system</h2>
         <SearchInput/>
         <div className="icons">
           <Icon icon={<Notification  width="20px"/>}/>

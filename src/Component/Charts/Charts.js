@@ -1,24 +1,13 @@
 import "./Charts.css";
 import {
-  BarChart,
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
-  PieChart,
-  Pie,
-  LineChart,
   Line,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar,
   ComposedChart,
   Area,
-  AreaChart,
 } from "recharts";
 
 function Charts() {
@@ -42,7 +31,6 @@ function Charts() {
             <YAxis />
             <Tooltip content={<Area/>}/>
             <Legend legendType="none"/>
-            <CartesianGrid stroke='#f5f5f5' />
             <Area
               type='monotone'
               dataKey='value'
@@ -69,7 +57,6 @@ function Charts() {
             <YAxis />
             <Tooltip content={<Area/>}/>
             <Legend legendType="none"/>
-            <CartesianGrid stroke='#f5f5f5' />
             <Area
               type='monotone'
               dataKey='value'
