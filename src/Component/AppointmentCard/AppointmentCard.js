@@ -1,8 +1,10 @@
 import { Check } from '../../Assets/SVGS';
 import Table from '../../CustomComponent/Table/Table';
-import './AppointmentCard.css'
-import {toast , ToastContainer} from 'react-toastify'
+import './AppointmentCard.css';
+import {toast , ToastContainer} from 'react-toastify';
+import {useNavigate} from 'react-router-dom'
 function AppointmentCard(){
+  const nav = useNavigate()
   const appointments = [
     {
       patientName: "Ahmed Mohamed",
@@ -11,7 +13,8 @@ function AppointmentCard(){
       date: "2025-07-28",
       type: "urgent",
       reason: "Back pain",
-      isConfirmed: true
+      isConfirmed: true,
+      pay: true
     },
     {
       patientName: "Sara Ali",
@@ -20,7 +23,8 @@ function AppointmentCard(){
       date: "2025-07-29",
       type: "normal",
       reason: "Blood test results",
-      isConfirmed: false
+      isConfirmed: false,
+      pay: false
     },
     {
       patientName: "Mohamed Said",
@@ -29,7 +33,8 @@ function AppointmentCard(){
       date: "2025-07-30",
       type: "urgent",
       reason: "Medication follow-up",
-      isConfirmed: true
+      isConfirmed: true,
+      pay: true
     },
     {
       patientName: "Nour Hassan",
@@ -38,12 +43,23 @@ function AppointmentCard(){
       date: "2025-07-31",
       type: "normal",
       reason: "General checkup",
-      isConfirmed: false
+      isConfirmed: false,
+      pay: false
     }
   ];
+  
 
   const handleCancelBtn = ()=>{
     toast.success("appointment deleted successfully")
+  }
+  
+  const handlePay = (item)=>{
+    if(item.pay){
+      toast.warning("you already paid")
+    }
+    else{
+      nav('/payment')
+    }
   }
   
   return(
@@ -63,19 +79,25 @@ function AppointmentCard(){
               "reason",
               "cancel",
               "isConfirmed",
+              "pay"
             ]}
             keys={["patientName", "day", "time", "date", "type" , "reason"]}
             data={appointments}
             renderAction={(item) => (
               <>
               <td className='btn'>
-                <button onClick={()=>handleCancelBtn()}>cancel</button>
+                <button className='cancelBtn' onClick={()=>handleCancelBtn()}>cancel</button>
               </td>
               <td>
                   {item.isConfirmed?(
                   <Check width="32px" color="#1a76d1"/>
                   ):
                   "not confirmed"}
+              </td>
+              <td>
+                <button className="detailsBtn" onClick={()=>handlePay(item)}>
+                  {item.pay?"paied":"pay"}
+                </button>
               </td>
               </>
             )}

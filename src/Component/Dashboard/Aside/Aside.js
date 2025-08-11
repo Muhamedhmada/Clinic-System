@@ -1,6 +1,6 @@
 import './Aside.css'
 import Logo from '../../Logo/Logo'
-import { AngleLeft, AngleRight, Calender, Home, Settings, Users } from '../../../Assets/SVGS'
+import { AngleLeft, AngleRight, Calender, Home, Payment, Pending, Settings, Users } from '../../../Assets/SVGS'
 function Aside({isClose , handleClose}){
   return (
     <>
@@ -20,8 +20,12 @@ function Aside({isClose , handleClose}){
             <a href='/confirmed-appointments'>appointments</a>
           </li>
           <li>
-            <Calender width='20px' />
+            <Pending width='20px' />
             <a href='/pending-appointments'>Pending Appointments</a>
+          </li>
+          <li>
+            <Payment width='20px' />
+            <a href='/payment-review'>Payment Review</a>
           </li>
           <li>
             <Home width='20px' />
@@ -30,6 +34,10 @@ function Aside({isClose , handleClose}){
           <li>
             <Settings width='20px' />
             <a href='/settings'>settings</a>
+          </li>
+          <li>
+            <Users width='20px' />
+            <a href='/users'>users</a>
           </li>
         </ul>
       </div>

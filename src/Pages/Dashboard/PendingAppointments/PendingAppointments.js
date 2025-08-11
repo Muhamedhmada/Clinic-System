@@ -51,11 +51,13 @@ function PendingAppointments(){
           renderAction={(item) => (
             <td className='btns'>
               <button
+                className='addBtn'
                 onClick={() => acceptAppointment(item)}
               >
                 accept
               </button>
               <button
+                className='cancelBtn'
                 onClick={() => regectAppointment(item)}
               >
                 regect

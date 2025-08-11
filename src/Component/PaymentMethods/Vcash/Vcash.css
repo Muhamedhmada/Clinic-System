@@ -1,0 +1,37 @@
+.vcash-container .vcash-content{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.vcash-container .vcash-content input{
+  display: none;
+}
+.vcash-container .vcash-content p{
+  font-size: 16px;
+}
+.vcash-container .vcash-content >div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+.vcash-container .vcash-content div p span{
+  font-weight: bold;
+  font-style: italic;
+}
+.vcash-container .vcash-content div p:nth-child(2){
+  background: var(--third-color);
+  color: var(--fourth-color);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+}
+.vcash-container .vcash-content ul{
+  list-style-type: disc;
+  
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

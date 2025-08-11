@@ -1,8 +1,6 @@
 .aside-container{
   background-color: var(--primary-color);
   height: calc(100vh - 20px);
-  /* position: relative; */
-  /* margin-top: 20px; */
   border-radius: 0 20px 20px 0;
   top: 20px;
   position: sticky;
@@ -45,7 +43,6 @@
 }
 .aside-container .aside-content ul li:hover{
   background-color: var(--third-color);
-  /* opacity: .2; */
 }
 .aside-container .aside-content ul li a{
   color: var(--secondary-color);
@@ -73,7 +70,6 @@
   z-index: 99999999999999999999999999999999999999999999999999999999999999999;
 }
 .open-close-icon.close{
-  /* left: 30px; */
   left: 30px;
   z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
   z-index: 99999999999999999999999999999999999999999999999999999999999999999;
@@ -85,28 +81,22 @@
   margin: 0 20px !important;
 }
 .dash-nav-container{
-  /* background-color: red !important; */
   margin: 0 !important;
   padding: 0 !important;
 }
 .dash-nav-content{
   top: 0 !important;
-  /* padding-top: 0 !important; */
 }
 .aside-container{
   border-radius: 0 10px 0px 0;
-  padding: 0 !important;
-  /* top: 0; */
-  
+  padding: 0 !important;  
 }
 .aside-container .aside-content .logo{
   margin: 0;
   display: none;
-  /* background-color: red; */
 }
 .aside-container .aside-content{
   width: 100px;
-  /* padding-top: 15px; */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -116,6 +106,7 @@
 .aside-container .aside-content ul{
   gap: 0;
   color: var(--third-color);
+  color: white;
 }
 .aside-container .aside-content ul li{
   display: flex;
@@ -123,11 +114,9 @@
   gap: 5px;
   border-radius: 0;
   border-bottom: 1px solid var(--border-color);
-  color: var(--third-color);
 }
 .aside-container .aside-content ul li:hover{
   color: var(--secondary-color);
-  /* border-radius: 20px ; */
 }
 .aside-container .aside-content ul li:hover a{
   color: var(--secondary-color);
@@ -142,10 +131,7 @@
   font-size: 12px;
   font-weight: bold;
   text-align: center;
-  color: var(--third-color);
-}
-.aside-container .aside-content ul li .icon{
-  /* color: var(--third-color) !important/; */
+  color: white;
 }
 .open-close-icon{
   left: 100px;

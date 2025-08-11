@@ -1,0 +1,34 @@
+.creditCard-container form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.creditCard-container form div{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.creditCard-container form label{
+  font-size: 16px;
+  font-weight: bold;
+}
+.creditCard-container form input{
+  height: 40px !important;
+  background-color: var(--third-color);
+}
+.dark .creditCard-container form input{
+  background-color: var(--third-color) !important;
+}
+.creditCard-container form .inputs{
+  display: flex ;
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+.creditCard-container form .inputs input{
+  width: 48% !important;
+}
+.creditCard-container form button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

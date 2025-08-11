@@ -30,7 +30,7 @@ function FastBooking(){
             </div>
             <textarea placeholder='write the reason' ></textarea>
             <textarea placeholder='write any notes' ></textarea>
-            <button onClick={(e)=>sendForm(e)}>send</button>
+            <button className='addBtn' onClick={(e)=>sendForm(e)}>send</button>
             <p>we will confirm your booking within two hours</p>
           </form>
         </div>

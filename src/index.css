@@ -132,3 +132,32 @@ button:hover:after{
 a{
   color: inherit;
 }
+
+.addBtn{
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+.dark .addBtn{
+  background-color: #22c55e;
+}
+.deleteBtn{
+  background-color: #dc2626;
+  color: #ffffff;
+}
+.darl .deleteBtn{
+  background-color: #f43f5e;
+}
+.cancelBtn{
+  background-color:#d4d4d8;
+  color: var(--second-color);
+}
+.dark .cancelBtn{
+  background-color: 	#94a3b8;
+}
+.detailsBtn{
+  background-color: #14b8a6;
+  color: white;
+}
+.dark .detailsBtn{
+  background-color: #0f766e;
+}

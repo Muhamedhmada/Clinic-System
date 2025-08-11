@@ -83,6 +83,7 @@ function Patients(){
           renderAction={(item) => (
             <td>
               <button
+                className='detailsBtn'
                 onClick={() => nav(`/patients/${item.name}`, {state: item})}
               >
                 more details

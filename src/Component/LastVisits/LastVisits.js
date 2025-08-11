@@ -77,7 +77,7 @@ function LastVisits(){
                       className='attachments'
                       onClick={() => ShowAttachment(item.attachments)}
                     >
-                      view
+                      <button className='detailsBtn'>view</button>
                     </td>
                   </tr>
                 );

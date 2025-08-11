@@ -75,7 +75,7 @@
   transition-duration: var(--transition-duration);
 }
 .modal .btns button:nth-child(1){
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
   color: var(--third-color);
 }
 .modal .btns button:nth-child(2):hover{

@@ -15,7 +15,7 @@
   background-color: var(--third-color) !important;
   border: 1px solid var(--border-color) ;
   align-self: flex-start;
-  z-index: -1;
+  /* z-index: -1; */
 }
 .dashHeader-container .search-input input{
   background-color: var(--third-color) !important;

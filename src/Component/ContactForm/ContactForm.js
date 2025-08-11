@@ -36,7 +36,7 @@ function ContactForm(){
             <TwoInputs typeOne={"text"} placeOne={"name"} typeTwo={"email"} placeTwo={"email"}/>
             <TwoInputs typeOne={"number"} placeOne={"phone"} typeTwo={"text"} placeTwo={"subject"}/>
             <textarea placeholder='your message'></textarea>
-            <button onClick={(e)=>handleSendBtn(e)}>send</button>
+            <button className='addBtn' onClick={(e)=>handleSendBtn(e)}>send</button>
           </form>
         </div>
       </div>

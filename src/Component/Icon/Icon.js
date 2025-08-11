@@ -1,7 +1,8 @@
-function Icon({icon }){
+function Icon({icon , func }){
   return (
     <div className='icon'
-      style={{display:"flex" , alignItems:"center" , justifyContent:"center"}}
+      onClick={func}
+      style={{display:"flex" , alignItems:"center" , justifyContent:"center" , cursor:"pointer"}}
     >
       {icon}
     </div>

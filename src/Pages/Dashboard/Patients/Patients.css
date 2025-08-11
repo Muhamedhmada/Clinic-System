@@ -12,7 +12,7 @@
   background-color: var(--border-color);
 }
 .patients-container .patients-content table td button{
-  background-color: transparent;
+  /* background-color: transparent; */
   outline: 0;
   border: 0;
 }

@@ -24,6 +24,9 @@ import Patients from './Pages/Dashboard/Patients/Patients';
 import PatientDetails from './Pages/Dashboard/PatientDetails/PatientDetails';
 import PendingAppointments from './Pages/Dashboard/PendingAppointments/PendingAppointments';
 import ConfirmedAppointments from './Pages/Dashboard/ConfirmedAppointments/ConfirmedAppointments';
+import Users from './Pages/Dashboard/Users/Users';
+import Payment from './Pages/Website/Payment/Payment';
+import PaymentReview from './Pages/Dashboard/PaymentReview/PaymentReview';
 
 function App() {
   const location = useLocation()
@@ -43,6 +46,8 @@ function App() {
           <Route path='/patients'element={<Layout children={<Patients/>}/>}/>
           <Route path='/patients/:patientName'element={<Layout children={<PatientDetails/>}/>}/>
           <Route path='/pending-appointments'element={<Layout children={<PendingAppointments/>}/>}/>
+          <Route path='/users'element={<Layout children={<Users/>}/>}/>
+          <Route path='/payment-review'element={<Layout children={<PaymentReview/>}/>}/>
 
           {/* site */}
           <Route path='/' element={<Home />} />
@@ -56,6 +61,7 @@ function App() {
           <Route path='/medical_history' element={<MedicalHistory />} />
           <Route path='/services' element={<Services />} />
           <Route path='/feedback' element={<Feedback />} />
+          <Route path='/payment' element={<Payment />} />
         </Routes>
       </header>
     </div>

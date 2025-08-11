@@ -1,5 +1,9 @@
 .attached-btn{
   display: flex;
   align-items: center;
-  background-color: var(--primary-color) !important;
+  /* background-color: var(--primary-color) !important; */
+}
+.appointments-container .notify{
+  color: var(--primary-color);
+  cursor: pointer;
 }

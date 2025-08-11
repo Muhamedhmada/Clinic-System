@@ -21,8 +21,8 @@ import { Exit } from "../../Assets/SVGS";
 
           {showModalsBtns ? (
               <div className='btns'>
-                <button onClick={handleAdd}>{AcceptBtn}</button>
-                <button onClick={handleCancel}>{CancelBtn}</button>
+                <button className="addBtn" onClick={handleAdd}>{AcceptBtn}</button>
+                <button className="cancelBtn" onClick={handleCancel}>{CancelBtn}</button>
               </div>
           ) : null}
         </motion.div>

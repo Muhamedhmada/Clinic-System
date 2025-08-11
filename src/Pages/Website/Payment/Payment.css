@@ -1,0 +1,39 @@
+
+.payment-content{
+  width: 550px !important;
+  background-color: var(--border-color);
+  /* background-color: red; */
+  border: 1px solid var(--third-color);
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.dard .payment-content{
+  background-color: var(--border-color);
+}
+.payment-content .btns{
+  background-color: var(--third-color);
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between !important;
+}
+.payment-content .btns button::after{
+  background-color: var(--primary-color);
+}
+.payment-content .btns button:hover{
+  color: var(--third-color);
+}
+/* 
+.payment-content .btns button.active::after{
+  background-color: var(--border-color);
+}
+.payment-content .btns button.active:hover{
+  color: var(--secondary-color);
+} */
+.payment-content .btns .active{
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}

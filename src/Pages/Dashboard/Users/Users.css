@@ -1,0 +1,57 @@
+.users-container .users-content .cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+}
+.users-container .users-content .cards .userCard{
+  width: calc(90% / 4);
+  flex: 1;
+  min-width: 320px;
+  height: 230px;
+  background-color: var(--primary-color);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  box-shadow: 4px 0px 5px #00000036;
+  border-radius: 20px;
+  position: relative;
+}
+.users-container .users-content .cards .userCard .header{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.users-container .users-content .cards .userCard .image img{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.users-container .users-content .cards .userCard .icons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.users-container .users-content .cards .userCard .icons a{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.users-container .users-content .cards .userCard .edit{
+  color: var(--primary-color);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.users-container .users-content .cards .userCard button{
+  align-self: center;
+  width: 90%;
+  padding: 5px;
+  border-radius: 2px;
+}
