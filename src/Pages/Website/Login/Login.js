@@ -66,7 +66,12 @@ function Login(){
                 <Loader/>
               </button>
               :
-            <button onClick={()=>createAccount()}>login</button>
+              (
+                <>
+                  <button onClick={()=>createAccount()}>login</button>
+                  <button onClick={()=>nav('/dashboard')}>login as admin</button>
+                </>
+              )
             }
           </div>
         </div>
