@@ -1,5 +1,5 @@
 import { Blood, Eart, Eye, Heart, Teeth, Time } from '../../../Assets/SVGS'
-import Header from '../../Header/Header'
+import Header from '../../common/Header/Header'
 import './Six.css'
 import SixCard from './SixCard/SixCard'
 function Six(){

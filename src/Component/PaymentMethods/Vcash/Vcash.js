@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Copy } from '../../../Assets/SVGS'
-import Loader from '../../Loader/Loader'
+import BtnLoader from '../../common/BtnLoader/BtnLoader'
 import './Vcash.css'
 function Vcash(){
   const inputRef = useRef()
@@ -55,9 +55,13 @@ function Vcash(){
           name=''
           id=''
         />
-        <button className='addBtn' onClick={() => inputRef.current.click()}>
-          {loader ? <Loader /> : image ? "save" : "upload screen"}
-        </button>
+        {loader ? (
+          <BtnLoader />
+        ) : (
+          <button className='addBtn' onClick={() => inputRef.current.click()}>
+            {image ? "save" : "upload screen"}
+          </button>
+        )}
       </div>
     </div>
   );

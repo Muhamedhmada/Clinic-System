@@ -1,0 +1,43 @@
+.loader-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+}
+.loader-container button{
+  width: 60px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  animation: .5s backwards width ;
+}
+@keyframes width {
+  from{
+    width: 100%;
+  }
+  to{
+    width: 60px;
+  }
+}
+.loader {
+  width: 20px !important;
+  height: 20px !important;
+  border: 3px dotted white !important;
+  border-radius: 50%;
+  animation: 3s backwards rotate infinite;
+  transform: rotate(0);
+  margin: 0;
+  transition: all .3s ease;
+}
+@keyframes rotate {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg)
+  }
+}
+.loader-container button::after{
+  background-color: transparent !important;
+}

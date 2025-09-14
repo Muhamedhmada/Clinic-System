@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import DashHeader from '../../../Component/DashHeader/DashHeader'
-import Table from '../../../CustomComponent/Table/Table';
+import DashHeader from '../../../Component/sections/DashHeader/DashHeader'
+import Table from '../../../Component/custom/Table/Table';
 import './PendingAppointments.css'
-import '../../../CustomComponent/Modal/Modal.jsx'
-import Modal from '../../../CustomComponent/Modal/Modal.jsx';
-import TwoInputs from '../../../Component/TwoInputs/TwoInputs';
+import Modal from '../../../Component/custom/Modal/Modal.jsx'
+import TwoInputs from '../../../Component/common/TwoInputs/TwoInputs';
 import {toast , ToastContainer} from 'react-toastify'
 function PendingAppointments(){
   const [addModal , setAddModal] = useState(false)

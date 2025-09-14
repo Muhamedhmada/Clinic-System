@@ -1,5 +1,5 @@
 import { Teeth } from '../../../Assets/SVGS'
-import Header from '../../Header/Header'
+import Header from '../../common/Header/Header'
 import PlansCard from './PlansCard/PlansCard'
 import './PlansSection.css'
 function PlansSection(){

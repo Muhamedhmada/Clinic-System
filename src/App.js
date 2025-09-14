@@ -1,6 +1,6 @@
 import './App.css';
-import './Assets/Variable.css';
-import './Assets/darkMode.css'
+import './styles/Variable.css';
+import './styles/darkMode.css'
 import {Routes  , Route, useLocation} from 'react-router-dom'
 import Home from './Pages/Website/Home/Home';
 import ContactUS from './Pages/Website/ContactUs/ContactUs';
@@ -10,13 +10,12 @@ import Booking from './Pages/Website/Booking/Booking';
 import BookAppointment from './Pages/Website/BookAppointment/BookAppointment';
 import Services from './Pages/Website/BookAppointment/BookAppointment';
 import ErrorPage from './Pages/Error/Error';
-import ToTop from './Component/ToTop/ToTop';
+import ToTop from './Component/custom/ToTop/ToTop';
 import { useEffect } from 'react';
 import MedicalHistory from './Pages/Website/MedicalHistory/MedicalHistory';
 import FastBooking from './Pages/Website/FastBooking/FastBooking';
-import DarkMode from './Component/DarkMode/DarkMode';
+import DarkMode from './Component/custom/DarkMode/DarkMode';
 import Feedback from './Pages/Website/Feedback/Feedback';
-
 // dashobard
 import Dashboard from './Pages/Dashboard/Home/Home';
 import Layout from './Pages/Dashboard/Layout/Layout';

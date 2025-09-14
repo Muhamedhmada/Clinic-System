@@ -1,9 +1,9 @@
 import { Teeth } from '../../../Assets/SVGS';
 import PlansCard from '../../../Component/HomeComponents/PlansSection/PlansCard/PlansCard';
-import LandPage from '../../../Component/LandPage/LandPage'
-import Navbar from '../../../Component/Navbar/Navbar'
-import Topbar from '../../../Component/Topbar/Topbar'
-import Footer from '../Footer/Footer'
+import LandPage from '../../../Component/common/LandPage/LandPage'
+import Navbar from '../../../Component/common/Navbar/Navbar'
+import Topbar from '../../../Component/common/Topbar/Topbar'
+import Footer from '../../../Component/common/Footer/Footer';
 function Booking(){
   return (
     <div className='services-container'>

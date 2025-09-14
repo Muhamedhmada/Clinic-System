@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import './Booking.css'
-import LandPage from '../../../Component/LandPage/LandPage'
-import Navbar from '../../../Component/Navbar/Navbar'
-import Topbar from '../../../Component/Topbar/Topbar'
-import Footer from '../Footer/Footer'
-import Modal from '../../../CustomComponent/Modal/Modal.jsx'
+import LandPage from '../../../Component/common/LandPage/LandPage'
+import Navbar from '../../../Component/common/Navbar/Navbar'
+import Topbar from '../../../Component/common/Topbar/Topbar'
+import Footer from '../../../Component/common/Footer/Footer';
+import Modal from '../../../Component/custom/Modal/Modal.jsx'
 import { Check, NotAvailable } from '../../../Assets/SVGS'
-import Icon from '../../../Component/Icon/Icon'
-import SuccessModal from '../../../CustomComponent/SuccessModal/SuccessModal'
-import AppointmentCard from '../../../Component/AppointmentCard/AppointmentCard'
+import Icon from '../../../Component/common/Icon/Icon'
+import SuccessModal from '../../../Component/custom/SuccessModal/SuccessModal'
+import AppointmentCard from '../../../Component/sections/AppointmentCard/AppointmentCard'
 function Booking(){
   const [modal , setModal] = useState({
     confirmation:false,

@@ -1,8 +1,8 @@
 import './Payment.css';
-import LandPage from '../../../Component/LandPage/LandPage'
-import Navbar from '../../../Component/Navbar/Navbar'
-import Topbar from '../../../Component/Topbar/Topbar';
-import Footer from '../Footer/Footer'
+import LandPage from '../../../Component/common/LandPage/LandPage'
+import Navbar from '../../../Component/common/Navbar/Navbar'
+import Topbar from '../../../Component/common/Topbar/Topbar';
+import Footer from '../../../Component/common/Footer/Footer';
 import { useState } from 'react';
 import CreditCard from '../../../Component/PaymentMethods/CreditCard/CreditCard';
 import Paypal from '../../../Component/PaymentMethods/Paypal/Paypal';

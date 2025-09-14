@@ -1,9 +1,9 @@
-import ContactCard from "../../../Component/ContactCard/ContactCard";
-import ContactForm from "../../../Component/ContactForm/ContactForm";
-import LandPage from "../../../Component/LandPage/LandPage"
-import Navbar from "../../../Component/Navbar/Navbar";
-import Topbar from "../../../Component/Topbar/Topbar";
-import Footer from "../Footer/Footer";
+import ContactCard from "../../../Component/sections/ContactCard/ContactCard";
+import ContactForm from "../../../Component/sections/ContactForm/ContactForm";
+import LandPage from "../../../Component/common/LandPage/LandPage"
+import Navbar from "../../../Component/common/Navbar/Navbar";
+import Topbar from "../../../Component/common/Topbar/Topbar";
+import Footer from '../../../Component/common/Footer/Footer';
 
 function ContactUS(){
   return (

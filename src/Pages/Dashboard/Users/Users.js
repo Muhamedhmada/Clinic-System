@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { Call, Edit, Mail } from '../../../Assets/SVGS';
-import DashHeader from '../../../Component/DashHeader/DashHeader';
-import TwoInputs from '../../../Component/TwoInputs/TwoInputs';
-import Modal from '../../../CustomComponent/Modal/Modal';
-import Table from '../../../CustomComponent/Table/Table';
+import DashHeader from '../../../Component/sections/DashHeader/DashHeader';
+import TwoInputs from '../../../Component/common/TwoInputs/TwoInputs';
+import Modal from '../../../Component/custom/Modal/Modal.jsx'
+import Table from '../../../Component/custom/Table/Table';
 import './Users.css'
 function Users(){
   const nav = useNavigate()

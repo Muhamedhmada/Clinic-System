@@ -2,7 +2,7 @@ import { Calender, Home, Smile, User } from '../../../Assets/SVGS'
 import './Two.css'
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
-import Icon from '../../Icon/Icon';
+import Icon from '../../common/Icon/Icon';
 function Two(){
   const { ref, inView } = useInView({
     triggerOnce: true, // يشتغل مرة واحدة بس

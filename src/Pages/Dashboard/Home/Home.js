@@ -1,7 +1,7 @@
 import { Tooltip } from 'react-leaflet'
 import { Cell, Legend, Line, LineChart, Pie, PieChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
-import Charts from '../../../Component/Charts/Charts'
-import DashboardHomeCard from '../../../Component/DashboardHomeCard/DashboardHomeCard'
+import Charts from '../../../Component/sections/Charts/Charts'
+import DashboardHomeCard from '../../../Component/sections/DashboardHomeCard/DashboardHomeCard'
 import './Home.css'
 function Home(){
 

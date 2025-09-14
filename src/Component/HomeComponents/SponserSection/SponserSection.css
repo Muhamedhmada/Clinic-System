@@ -5,6 +5,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .sponserSection-container:after{
   position: absolute;
@@ -21,7 +24,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-
+  position: relative;
+  /* background-color: red; */
+  /* box-shadow: 0 0 15px 5px rgba(31, 73, 125, 0.8); */
 }
 .sponserSection-container .sponserSection-content .image{
   width: 300px;

@@ -35,3 +35,6 @@
   flex-direction: column;
   gap: 10px;
 }
+.vcash-container .vcash-content button{
+  background-color: var(--primary-color);
+}

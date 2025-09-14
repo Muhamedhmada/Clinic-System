@@ -1,7 +1,7 @@
 import { Ambulance, MedicalEarPhone, Pharmecy } from '../../../Assets/SVGS'
-import Header from '../../Header/Header'
-import Icon from '../../Icon/Icon'
-import ThreeCards from '../../ThreeCards/ThreeCards'
+import Header from '../../common/Header/Header'
+import Icon from '../../common/Icon/Icon'
+import ThreeCards from '../../sections/ThreeCards/ThreeCards'
 import './One.css'
 function One(){
   return(

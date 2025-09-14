@@ -1,5 +1,5 @@
 import './Aside.css'
-import Logo from '../../Logo/Logo'
+import Logo from '../../common/Logo/Logo'
 import { AngleLeft, AngleRight, Calender, Home, Payment, Pending, Settings, Users } from '../../../Assets/SVGS'
 function Aside({isClose , handleClose}){
   return (

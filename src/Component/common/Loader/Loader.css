@@ -1,0 +1,21 @@
+.loader-container{
+  display: flex;
+  gap: 15px;
+  align-self: center;
+  justify-content: center;
+}
+.loader-container p{
+  font-size: 20px;
+}
+
+.loader-container .tableLoader {
+  border-radius: 50%;
+  animation: 3s backwards rotate infinite;
+  transform: rotate(0);
+  margin: 0;
+  transition: all .3s ease;
+  width: 25px;
+  height: 25px;
+  border: 2px solid var(--primary-color);
+  border-color:var(--primary-color) transparent ;
+}

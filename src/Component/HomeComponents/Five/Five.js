@@ -1,4 +1,4 @@
-import Header from '../../Header/Header'
+import Header from '../../common/Header/Header'
 import './Five.css'
 import img1 from '../../../Assets/Images/patient1.avif'
 import img2 from '../../../Assets/Images/patient2.avif'

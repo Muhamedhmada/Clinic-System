@@ -1,12 +1,12 @@
 import './PaymentReview.css'
-import DashHeader from '../../../Component/DashHeader/DashHeader'
-import Table from '../../../CustomComponent/Table/Table';
+import DashHeader from '../../../Component/sections/DashHeader/DashHeader'
+import Table from '../../../Component/custom/Table/Table';
 import {toast , ToastContainer} from 'react-toastify'
 import img from '../../../Assets/Images/maximising-user-satisfaction-3.jpg'
 import img2 from '../../../Assets/Images/Successful-Payment-Information.png'
 import { useState } from 'react';
 import { Exit } from '../../../Assets/SVGS';
-import Icon from '../../../Component/Icon/Icon';
+import Icon from '../../../Component/common/Icon/Icon';
 import { AnimatePresence, motion } from 'framer-motion';
 function PaymentReview(){
   const paymentSubmissions = [

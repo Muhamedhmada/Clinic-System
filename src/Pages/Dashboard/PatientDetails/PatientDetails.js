@@ -1,47 +1,43 @@
-import { useLocation, useParams } from 'react-router-dom'
-import DashHeader from '../../../Component/DashHeader/DashHeader'
-import Table from '../../../CustomComponent/Table/Table'
 import './PatientDetails.css'
-import img from '../../../Assets/Images/rosheta1.jpg'
-import img1 from '../../../Assets/Images/rosheta2.jpg'
-import { useState } from 'react'
-import Modal from '../../../CustomComponent/Modal/Modal'
+import { useLocation, useParams } from 'react-router-dom'
+import DashHeader from '../../../Component/sections/DashHeader/DashHeader'
+import Table from '../../../Component/custom/Table/Table'
+import { useState , useEffect } from 'react'
+import Modal from '../../../Component/custom/Modal/Modal.jsx'
 import { Exit } from '../../../Assets/SVGS'
-import Icon from '../../../Component/Icon/Icon'
+import Icon from '../../../Component/common/Icon/Icon'
+import getData from '../../../utils/getData'
 function PatientDetails(route){
   const {patientName} = useParams()
   const [selectedImage , setSelectedImage] = useState(null)
   const [showModal , setShowModal] = useState(false)
-
   const location = useLocation()
   const patientDetails = location.state
+  const [loader , setLoader] = useState(false)
+  const [medicalVisits , setMedicalVisits] = useState([])
 
-  const medicalVisits = [
-    {
-      id: 1,
-      date: "2025-05-20",
-      diagnosis: "Skin Allergy",
-      notes: "Prescribed antihistamine",
-      attachments: [
-        img,
-        img1
-      ]
-    },
-    {
-      id: 2,
-      date: "2024-10-05",
-      diagnosis: "Headache",
-      notes: "None",
-      attachments: [
-        img1
-      ]
+  console.log(patientDetails.id)
+
+  // get data
+  const getMedicalVisits = async()=>{
+    setLoader(true)
+    try{
+      const res = await getData(`medical-history/user/${patientDetails.id}`)
+      console.log(res)
+      setMedicalVisits(res.data.data)
     }
-  ];
-
+    finally{
+      setLoader(false)
+    }
+  } 
   const handleSelectedImage = (img)=>{
     setSelectedImage(img)
     setShowModal(true)
   }
+
+  useEffect(()=>{
+    getMedicalVisits()
+  } , [])
   
   return (
     <div className='patientDetails-container'>
@@ -50,21 +46,22 @@ function PatientDetails(route){
         <div className='details'>
           <h3>{patientName}</h3>
           <div>
-            <p>age:{patientDetails.age}</p>
-            <p>gender:{patientDetails.gender}</p>
-            <p>phone:{patientDetails.phone}</p>
+            <p>age: {patientDetails.age}</p>
+            <p>gender: {patientDetails.gender}</p>
+            <p>phone: {patientDetails.phone}</p>
           </div>
         </div>
         <Table
+          loader={loader}
           data={medicalVisits}
           headers={["date", "diagnosis", "notes", "attachments"]}
           keys={["date", "diagnosis", "notes"]}
           renderAction={(item) => (
             <td className='attachments'>
-              {item.attachments.map((img) => (
+              {item.attachments.map((item) => (
                 <img
-                  onClick={() => handleSelectedImage(img)}
-                  src={img}
+                  onClick={() => handleSelectedImage(item.url)}
+                  src={item.url}
                   alt='img'
                 />
               ))}

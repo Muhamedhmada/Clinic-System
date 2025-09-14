@@ -1,4 +1,4 @@
-import Header from '../../Header/Header'
+import Header from '../../common/Header/Header'
 // import img from '../../../Assets/Images/hands.jpg'
 import './Three.css'
 function Three(){

@@ -1,9 +1,9 @@
 import { toast, ToastContainer } from 'react-toastify'
-import LandPage from '../../../Component/LandPage/LandPage'
-import Navbar from '../../../Component/Navbar/Navbar'
-import Topbar from '../../../Component/Topbar/Topbar'
-import TwoInputs from '../../../Component/TwoInputs/TwoInputs'
-import Footer from '../Footer/Footer'
+import LandPage from '../../../Component/common/LandPage/LandPage'
+import Navbar from '../../../Component/common/Navbar/Navbar'
+import Topbar from '../../../Component/common/Topbar/Topbar'
+import TwoInputs from '../../../Component/common/TwoInputs/TwoInputs'
+import Footer from '../../../Component/common/Footer/Footer';
 import './FastBooking.css'
 function FastBooking(){
   const sendForm = (e)=>{

@@ -1,17 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom'
-import LandPage from '../../../Component/LandPage/LandPage'
-import Navbar from '../../../Component/Navbar/Navbar'
-import Topbar from '../../../Component/Topbar/Topbar'
-import Footer from '../Footer/Footer'
+import LandPage from '../../../Component/common/LandPage/LandPage'
+import Navbar from '../../../Component/common/Navbar/Navbar'
+import Topbar from '../../../Component/common/Topbar/Topbar'
+import Footer from '../../../Component/common/Footer/Footer';
 import {jwtDecode} from 'jwt-decode';
 import {GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google'
 import { toast, ToastContainer } from 'react-toastify'
-import TwoInputs from '../../../Component/TwoInputs/TwoInputs'
+import TwoInputs from '../../../Component/common/TwoInputs/TwoInputs'
 import axios from 'axios'
-import Url from '../../../Assets/Url'
-import Loader from '../../../Component/Loader/Loader'
+import Url from '../../../config/base_url'
+import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
 import { useState } from 'react'
-import isTokenSlice from '../../../Zustand/isTokenSlice'
+import isTokenSlice from '../../../zustand/isTokenSlice'
 function SignUp(){
   const handleSuccess = (credentialResponse)=>{
     const decoded = jwtDecode(credentialResponse.credential);
@@ -26,38 +26,43 @@ function SignUp(){
   const nav = useNavigate()
   const {createAccountSlice} = isTokenSlice()
   const [data , setData] = useState({
-    firstName:"",
-    lastName:"",
+    first_name:"",
+    last_name:"",
     phone:"",
     email : "",
     password :"",
-    confirmPassword:""
+    confirmPassword:"",
+    gender:""
   })
   const createAccount = async()=>{
+    console.log(data.gender)
+    // return
     if (
-      !data.firstName ||
-      !data.lastName ||
+      !data.first_name ||
+      !data.last_name ||
       !data.phone ||
       !data.email ||
       !data.password ||
-      !data.confirmPassword
+      !data.confirmPassword ||
+      !data.gender
     ) {
       toast.warn("enter all fields first");
       return;
     }
     try{
       setLoader(true)
-      const res = await axios.post(`${Url}/auth/register` , JSON.stringify(data))
-        if(res.status == "201"){
-          createAccountSlice(res.data.accessToken)
-          toast.success(res.data.message)
-          setTimeout(()=>{
-            nav('/')
-          },1000)
+      const res = await axios.post(`${Url}/auth/signup` , data)
+      console.log(res.data.data.accessToken)
+        if(res.data.data.accessToken){
+          createAccountSlice(res.data.data.accessToken)
+          nav('/' , {state:{success:true , msg:res.data.message}})
         }
     }
     catch (error){
-      toast.error(error.response.data.message)
+      console.log(error.response.data.message)
+      error.response.data.message.map((item)=>(
+        toast.error(item)
+      ))
     }
     finally{
       setLoader(false)
@@ -85,12 +90,12 @@ function SignUp(){
               <TwoInputs 
                 typeOne={"text"}
                 placeOne={"first name"}
-                valueOne={data.firstName}
-                fnOne={(e)=>setData((prev)=>({...prev,firstName:e.target.value}))}
+                valueOne={data.first_name}
+                fnOne={(e)=>setData((prev)=>({...prev,first_name:e.target.value}))}
                 typeTwo={"text"}
                 placeTwo={"last name"}
-                valueTwo={data.lastName}
-                fnTwo={(e)=>setData((prev)=>({...prev,lastName:e.target.value}))}
+                valueTwo={data.last_name}
+                fnTwo={(e)=>setData((prev)=>({...prev,last_name:e.target.value}))}
               />
               <TwoInputs 
                 typeOne={"number"}
@@ -112,13 +117,16 @@ function SignUp(){
                 valueTwo={data.confirmPassword}
                 fnTwo={(e)=>setData((prev)=>({...prev,confirmPassword:e.target.value}))}
               />
+              <select onChange={(e)=>setData((prev)=>({...prev,gender:e.target.value}))}>
+                <option value="" selected disabled>choose gender</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+              </select>
             </div>
             <div className="btns">
               {
               loader?
-              <button>
-                <Loader/>
-              </button>
+                <BtnLoader/>
               :
             <button onClick={()=>createAccount()}>SignUp</button>
             }

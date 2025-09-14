@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { Check } from "../../../../Assets/SVGS"
-import Icon from "../../../Icon/Icon"
+import Icon from "../../../common/Icon/Icon"
 
 function PlansCard({icon , header , price , list , link}){
   const nav  = useNavigate()

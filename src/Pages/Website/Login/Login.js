@@ -1,23 +1,33 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
-import LandPage from '../../../Component/LandPage/LandPage'
-import Navbar from '../../../Component/Navbar/Navbar'
-import Topbar from '../../../Component/Topbar/Topbar'
-import isTokenSlice from '../../../Zustand/isTokenSlice'
-import Footer from '../Footer/Footer'
+import LandPage from '../../../Component/common/LandPage/LandPage'
+import Navbar from '../../../Component/common/Navbar/Navbar'
+import Topbar from '../../../Component/common/Topbar/Topbar'
+import isTokenSlice from '../../../zustand/isTokenSlice'
+import Footer from '../../../Component/common/Footer/Footer';
 import './Login.css';
-import Url from '../../../Assets/Url'
+import base_url from '../../../config/base_url'
 import axios from 'axios'
-import Loader from '../../../Component/Loader/Loader'
+import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
+import UserDataSlice from '../../../zustand/UserDataSlice'
+import handleApiError from '../../../utils/handleApiError'
 function Login(){
   const [loader , setLoader] = useState(false)
   const nav = useNavigate()
   const {createAccountSlice} = isTokenSlice()
+  const {createUserDataSlice} = UserDataSlice()
   const [data , setData] = useState({
     email : "",
     password :""
   })
+  // const clearInputValue = ()=>{
+  //   setData((prev)=>({
+  //     ...prev,
+  //     email:"",
+  //     password:""
+  //   }))
+  // }
   const createAccount = async()=>{
     if(!data.email  || !data.password){
       toast.warn("enter all fields first")
@@ -25,14 +35,15 @@ function Login(){
     }
     try{
       setLoader(true)
-      const res = await axios.post(`${Url}/auth/login` , data)
-        if(res.data.accessToken){
-          createAccountSlice(res.data.accessToken)
+      const res = await axios.post(`${base_url}/auth/login` , data)
+        if(res.status){
+          createAccountSlice(res.data.data.accessToken)
+          createUserDataSlice(res.data.data.user)
           nav('/', {state:{success:true , msg:res.data.message}})
         }
     }
     catch (error){
-      toast.error(error.response.data.message)
+      handleApiError(error)
     }
     finally{
       setLoader(false)
@@ -62,14 +73,12 @@ function Login(){
             </div>
             {
               loader?
-              <button>
-                <Loader/>
-              </button>
+                <BtnLoader/>
               :
               (
                 <>
                   <button onClick={()=>createAccount()}>login</button>
-                  <button onClick={()=>nav('/dashboard')}>login as admin</button>
+                  {/* <button onClick={()=>nav('/dashboard')}>login as admin</button> */}
                 </>
               )
             }

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Attach, Notification } from '../../../Assets/SVGS';
-import DashHeader from '../../../Component/DashHeader/DashHeader'
-import Table from '../../../CustomComponent/Table/Table'
+import DashHeader from '../../../Component/sections/DashHeader/DashHeader'
+import Table from '../../../Component/custom/Table/Table'
 import './ConfirmedAppointments.css'
 import { Select, Space } from 'antd';
 
