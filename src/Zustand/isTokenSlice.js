@@ -1,6 +1,6 @@
 import {create} from "zustand";
 
-const isTokenSlice = create((set) => {
+const IsTokenSlice = create((set) => {
   const isToken = localStorage.getItem("token") || false;
 
   return {
@@ -12,4 +12,4 @@ const isTokenSlice = create((set) => {
     },
   };
 });
-export default isTokenSlice;
+export default IsTokenSlice;

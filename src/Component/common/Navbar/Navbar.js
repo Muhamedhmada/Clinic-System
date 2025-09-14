@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Bars, Exit } from '../../../Assets/SVGS'
 import './Navbar.css'
 import Logo from '../Logo/Logo'
-import isTokenSlice from '../../../zustand/isTokenSlice'
+import isTokenSlice from '../../../zustand/IsTokenSlice'
 function Navbar(){
   const nav = useNavigate()
   const navBarRef = useRef()

@@ -9,13 +9,13 @@ import Footer from '../../../Component/common/Footer/Footer';
 import base_url from '../../../config/base_url'
 import axios from 'axios'
 import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
-import isTokenSlice from '../../../zustand/isTokenSlice'
+import IsTokenSlice from '../../../zustand/IsTokenSlice'
 import UserDataSlice from '../../../zustand/UserDataSlice'
 import handleApiError from '../../../utils/handleApiError'
 function Login(){
   const [loader , setLoader] = useState(false)
   const nav = useNavigate()
-  const {createAccountSlice} = isTokenSlice()
+  const {createAccountSlice} = IsTokenSlice()
   const {createUserDataSlice} = UserDataSlice()
   const [data , setData] = useState({
     email : "",
