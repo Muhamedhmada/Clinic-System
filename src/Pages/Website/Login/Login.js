@@ -9,8 +9,8 @@ import Footer from '../../../Component/common/Footer/Footer';
 import base_url from '../../../config/base_url'
 import axios from 'axios'
 import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
-import TokenSlice from '../../../zustanddd/TokenSlice.js'
-import UserDataSlice from '../../../zustanddd/UserDataSlice'
+import TokenSlice from '../../../zustand/TokenSlice.js'
+import UserDataSlice from '../../../zustand/UserDataSlice'
 import handleApiError from '../../../utils/handleApiError'
 function Login(){
   const [loader , setLoader] = useState(false)
