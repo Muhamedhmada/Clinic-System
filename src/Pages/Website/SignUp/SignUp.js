@@ -11,7 +11,7 @@ import axios from 'axios'
 import Url from '../../../config/base_url'
 import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
 import { useState } from 'react'
-import isTokenSlice from '../../../zustand/TokenSlice'
+import TokenSlice from '../../../zustand/TokenSlice.js'
 function SignUp(){
   const handleSuccess = (credentialResponse)=>{
     const decoded = jwtDecode(credentialResponse.credential);
@@ -24,7 +24,7 @@ function SignUp(){
 
   const [loader , setLoader] = useState(false)
   const nav = useNavigate()
-  const {createAccountSlice} = isTokenSlice()
+  const {createAccountSlice} = TokenSlice()
   const [data , setData] = useState({
     first_name:"",
     last_name:"",
