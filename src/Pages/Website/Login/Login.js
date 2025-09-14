@@ -9,7 +9,7 @@ import Footer from '../../../Component/common/Footer/Footer';
 import base_url from '../../../config/base_url'
 import axios from 'axios'
 import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
-import IsTokenSlice from '../../../zustand/IsTokenSlice'
+import IsTokenSlice from '../../../zustand/isTokenSlice'
 import UserDataSlice from '../../../zustand/UserDataSlice'
 import handleApiError from '../../../utils/handleApiError'
 function Login(){
