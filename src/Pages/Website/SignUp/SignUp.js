@@ -11,7 +11,7 @@ import axios from 'axios'
 import Url from '../../../config/base_url'
 import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
 import { useState } from 'react'
-import isTokenSlice from '../../../zustand/isTokenSlice'
+import isTokenSlice from '../../../zustand/IsTokenSlice'
 function SignUp(){
   const handleSuccess = (credentialResponse)=>{
     const decoded = jwtDecode(credentialResponse.credential);
