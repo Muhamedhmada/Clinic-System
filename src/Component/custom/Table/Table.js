@@ -4,7 +4,7 @@ import './Table.css'
 import Icon from '../../common/Icon/Icon'
 import {ArrowLeft , ArrowRight} from '../../../Assets/SVGS.jsx'
 import { AnimatePresence, motion } from 'framer-motion'
-function Table({data , headers , keys  , renderAction , loader , searchValue}){
+function Table({data , headers , keys  , renderAction , loader , searchValue=""}){
 
   const [filteredData , setFilteredData] = useState(data|| [])
   const [currentPage , setCurrentPage] = useState(1)
@@ -23,14 +23,16 @@ function Table({data , headers , keys  , renderAction , loader , searchValue}){
     console.log(data)
     if(searchValue === ""){
       setFilteredData(data)
+      console.log("no search")
       return
     }
     if(searchValue !== ""){
-      const filterData = data.filter(
+      console.log("search")
+      const filterData = data?.filter(
         (item) =>
-          item.first_name.toLowerCase().includes(searchValue.toLowerCase()) ||
-          item.last_name.toLowerCase().includes(searchValue.toLowerCase()) || 
-          item.phone.includes(searchValue)
+          item.first_name?.toLowerCase().includes(searchValue?.toLowerCase()) ||
+          item.last_name?.toLowerCase().includes(searchValue?.toLowerCase()) 
+          // item.phone.includes(searchValue)
       );
       setFilteredData(filterData)
     }
