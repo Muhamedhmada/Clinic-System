@@ -1,27 +1,37 @@
+import './Patients.css'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashHeader from '../../../Component/sections/DashHeader/DashHeader'
 import Table from '../../../Component/custom/Table/Table';
-import './Patients.css'
 import Modal from '../../../Component/custom/Modal/Modal.jsx'
 import TwoInputs from '../../../Component/common/TwoInputs/TwoInputs';
 import {toast , ToastContainer} from 'react-toastify'
 import getData from '../../../utils/getData';
 function Patients(){
+
   const nav = useNavigate()
   const [addModal , setAddModal] = useState(false)
   const [ patients , setPaitents] = useState([])
   const [ loader , setLoader] = useState(false)
+
+  const [searchValue , setSearchValue] = useState("")
+
+  const getSearchValue = (e)=>{
+    setSearchValue(e.target.value)
+  }
+
   const getUsers = async()=>{
     setLoader(true)
     try{
       const res = await getData("user")
       setPaitents(res.data.data)
+      console.log(res)
     }
     finally{
       setLoader(false)
     }
   }
+
   useEffect(()=>{
     getUsers()
   },[])
@@ -33,8 +43,9 @@ function Patients(){
     <div className='patients-container'>
       <div className='patients-content'>
         <ToastContainer/>
-        <DashHeader header='patients' btnFn={()=>setAddModal(true)} />
+        <DashHeader header='patients' btnFn={()=>setAddModal(true)}  getSearchValue = {getSearchValue}/>
         <Table
+          searchValue={searchValue}
           loader={loader}
           headers={[
             "name",

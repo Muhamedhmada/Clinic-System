@@ -1,18 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Loader from '../../common/Loader/Loader'
 import './Table.css'
 import Icon from '../../common/Icon/Icon'
 import {ArrowLeft , ArrowRight} from '../../../Assets/SVGS.jsx'
 import { AnimatePresence, motion } from 'framer-motion'
-function Table({data , headers , keys  , renderAction , loader}){
+function Table({data , headers , keys  , renderAction , loader , searchValue}){
 
+  const [filteredData , setFilteredData] = useState(data|| [])
   const [currentPage , setCurrentPage] = useState(1)
   let ItemsPerPage = 5
   let indexOfLastItem = currentPage * ItemsPerPage
   let indexOfFirstItem = indexOfLastItem - ItemsPerPage
-  const totalPage = Math.ceil(data.length / ItemsPerPage)
-  const currentData = data.slice(indexOfFirstItem , indexOfLastItem)
+  const totalPage = Math.ceil(data?.length / ItemsPerPage)
+  const currentData = filteredData?.slice(indexOfFirstItem , indexOfLastItem)
 
+  console.log(data)
+  console.log(filteredData)
+  console.log(currentData)
+  console.log(searchValue === "")
+  const filterData = ()=>{
+
+    console.log(data)
+    if(searchValue === ""){
+      setFilteredData(data)
+      return
+    }
+    if(searchValue !== ""){
+      const filterData = data.filter(
+        (item) =>
+          item.first_name.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.last_name.toLowerCase().includes(searchValue.toLowerCase()) || 
+          item.phone.includes(searchValue)
+      );
+      setFilteredData(filterData)
+    }
+    console.log(searchValue)
+  }
+
+
+  useEffect(()=>{
+    filterData()
+  } , [searchValue , data])
   return (
     <div className='table-container'>
       <table>
@@ -32,7 +60,7 @@ function Table({data , headers , keys  , renderAction , loader}){
           >
             {loader ? (
               <tr>
-                <td colSpan={headers.length}>
+                <td colSpan={headers?.length}>
                   <Loader />
                 </td>
               </tr>
@@ -58,7 +86,7 @@ function Table({data , headers , keys  , renderAction , loader}){
                 );
               })
             ) : (
-              <td colSpan={keys.length + 1} className='no_data'>
+              <td colSpan={keys?.length + 1} className='no_data'>
                 there is no data to display...
               </td>
             )}
@@ -67,7 +95,7 @@ function Table({data , headers , keys  , renderAction , loader}){
       </table>
 
       {/* pagination */}
-      {data.length > 0 ? (
+      {data?.length > 0 ? (
         <div className='table-pagination'>
           {currentPage > 1 ? (
             <Icon
