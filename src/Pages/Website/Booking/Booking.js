@@ -1,111 +1,64 @@
-import { useState } from 'react'
-import './Booking.css'
-import LandPage from '../../../Component/common/LandPage/LandPage'
-import Navbar from '../../../Component/common/Navbar/Navbar'
-import Topbar from '../../../Component/common/Topbar/Topbar'
-import Footer from '../../../Component/common/Footer/Footer';
-import Modal from '../../../Component/custom/Modal/Modal.jsx'
-import { Check, NotAvailable } from '../../../Assets/SVGS'
-import Icon from '../../../Component/common/Icon/Icon'
-import SuccessModal from '../../../Component/custom/SuccessModal/SuccessModal'
-import AppointmentCard from '../../../Component/sections/AppointmentCard/AppointmentCard'
-function Booking(){
-  const [modal , setModal] = useState({
-    confirmation:false,
-    data:false,
-    success:false
+import {useEffect, useState} from "react";
+import "./Booking.css";
+import LandPage from "../../../Component/common/LandPage/LandPage";
+import Navbar from "../../../Component/common/Navbar/Navbar";
+import Topbar from "../../../Component/common/Topbar/Topbar";
+import Footer from "../../../Component/common/Footer/Footer";
+import Modal from "../../../Component/custom/Modal/Modal.jsx";
+import {Check, NotAvailable} from "../../../Assets/SVGS";
+import Icon from "../../../Component/common/Icon/Icon";
+import SuccessModal from "../../../Component/custom/SuccessModal/SuccessModal";
+import AppointmentCard from "../../../Component/sections/AppointmentCard/AppointmentCard";
+import getData from "../../../utils/getData";
+import Loader from "../../../Component/common/Loader/Loader";
+import TwoInputs from "../../../Component/common/TwoInputs/TwoInputs";
+function Booking() {
+  const [modal, setModal] = useState({
+    confirmation: false,
+    data: false,
+    success: false,
+  });
+  
+  const [appointment , setAppointment] = useState({
+    day:null,
+    hour:null
   })
+  const [appointmentData , setAppointmentData] = useState({
+    name:"",
+    number:""
+  })
+  const [showBookingTable, setShowBookingTable] = useState(true);
+  const [schedule, setSchedule] = useState();
 
-  const [showBookingTable , setShowBookingTable] = useState(true)
-  const [selectedDay , setSelectedDay] = useState()
-  const [selectedHour , setSelectedHour] = useState()
-  const weeklySchedule = [
-    {
-      date: "2025-05-11", // Sunday
-      slots: [
-        { hour: 0, booked: false },
-        { hour: 1, booked: true },
-        { hour: 2, booked: false },
-        { hour: 3, booked: false },
-        { hour: 4, booked: false },
-        { hour: 5, booked: false },
-        { hour: 6, booked: false },
-        { hour: 7, booked: true },
-        { hour: 8, booked: false },
-        { hour: 9, booked: false },
-        { hour: 10, booked: true },
-        { hour: 11, booked: false },
-        { hour: 12, booked: false },
-        { hour: 13, booked: false },
-        { hour: 14, booked: false },
-        { hour: 15, booked: false },
-        { hour: 16, booked: false },
-        { hour: 17, booked: false },
-        { hour: 18, booked: true },
-        { hour: 19, booked: false },
-        { hour: 20, booked: false },
-        { hour: 21, booked: false },
-        { hour: 22, booked: false },
-        { hour: 23, booked: false }
-      ]
-    },
-    {
-      date: "2025-05-12", // Monday
-      slots: Array.from({ length: 24 }, (_, hour) => ({
-        hour,
-        booked: hour === 10 || hour === 14
-      }))
-    },
-    {
-      date: "2025-05-13", // Tuesday
-      slots: Array.from({ length: 24 }, (_, hour) => ({
-        hour,
-        booked: hour === 8 || hour === 12 || hour === 17
-      }))
-    },
-    {
-      date: "2025-05-14", // Wednesday
-      slots: Array.from({ length: 24 }, (_, hour) => ({
-        hour,
-        booked: hour === 9 || hour === 15
-      }))
-    },
-    {
-      date: "2025-05-15", // Thursday
-      slots: Array.from({ length: 24 }, (_, hour) => ({
-        hour,
-        booked: false
-      }))
-    },
-    {
-      date: "2025-05-16", // Friday
-      slots: Array.from({ length: 24 }, (_, hour) => ({
-        hour,
-        booked: hour % 2 === 0 // ساعات زوجية محجوزة
-      }))
-    },
-    {
-      date: "2025-05-17", // Saturday
-      slots: Array.from({ length: 24 }, (_, hour) => ({
-        hour,
-        booked: false
-      }))
-    }
-  ];
+  const selectAppointment = (day, hour) => {
+    console.log(day , hour)
+    setModal((prev) => ({...prev, confirmation: true}));
+    setAppointment((prev)=>({...prev ,day:day , hour:hour}))
+  };
 
-  const AppointmentConfirm = (day , hour)=>{
-    setModal((prev)=>({...prev,confirmation:true}))
-    setSelectedDay(day)
-    setSelectedHour(hour)
-  }
+  const handleNextStep = () => {
+    setModal((prev) => ({...prev, confirmation: false, data: true}));
+  };
 
-  const handleNextStep = ()=>{
-    setModal((prev)=>({...prev,confirmation:false , data:true}))
-  }
+  const confirmAppointment = () => {
+    setModal((prev) => ({...prev, data: false, success: true}));
+    setAppointmentData((prev) => ({...prev, name: "", number: true}));
+    console.log(appointmentData)
+  };
+  
+  const CancelAppointment = () => {
+    setModal((prev) => ({...prev, data: false}))
+    setAppointmentData((prev) => ({...prev, name: "", number: true}));
+  };
 
-  const handleConfirm =()=>{
-    setModal((prev)=>({...prev,data:false,success:true}))
-  }
+
+  const getAppointments = async () => {
+    const res = await getData("time-slot");
+    setSchedule(res.data.data.data);
+  };
+  useEffect(() => {
+    getAppointments();
+  }, []);
   return (
     <>
       <Topbar />
@@ -128,48 +81,60 @@ function Booking(){
             </button>
           </div>
           {showBookingTable ? (
-            <table>
-              <tr>
-                <th>time</th>
-                {weeklySchedule.map((item, index) => {
-                  return (
-                    <>
-                      <th>{item.date}</th>
-                    </>
-                  );
-                })}
-              </tr>
-              {Array.from({length: 8}, (_, i) => i + 14).map((hour, index) => {
-                return (
+            schedule ? (
+              <table>
+                <thead>
                   <tr>
-                    <td className='hour'>
-                      <p>
-                        {hour > 12 ? hour - 12 + ":00 Pm" : hour + ":00 Am"}
-                      </p>
-                    </td>
-                    {weeklySchedule.map((day) => {
-                      const slot = day.slots.find((s) => s.hour === hour);
-                      return (
-                        <td
-                          onClick={() => {
-                            !slot.booked && AppointmentConfirm(day, hour);
-                          }}
-                          key={day.date + hour}
-                          className={slot.booked ? "booked" : "available"}
-                        >
-                          {slot.booked ? "Booked" : "Available"}
-                          {slot.booked && <Icon icon={<NotAvailable />} />}
-                        </td>
-                      );
+                    <th>time</th>
+                    {schedule?.map((item, index) => {
+                      return <th key={index}>{item.slot_date}</th>;
                     })}
                   </tr>
-                );
-              })}
-            </table>
+                </thead>
+                <tbody>
+                  {schedule?.[0].slots.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td className='hour'>
+                          <p>{item.time > 12 ? item.time - 12 : item.time}</p>
+                        </td>
+                        {schedule?.map((day, index) => {
+                          const slot = day.slots.find(
+                            (s) => s.time === item.time
+                          );
+                          return (
+                            <td
+                              key={index}
+                              onClick={() => {
+                                slot.status === "available" &&
+                                  selectAppointment(day.slot_date, item.time);
+                              }}
+                              className={
+                                slot.status === "available"
+                                  ? "available"
+                                  : "booked"
+                              }
+                            >
+                              {slot.status === "available"
+                                ? "Available"
+                                : "Booked"}
+                              {slot.status !== "available" && (
+                                <Icon icon={<NotAvailable />} />
+                              )}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            ) : (
+              <Loader />
+            )
           ) : (
-            <AppointmentCard/>
+            <AppointmentCard />
           )}
-
           {/* confirmation modal */}
           <Modal
             isOpen={modal.confirmation}
@@ -183,7 +148,7 @@ function Booking(){
             showModalsBtns='true'
           >
             <div className='icon'>
-              <Check width='70px' color="#1a76d1" />
+              <Check width='70px' color='#1a76d1' />
             </div>
             <h3>confirm your booking</h3>
 
@@ -193,13 +158,13 @@ function Booking(){
               </p>
               <div>
                 <p>
-                  <span>Date</span>: {selectedDay?.date}
+                  <span>Date</span>: {appointment.day}
                 </p>
                 <p>
                   <span>Time</span>:{" "}
-                  {selectedHour > 12
-                    ? selectedHour - 12 + ":00 Pm"
-                    : selectedHour + ":00 Am"}
+                  {appointment.hour > 12
+                    ? appointment.hour - 12 
+                    : appointment.hour}
                 </p>
               </div>
             </div>
@@ -209,9 +174,9 @@ function Booking(){
           <Modal
             isOpen={modal.data}
             onClose={() => setModal((prev) => ({...prev, data: false}))}
-            handleCancel={() => setModal((prev) => ({...prev, data: false}))}
+            handleCancel={CancelAppointment}
             AcceptBtn='confrirm'
-            handleAdd={handleConfirm}
+            handleAdd={confirmAppointment}
             CancelBtn='cancel'
             showModalsBtns='true'
           >
@@ -220,10 +185,16 @@ function Booking(){
               </div> */}
             <h3>confirm your booking</h3>
 
-            <div className='userData'>
-              <input type='text' placeholder='enter your name' />
-              <input type='number' placeholder='enter your number' />
-            </div>
+            <TwoInputs
+              typeOne="text"
+              valueOne={appointmentData.name}
+              fnOne={(e)=>setAppointmentData((prev)=>({...prev , name:e.target.value}))}
+              placeOne={"enter your name"}
+              typeTwo="number"
+              valueTwo={appointmentData.number}
+              fnTwo={(e)=>setAppointmentData((prev)=>({...prev , number:e.target.value}))}
+              placeTwo={"enter your number"}
+            />
           </Modal>
           {/* success modal */}
           {modal.success ? (
@@ -240,4 +211,4 @@ function Booking(){
     </>
   );
 }
-export default Booking
+export default Booking;

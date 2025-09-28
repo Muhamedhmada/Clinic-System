@@ -4,6 +4,7 @@ import './Table.css'
 import Icon from '../../common/Icon/Icon'
 import {ArrowLeft , ArrowRight} from '../../../Assets/SVGS.jsx'
 import { AnimatePresence, motion } from 'framer-motion'
+import handleSearch from '../../../utils/handleSearch'
 function Table({data , headers , keys  , renderAction , loader , searchValue=""}){
 
   const [filteredData , setFilteredData] = useState(data|| [])
@@ -14,34 +15,29 @@ function Table({data , headers , keys  , renderAction , loader , searchValue=""}
   const totalPage = Math.ceil(data?.length / ItemsPerPage)
   const currentData = filteredData?.slice(indexOfFirstItem , indexOfLastItem)
 
-  console.log(data)
-  console.log(filteredData)
-  console.log(currentData)
-  console.log(searchValue === "")
-  const filterData = ()=>{
-
-    console.log(data)
-    if(searchValue === ""){
-      setFilteredData(data)
-      console.log("no search")
-      return
-    }
-    if(searchValue !== ""){
-      console.log("search")
-      const filterData = data?.filter(
-        (item) =>
-          item.first_name?.toLowerCase().includes(searchValue?.toLowerCase()) ||
-          item.last_name?.toLowerCase().includes(searchValue?.toLowerCase()) 
-          // item.phone.includes(searchValue)
-      );
-      setFilteredData(filterData)
-    }
-    console.log(searchValue)
-  }
+  // const handleSearch = ()=>{
+  //   // remove space from value i search on it
+  //   searchValue = searchValue.trim()
+  //   // if no search value return all data
+  //   if(searchValue === ""){
+  //     setFilteredData(data)
+  //     return
+  //   }
+  //   // filter data
+  //   const filterData = data?.filter((item) =>
+  //     keys.some(
+  //       (key) =>
+  //         item[key]?.toLowerCase().includes(searchValue.toLocaleLowerCase())
+  //     )
+  //   );
+  //   setFilteredData(filterData)    
+  // }
 
 
   useEffect(()=>{
-    filterData()
+    let filteredData = handleSearch({data , keys , searchValue})
+    setFilteredData(filteredData)
+    console.log("searching")
   } , [searchValue , data])
   return (
     <div className='table-container'>
@@ -69,11 +65,11 @@ function Table({data , headers , keys  , renderAction , loader , searchValue=""}
             ) : currentData?.length > 0 ? (
               currentData.map((item) => {
                 return (
-                  <tr>
+                  <tr key={item.email}>
                     {keys?.map((key) => {
                       return (
                         <>
-                          <td>
+                          <td key={key}>
                             {key === "date"
                               ? new Date(item[key]).toLocaleDateString()
                               : item[key]

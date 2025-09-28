@@ -8,10 +8,12 @@ const handleApiError = (error)=>{
   // console.log(Array.isArray(error.response.data.message))
  if(Array.isArray(error.response.data.messsage)){
     error.response.data.message.map((item)=>(
-      toast.error(item)
+      // toast.error(item)
+      console.log(item)
     ))
   }else{
-   toast.error(error.response.data.message) 
+    console.log(error.response.data.message)
+  //  toast.error(error.response.data.message) 
   }
   // }
 }

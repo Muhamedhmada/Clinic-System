@@ -25,7 +25,6 @@ function Patients(){
     try{
       const res = await getData("user")
       setPaitents(res.data.data)
-      console.log(res)
     }
     finally{
       setLoader(false)
