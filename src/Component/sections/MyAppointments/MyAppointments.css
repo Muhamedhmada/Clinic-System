@@ -1,6 +1,6 @@
-.appointmentCard td.btn:hover{
+.myAppointments td.btn:hover{
   background-color: transparent !important;
 }
-.appointmentCard td button::after{
+.myAppointments td button::after{
   background-color: transparent !important;
 }

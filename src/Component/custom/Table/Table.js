@@ -37,7 +37,6 @@ function Table({data , headers , keys  , renderAction , loader , searchValue=""}
   useEffect(()=>{
     let filteredData = handleSearch({data , keys , searchValue})
     setFilteredData(filteredData)
-    console.log("searching")
   } , [searchValue , data])
   return (
     <div className='table-container'>

@@ -5,7 +5,7 @@ function Logo(){
   const nav = useNavigate()
   return(
     <div className='logo' onClick={()=>nav('/')}>
-      <img src={logo} alt='logo' />
+      <img src={logo} alt='logo' loading="lazy" />
     </div>
   )
 }

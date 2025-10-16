@@ -6,8 +6,53 @@
   overflow: auto;
   overflow-y: hidden;
 }
+
+.booking-container .booking-content .filterSection{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.booking-container .booking-content .filterSection .select{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.booking-container .booking-content .filterSection .select p{
+  font-size: 16px;
+}
+.booking-container .booking-content .filterSection .select select{
+  height: 40px;
+  width: 100px;
+  padding: 5px !important;
+  
+}
+.booking-container .booking-content .filterSection button{
+  background-color: var(--primary-color);
+  color: var(--third-color);
+  padding: 5px ;
+}
+.booking-container .booking-content .slider-controls{
+  display: flex;
+  align-items: center;
+  gap: 20px ;
+}
+.booking-container .booking-content .slider-controls p.active{
+  text-decoration: underline;
+}
+.booking-container .booking-content .filterSection button::after{
+  background-color: transparent !important;
+}
+
+
+
 .booking-container .booking-content table tr th{
   white-space: 0;
+}
+.booking-container .booking-content table tr td.hour{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .booking-container .booking-content table tr td.hour >p{
   width: 70px;
@@ -16,6 +61,7 @@
   background-color: var(--fourth-color);
   background-color: var(--border-color);
   display: flex;
+  font-size: 14px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -70,6 +116,7 @@
   z-index: -1;
   color: var(--border-color);
   width: 70%;
+  max-width: 100px;
   /* height: 100%; */
   top: 50%;
   left: 50%;

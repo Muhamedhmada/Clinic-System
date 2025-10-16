@@ -49,43 +49,43 @@ function Five(){
         >
           <SwiperSlide>
             <div className='image'>
-              <img src={img1} alt='image_one' />
+              <img src={img1} alt='image_one' loading="lazy"/>
               <button>view details</button>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img2} alt='image_one' />
+              <img src={img2} alt='image_one' loading="lazy"/>
               <button>view details</button>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img3} alt='image_one' />
+              <img src={img3} alt='image_one' loading="lazy"/>
               <button>view details</button>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img4} alt='image_one' />
+              <img src={img4} alt='image_one' loading="lazy"/>
               <button>view details</button>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img5} alt='image_one' />
+              <img src={img5} alt='image_one' loading="lazy"/>
               <button>view details</button>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img6} alt='image_one' />
+              <img src={img6} alt='image_one' loading="lazy"/>
               <button>view details</button>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img7} alt='image_one' />
+              <img src={img7} alt='image_one' loading="lazy"/>
               <button>view details</button>
             </div>
           </SwiperSlide>

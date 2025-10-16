@@ -40,37 +40,37 @@ function SponserSection(){
         >
           <SwiperSlide>
             <div className='image'>
-              <img src={img1} alt='image_one' />
+              <img src={img1} alt='image_one' loading="lazy" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img2} alt='image_one' />
+              <img src={img2} alt='image_one' loading="lazy"/>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img3} alt='image_one' />
+              <img src={img3} alt='image_one' loading="lazy"/>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img4} alt='image_one' />
+              <img src={img4} alt='image_one' loading="lazy"/>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img1} alt='image_one' />
+              <img src={img1} alt='image_one' loading="lazy"/>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img2} alt='image_one' />
+              <img src={img2} alt='image_one' loading="lazy"/>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='image'>
-              <img src={img3} alt='image_one' />
+              <img src={img3} alt='image_one' loading="lazy"/>
             </div>
           </SwiperSlide>
         </Swiper>

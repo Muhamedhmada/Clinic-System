@@ -7,6 +7,7 @@ import Table from "../../custom/Table/Table";
 import {ToastContainer} from "react-toastify";
 import getData from "../../../utils/getData.js";
 import donwloadImage from "../../../utils/downloadImage.js";
+import handleApiError from '../../../utils/handleApiError'
 function LastVisits() {
   const [loader, setLoader] = useState(false);
   const [patientRecords, setPatientRecords] = useState(null);
@@ -24,7 +25,11 @@ function LastVisits() {
       const res = await getData(`medical-history/my-medical-histories`);
       setPatientRecords(res.data.data);
       console.log(res.data.data);
-    } finally {
+    }
+    catch(error){
+      handleApiError(error)
+    }
+     finally {
       setLoader(false);
     }
   };

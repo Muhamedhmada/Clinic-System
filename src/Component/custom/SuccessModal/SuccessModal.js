@@ -12,7 +12,6 @@ const SuccessModal = ({isOpen , onClose , successMsg , welcomeMsg}) => {
     console.log(timer)
     if (isOpen) {
       let counterInterval = setInterval(() => {
-        console.log(timer)
           setTimer(prev=>{
             if(prev > 0){
               return prev-1

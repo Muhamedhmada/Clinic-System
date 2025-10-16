@@ -3,7 +3,7 @@ function BtnLoader(){
   return(
     <div className='loader-container'>
       <button>
-        <div class="loader"></div>
+        <div className="loader"></div>
       </button>
     </div>
   )
