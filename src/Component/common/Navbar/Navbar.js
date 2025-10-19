@@ -73,7 +73,7 @@ function Navbar(){
             <a href='/contact-us'>contact us</a>
           </div>
           <div className='btns'>
-            <button onClick={() => nav("/booking")}>book appointment</button>
+            {/* <button onClick={() => nav("/booking")}>book appointment</button> */}
             <button onClick={() => nav(isToken?"/dashboard":"/login")}>
                 {isToken ? "dashboard" : "login"}
               </button>

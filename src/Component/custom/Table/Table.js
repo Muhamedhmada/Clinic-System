@@ -62,7 +62,7 @@ function Table({data , headers , keys  , renderAction , loader , searchValue=""}
                 </td>
               </tr>
             ) : currentData?.length > 0 ? (
-              currentData.map((item) => {
+              currentData?.map((item) => {
                 return (
                   <tr key={item.email}>
                     {keys?.map((key) => {

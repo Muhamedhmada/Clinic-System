@@ -159,8 +159,7 @@ function Booking() {
           {showBookingTable ? (
             schedule ? (
               <>
-                <div className="filterSection">
-                  <di className="select">
+                  <di className="select-day">
                     <p>number of day</p>
                     <select name="" id=""  value={dayPerPage} onChange={(e)=>{setdayPerPage(+e.target.value) ; console.log( e.target.value)}}>
                       <option value="2">2</option>
@@ -171,17 +170,6 @@ function Booking() {
                       <option value="7">7</option>
                     </select>
                   </di>
-                  <div className="slider-controls">
-                    <button onClick={()=>handlePrevPage()}><AngleRight width="30px"/></button>
-                      {Array.from({ length: pageCounter}, (_, i) => 0 + i).map((item)=>{
-                        return(
-                          // <p onClick={()=>handlePageNumber(item)} className={Math.ceil((startIndex-0)/dayPerPage)== item ?"active":null}>{item+1}</p>
-                          <p className={Math.ceil((startIndex-0)/dayPerPage)== item ?"active":null}>{item+1}</p>
-                        )
-                      })}
-                    <button onClick={()=>handleNextPage()}><AngleLeft width="30px" /></button>
-                  </div>
-                </div>
                 <table>
                   <thead> 
                     <tr>
@@ -234,6 +222,16 @@ function Booking() {
                     })}
                   </motion.tbody>
                 </table>
+                <div className="slider-controls">
+                    <button onClick={()=>handlePrevPage()}><AngleRight width="30px"/></button>
+                      {Array.from({ length: pageCounter}, (_, i) => 0 + i).map((item)=>{
+                        return(
+                          // <p onClick={()=>handlePageNumber(item)} className={Math.ceil((startIndex-0)/dayPerPage)== item ?"active":null}>{item+1}</p>
+                          <p className={Math.ceil((startIndex-0)/dayPerPage)== item ?"active":null}>{item+1}</p>
+                        )
+                      })}
+                    <button onClick={()=>handleNextPage()}><AngleLeft width="30px" /></button>
+                  </div>
               </>
             ) : (
               <Loader />

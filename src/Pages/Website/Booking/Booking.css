@@ -13,34 +13,39 @@
   align-items: center;
   justify-content: space-between;
 }
-.booking-container .booking-content .filterSection .select{
+.booking-container .booking-content .select-day{
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.booking-container .booking-content .filterSection .select p{
+.booking-container .booking-content .select-day p{
   font-size: 16px;
 }
-.booking-container .booking-content .filterSection .select select{
+.booking-container .booking-content .select-day select{
   height: 40px;
   width: 100px;
   padding: 5px !important;
   
 }
-.booking-container .booking-content .filterSection button{
+.booking-container .booking-content .slider-controls button{
   background-color: var(--primary-color);
   color: var(--third-color);
   padding: 5px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .booking-container .booking-content .slider-controls{
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 20px ;
 }
 .booking-container .booking-content .slider-controls p.active{
   text-decoration: underline;
+  transform: scale(1.3);
 }
-.booking-container .booking-content .filterSection button::after{
+.booking-container .booking-content .slider-controls button::after{
   background-color: transparent !important;
 }
 
