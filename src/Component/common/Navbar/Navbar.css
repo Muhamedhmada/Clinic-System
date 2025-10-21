@@ -1,8 +1,9 @@
 .navbar-container{
   background-color: var(--third-color); 
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 0 !important;
   border-bottom: 1px solid var(--border-color);
+
 }
 .navbar-container .navbar-content{
   height: 8vh;
@@ -104,6 +105,15 @@
 }
 .navbar-container .navbar-content .icon:hover{
   transform: rotate(-180deg);
+}
+/* user image */
+.navbar-container .navbar-content img.userImage{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 2px;
+  border: 1px solid var(--border-color);
 }
 /* mobile menu */
 .menu{

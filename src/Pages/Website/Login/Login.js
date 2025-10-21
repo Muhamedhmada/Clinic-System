@@ -1,6 +1,6 @@
 import './Login.css';
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import LandPage from '../../../Component/common/LandPage/LandPage'
 import Navbar from '../../../Component/common/Navbar/Navbar'
@@ -49,6 +49,19 @@ function Login(){
       setLoader(false)
     }
   }
+
+  const location = useLocation()
+  useEffect(() => {
+    console.log("effect")
+    if(location.state?.logout){
+      const timeToShowToast =  setTimeout(()=>{
+        toast.success(location.state?.msg)
+      },1000)
+      return ()=>clearTimeout(timeToShowToast)
+    }
+    nav(location.pathname, { replace: true });
+
+  }, [])
   return(
     <>
       <ToastContainer/>

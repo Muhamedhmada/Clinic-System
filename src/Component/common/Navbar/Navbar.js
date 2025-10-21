@@ -1,24 +1,27 @@
-import { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { ArrowRight, Bars, Exit } from '../../../Assets/SVGS'
-import './Navbar.css'
-import Logo from '../Logo/Logo'
-import isTokenSlice from '../../../zustand/TokenSlice'
-function Navbar(){
-  const nav = useNavigate()
-  const navBarRef = useRef()
-  const [isFixed , setIsFixed] = useState(false)
+import {useEffect, useRef, useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {ArrowRight, Bars, Exit} from "../../../Assets/SVGS";
+import "./Navbar.css";
+import Logo from "../Logo/Logo";
+import isTokenSlice from "../../../zustand/TokenSlice";
+import userImage from "../../../Assets/Images/doctor.jpeg";
+import UserMenu from "../UserMenu/UserMenu";
+function Navbar() {
+  const nav = useNavigate();
+  const navBarRef = useRef();
+  const [isFixed, setIsFixed] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
-  const {isToken} = isTokenSlice()
+  const {isToken} = isTokenSlice();
 
   // const [isToken , setisToken] = useState(localStorage.getItem("newAcc")||false)
-  useEffect(()=>{
+  useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry])=>{
-        setIsFixed(!entry.isIntersecting)
+      ([entry]) => {
+        setIsFixed(!entry.isIntersecting);
       },
-      {threshold:.1}
-    )
+      {threshold: 0.1}
+    );
     if (navBarRef.current) {
       observer.observe(navBarRef.current);
     }
@@ -27,8 +30,8 @@ function Navbar(){
     //     observer.unobserve(navBarRef.current);
     //   }
     // };
-  })
-  const [showMobileMenu , setShowMobileMenu] = useState(false)
+  });
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   return (
     <>
       {isFixed && (
@@ -43,11 +46,20 @@ function Navbar(){
               <a href='/medical_history'>medical history</a>
               <a href='/contact-us'>contact us</a>
             </div>
-            <div className='btns'>
-              <button onClick={() => nav("/booking")}>book appointment</button>
-              <button onClick={() => nav(isToken?"/dashboard":"/login")}>
-                {isToken ? "dashboard" : "login"}
-              </button>
+            <div style={{display: "flex", gap: "20px"}}>
+              <div className='btns'>
+                {/* <button onClick={() => nav("/booking")}>book appointment</button> */}
+                <button onClick={() => nav(isToken ? "/dashboard" : "/login")}>
+                  {isToken ? "dashboard" : "login"}
+                </button>
+              </div>
+              <img
+                className="userImage"
+                onClick={() => setIsUserMenuOpen((prev) => !prev)}
+                src={userImage}
+                alt=''
+              />
+              <UserMenu isOpen={isUserMenuOpen} />
             </div>
             <div
               className='icon'
@@ -72,12 +84,21 @@ function Navbar(){
             <a href='/medical_history'>medical history</a>
             <a href='/contact-us'>contact us</a>
           </div>
-          <div className='btns'>
-            {/* <button onClick={() => nav("/booking")}>book appointment</button> */}
-            <button onClick={() => nav(isToken?"/dashboard":"/login")}>
-                {isToken ? "dashboard" : "login"}
-              </button>
-          </div>
+          <div style={{display: "flex", gap: "20px"}}>
+              <div className='btns'>
+                {/* <button onClick={() => nav("/booking")}>book appointment</button> */}
+                <button onClick={() => nav(isToken ? "/dashboard" : "/login")}>
+                  {isToken ? "dashboard" : "login"}
+                </button>
+              </div>
+              <img
+                className="userImage"
+                onClick={() => setIsUserMenuOpen((prev) => !prev)}
+                src={userImage}
+                alt=''
+              />
+              <UserMenu isOpen={isUserMenuOpen} />
+            </div>
           <div
             className='icon'
             onClick={() => {
@@ -118,7 +139,7 @@ function Navbar(){
             </div>
             <div className='menu-btns'>
               <button onClick={() => nav("/booking")}>book appointment</button>
-              <button onClick={() => nav(isToken?"/dashboard":"/login")}>
+              <button onClick={() => nav(isToken ? "/dashboard" : "/login")}>
                 {isToken ? "dashboard" : "login"}
               </button>
             </div>
@@ -128,4 +149,4 @@ function Navbar(){
     </>
   );
 }
-export default Navbar
+export default Navbar;

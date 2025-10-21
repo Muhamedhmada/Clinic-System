@@ -1,0 +1,97 @@
+.navbar-container .navbar-content{
+  position: relative;
+}
+.userMenu{
+  overflow: hidden;
+  background-color: var(--third-color);
+  height: 230px;
+  width: 200px;
+  opacity: 0;
+  position: absolute;
+  bottom: -230px;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  /* gap: 20px; */
+  flex-direction: column;
+  border-radius: 5px;
+  /* padding: 15px 0; */
+  border: 1px solid var(--fourth-color);
+  /* transform-origin: bottom; */
+}
+.userMenu >div{
+  padding: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--fourth-color);
+  /* color: var(--primary-color); */
+}
+.userMenu >div:last-child{
+  border: none;
+}
+.userMenu div.userInfo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 15px;
+}
+.userMenu div.userInfo >div{
+  display: flex;
+  flex-direction: column;
+}
+.userMenu div.userInfo img{
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+}
+.userMenu div.userInfo p{
+  font-size: 16px;
+}
+.userMenu div.userInfo span{
+  font-size: 16px;
+}
+.userMenu >div a{
+  color: var(--fourth-color);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 15px;
+}
+.userMenu >div:last-child{
+  cursor: pointer;
+  color: var(--fourth-color);
+  flex-direction:row;
+  padding: 15px 15px;
+   
+}
+
+.userMenu-container .logout{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.userMenu-container .logout  .icon{
+  transform: rotate(0) !important;
+}
+.userMenu-container .logout div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.userMenu-container .logout div button{
+  border-radius: var(--btn-border-radius) !important;
+  border-radius: 20px;
+  width: 100%;
+}
+.userMenu-container .logout div button:nth-child(2){
+  background-color: var(--primary-color);
+  color: var(--third-color);
+}
+.userMenu-container .logout div button::after{
+  background-color: transparent !important;
+}
+

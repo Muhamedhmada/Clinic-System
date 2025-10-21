@@ -165,3 +165,9 @@ a{
 .dark .detailsBtn{
   background-color: #0f766e;
 }
+
+/* notification */
+.Toastify__close-button:after{
+  background-color: red;
+  background-color: transparent;
+}

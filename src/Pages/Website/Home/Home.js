@@ -19,6 +19,9 @@ function Home(){
     if(location.state?.success){
       toast.success(location.state?.msg)
     }
+    if(location.state?.logout){
+      toast.success(location.state?.msg)
+    }
     window.history.replaceState({}, document.title);
     console.log(window.history)
   }, [])
