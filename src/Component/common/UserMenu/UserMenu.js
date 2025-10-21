@@ -4,14 +4,18 @@ import "./UserMenu.css";
 import userImage from "../../../Assets/Images/doctor.jpeg";
 import Modal from "../../custom/Modal/Modal";
 import Icon from "../Icon/Icon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SuccessModal from "../../custom/SuccessModal/SuccessModal";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import base_url from "../../../config/base_url";
 import handleApiError from "../../../utils/handleApiError";
-function UserMenu({isOpen}) {
+function UserMenu({isOpen , func}) {
+
+  useEffect(()=>{
+    console.log(func)
+  } , [])
   const nav = useNavigate("")
   
   const [isLogoutModalOpen , setIsLogoutModalOpen] = useState(false)
@@ -35,6 +39,9 @@ function UserMenu({isOpen}) {
       console.log("logout")
     }
     // toast.success("logout successfully")
+  }
+  const handleShowUserMenu = ()=>{
+
   }
   return (
     <div className="userMenu-container">
@@ -65,7 +72,7 @@ function UserMenu({isOpen}) {
                 <span>setting</span>
               </a>
             </div>
-            <div onClick={()=>setIsLogoutModalOpen(true)}>
+            <div onClick={()=>{setIsLogoutModalOpen(true)  ; func()}}>
                 <Logout width='20px' />
                 <span>logout</span>
             </div>
@@ -73,12 +80,7 @@ function UserMenu({isOpen}) {
         ) : null}
       </AnimatePresence>
 
-      <Modal isOpen={isLogoutModalOpen}
-        // modalTitle="are you sure you want to logout"
-        // showModalsBtns={true}
-        // AcceptBtn="yes"
-        // CancelBtn="no"
-      >  
+      <Modal isOpen={isLogoutModalOpen}>  
             <div className="logout">
               <Icon icon={<Logout width="72px"/>}/>
               <h4>are you sure you want to logout?</h4>

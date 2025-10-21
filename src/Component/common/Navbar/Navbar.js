@@ -6,6 +6,7 @@ import Logo from "../Logo/Logo";
 import isTokenSlice from "../../../zustand/TokenSlice";
 import userImage from "../../../Assets/Images/doctor.jpeg";
 import UserMenu from "../UserMenu/UserMenu";
+import MobileNavMenu from "../MobileNavMenu/MobileNavMenu";
 function Navbar() {
   const nav = useNavigate();
   const navBarRef = useRef();
@@ -54,7 +55,7 @@ function Navbar() {
                 </button>
               </div>
               <img
-                className="userImage"
+                className='userImage'
                 onClick={() => setIsUserMenuOpen((prev) => !prev)}
                 src={userImage}
                 alt=''
@@ -85,20 +86,23 @@ function Navbar() {
             <a href='/contact-us'>contact us</a>
           </div>
           <div style={{display: "flex", gap: "20px"}}>
-              <div className='btns'>
-                {/* <button onClick={() => nav("/booking")}>book appointment</button> */}
-                <button onClick={() => nav(isToken ? "/dashboard" : "/login")}>
-                  {isToken ? "dashboard" : "login"}
-                </button>
-              </div>
-              <img
-                className="userImage"
-                onClick={() => setIsUserMenuOpen((prev) => !prev)}
-                src={userImage}
-                alt=''
-              />
-              <UserMenu isOpen={isUserMenuOpen} />
+            <div className='btns'>
+              {/* <button onClick={() => nav("/booking")}>book appointment</button> */}
+              <button onClick={() => nav(isToken ? "/dashboard" : "/login")}>
+                {isToken ? "dashboard" : "login"}
+              </button>
             </div>
+            <img
+              className='userImage'
+              onClick={() => setIsUserMenuOpen((prev) => !prev)}
+              src={userImage}
+              alt=''
+            />
+            <UserMenu
+              isOpen={isUserMenuOpen}
+              func={() => setIsUserMenuOpen((prev) => !prev)}
+            />
+          </div>
           <div
             className='icon'
             onClick={() => {
@@ -108,42 +112,13 @@ function Navbar() {
           >
             <Bars width='40px' />
           </div>
-          <div className={showMobileMenu ? "menu show" : "menu"}>
-            <div className='menu-header'>
-              <Logo />
-              <div
-                className='icon'
-                onClick={() => setShowMobileMenu((prev) => !prev)}
-              >
-                <Exit width='40px' />
-              </div>
-            </div>
-            <div className='mobileMenu-links'>
-              <a href='/'>
-                Home <ArrowRight width='30px' />
-              </a>
-              {/* <a href="/">doctors <ArrowRight width="30px" /></a> */}
-              <a href='/book-appointment'>
-                book appointment <ArrowRight width='30px' />
-              </a>
-              {/* <a href="/">pages <ArrowRight width="30px"/></a> */}
-              <a href='/medical_history'>
-                medical history <ArrowRight width='30px' />
-              </a>
-              <a href='/contact-us'>
-                contact us <ArrowRight width='30px' />
-              </a>
-              <a href='/feedback'>
-                feedback <ArrowRight width='30px' />
-              </a>
-            </div>
-            <div className='menu-btns'>
-              <button onClick={() => nav("/booking")}>book appointment</button>
-              <button onClick={() => nav(isToken ? "/dashboard" : "/login")}>
-                {isToken ? "dashboard" : "login"}
-              </button>
-            </div>
-          </div>
+          {/* mobile nav menu */}
+          <MobileNavMenu
+            isNavMobileMenuOpen={showMobileMenu}
+            navMobileMenuFunc={() => setShowMobileMenu((prev) => !prev)}
+            // isUserMenuOpen={isUserMenuOpen}
+            // userMenuFunc={() => setIsUserMenuOpen((prev) => !prev)}
+          />
         </div>
       </div>
     </>

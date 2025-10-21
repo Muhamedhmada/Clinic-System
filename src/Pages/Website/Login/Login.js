@@ -59,8 +59,6 @@ function Login(){
       },1000)
       return ()=>clearTimeout(timeToShowToast)
     }
-    nav(location.pathname, { replace: true });
-
   }, [])
   return(
     <>
