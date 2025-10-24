@@ -15,11 +15,11 @@ function MobileNavMenu({isNavMobileMenuOpen, navMobileMenuFunc}) {
   const nav = useNavigate();
   const [isLogoutModalOpen , setIsLogoutModalOpen] = useState(true)
   return (
-    <div className={true ? "menu show" : "menu"}>
+    <div className={isNavMobileMenuOpen ? "menu show" : "menu"}>
       <div className='menu-header'>
         {/* <Logo /> */}
         <div class="userData">
-          <img src={userData.img?userData.img:userImage} loading="lazy" alt="userimage"/>
+          <img src={userData?.img?userData.img:userImage} loading="lazy" alt="userimage"/>
           <div>
             <h3>{userData?(userData.first_name +" " + userData.last_name):"user name"}</h3>
             <p>{userData?userData.role:"user"}</p>
