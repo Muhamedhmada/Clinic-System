@@ -13,7 +13,7 @@ function MobileNavMenu({isNavMobileMenuOpen, navMobileMenuFunc}) {
   const userData = JSON.parse(localStorage.getItem("userData"))
   const {theme , changeMode} = darkModeSlice()
   const nav = useNavigate();
-  const [isLogoutModalOpen , setIsLogoutModalOpen] = useState(true)
+  const [isLogoutModalOpen , setIsLogoutModalOpen] = useState(false)
   return (
     <div className={isNavMobileMenuOpen ? "menu show" : "menu"}>
       <div className='menu-header'>
