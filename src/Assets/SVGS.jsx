@@ -458,3 +458,21 @@ export const Download = (props)=>{
     <svg xmlns="http://www.w3.org/2000/svg" width={props.width} height={props.width} viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5l5-5m-5-7v12"/></svg>
   )
 }
+
+export const Feedback = (props)=>{
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" width={props.width} height={props.width} viewBox="0 0 24 24"><path fill="currentColor" d="M2 22V4q0-.825.588-1.412T4 2h16q.825 0 1.413.588T22 4v12q0 .825-.587 1.413T20 18H6zm10-7q.425 0 .713-.288T13 14t-.288-.712T12 13t-.712.288T11 14t.288.713T12 15m-1-4h2V5h-2z"/></svg>
+  )
+}
+
+export const MedicalHistory = (props)=>{
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" width={props.width} height={props.width} viewBox="0 0 14 14"><path fill="currentColor" fill-rule="evenodd" d="M1.44.44A1.5 1.5 0 0 1 2.5 0h6a.5.5 0 0 1 .354.146l4 4A.5.5 0 0 1 13 4.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 12.5v-11c0-.398.158-.78.44-1.06m4.53 4.987c0-.216.176-.392.393-.392h1.275c.216 0 .392.176.392.392v1.56h1.56c.217 0 .392.176.392.393v1.275a.39.39 0 0 1-.392.392H8.03v1.56a.39.39 0 0 1-.392.393H6.362a.39.39 0 0 1-.392-.392v-1.56H4.41a.39.39 0 0 1-.392-.393V7.38c0-.217.175-.392.392-.392h1.56z" clip-rule="evenodd"/></svg>
+  )
+}
+
+export const BookAppointment = (props)=>{
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" width={props.width} height={props.width} viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="4"><circle cx="24" cy="11" r="7" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 41c0-8.837 8.059-16 18-16"/><circle cx="34" cy="34" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M33 31v4h4"/></g></svg>
+  )
+}
