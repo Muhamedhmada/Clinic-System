@@ -18,6 +18,7 @@
   display: flex;
   gap: 5px;
   justify-content: center;
+  align-items: center;
 }
 .patientDetails-container .patientDetails-content table .attachments img{
   width: 60px;

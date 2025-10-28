@@ -25,6 +25,7 @@ function PatientDetails(route){
       const res = await getData(`medical-history/user/${patientDetails.id}`)
       console.log(res)
       setMedicalVisits(res.data.data)
+      console.log(res.data.data)
     }
     finally{
       setLoader(false)
@@ -58,12 +59,16 @@ function PatientDetails(route){
           keys={["date", "diagnosis", "notes"]}
           renderAction={(item) => (
             <td className='attachments'>
-              {item.attachments.map((item) => (
-                <img
-                  onClick={() => handleSelectedImage(item.url)}
-                  src={item.url}
-                  alt='img'
-                />
+              {medicalVisits?.map((item) => (
+                  item.attachments.map((i)=>(
+                    <img
+                      onClick={() => handleSelectedImage(item.url)}
+                      src={item.path}
+                      alt='img'
+                    />
+                    )
+                  )
+                
               ))}
             </td>
           )}

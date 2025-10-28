@@ -20,7 +20,11 @@
   background-color: var(--third-color);
   padding: 30px;
   /* border: 1px solid red; */
+  transition-duration: var(--transition-duration);
+  position: relative;
 }
+
+/* .plansSection-container .plansSection-content .card:hover  */
 .plansSection-container .plansSection-content .card .cardHeader{
   display: flex;
   flex-direction: column;
@@ -64,4 +68,47 @@
 .plansSection-container .plansSection-content .card button:after{
   background-color: var(--secondary-color);
   color: red;
+}
+
+
+/* the action that happend on card while hover */
+.plansSection-container .plansSection-content .card,
+.plansSection-container .plansSection-content .card .cardHeader .icon,
+.plansSection-container .plansSection-content .card::after,
+.plansSection-container .plansSection-content .card:hover button,
+.plansSection-container .plansSection-content .card:hover ul li .icon
+{
+  transition-duration: var(--transition-duration);
+}
+.plansSection-container .plansSection-content .card::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0;
+  left: 0;
+  top: 0;
+  background-color: var(--primary-color);
+  z-index: 0;
+}
+.plansSection-container .plansSection-content .card:hover::after{
+  height: 100%;
+}
+.plansSection-container .plansSection-content .cardHeader,
+.plansSection-container .plansSection-content ul{
+  z-index: 1;
+}
+.plansSection-container .plansSection-content .card:hover .icon,
+.plansSection-container .plansSection-content .card:hover ul li .icon{
+  color: var(--third-color) !important;
+}
+.plansSection-container .plansSection-content .card:hover p,
+.plansSection-container .plansSection-content .card:hover .cardHeader p span{
+  color: var(--secondary-color) !important;
+}
+.plansSection-container .plansSection-content .card:hover button{
+  background-color: var(--third-color);
+  color: var(--secondary-color);
+}
+.plansSection-container .plansSection-content .card button::after{
+  background-color: transparent !important;
 }

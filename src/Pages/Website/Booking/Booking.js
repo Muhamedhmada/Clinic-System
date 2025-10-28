@@ -42,11 +42,15 @@ function Booking() {
     id:null
   })
 
+  const [rowData , setRowData] = useState([])
+
   const [showBookingTable, setShowBookingTable] = useState(true);
   const [schedule, setSchedule] = useState();
 
-  const selectAppointment = (day, hour , id) => {
+  const selectAppointment = (day, hour , id , item) => {
     console.log(day , hour)
+    setRowData(item)
+    console.log(item)
     setModal((prev) => ({...prev, confirmation: true}));
     setAppointment((prev)=>({...prev ,day:day , hour:hour , id:id}))
   };
@@ -66,9 +70,11 @@ function Booking() {
       phone:appointmentData.number,
       reason:"test",
       type:"normal",
-      time_slot_id:appointment.id
+      time_slot_id:appointment.id,
+      appointment_type_id:1
     }
     console.log(dataSend)
+    // return
     try{
       const res = await axios.post(`${base_url}/appointment/book`,dataSend,{
         headers:{
@@ -200,7 +206,7 @@ function Booking() {
                                 key={index}
                                 onClick={() => {
                                   slot?.status === "available" &&
-                                    selectAppointment(day.slot_date, item.time , item.id);
+                                    selectAppointment(day.slot_date, item.time , item.id , day);
                                 }}
                                 className={
                                   slot?.status === "available"

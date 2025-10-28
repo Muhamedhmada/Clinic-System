@@ -16,6 +16,7 @@ const getData = async(endPoint , data , setLoader)=>{
     return res
   }
   catch(error){
+    console.log(error)
     handleApiError(error)
   }
   finally{

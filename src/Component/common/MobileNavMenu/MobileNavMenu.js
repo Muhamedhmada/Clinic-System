@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import { Exit , Home , Call , Logout as LogoutIcon , Feedback , MedicalHistory , BookAppointment , Sun , Moon} from "../../../Assets/SVGS";
+import { Exit , Home , Call , Logout as LogoutIcon , Feedback , MedicalHistory , BookAppointment , Sun , Moon, Login} from "../../../Assets/SVGS";
 import "./MobileNavMenu.css";
 import userImage from "../../../Assets/Images/doctor.jpeg";
 import { useState } from "react";
@@ -59,10 +59,21 @@ function MobileNavMenu({isNavMobileMenuOpen, navMobileMenuFunc}) {
           }
           <p>dark mode</p>
         </div>
-        <p onClick={()=>setIsLogoutModalOpen((prev)=>!prev)}>
-          <LogoutIcon width='20px' />
-          Logout 
-        </p>
+        {
+          userData ?
+          (
+            <p onClick={()=>setIsLogoutModalOpen((prev)=>!prev)}>
+              <LogoutIcon width='20px' />
+              Logout 
+            </p>
+          ):
+          (
+            <p onClick={()=>nav('/login')}>
+            <Login width='20px' />
+            Login 
+            </p>
+          )
+        }
         <div>
 
         </div>

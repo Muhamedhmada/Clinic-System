@@ -26,12 +26,18 @@ import ConfirmedAppointments from './Pages/Dashboard/ConfirmedAppointments/Confi
 import Users from './Pages/Dashboard/Users/Users';
 import Payment from './Pages/Website/Payment/Payment';
 import PaymentReview from './Pages/Dashboard/PaymentReview/PaymentReview';
+// firebase
+// import { requestForToken, onMessageListener } from "./config/firebase";
+
 
 function App() {
   const location = useLocation()
   useEffect(()=>{
     window.scrollTo({top:0,behavior:"smooth"})
   } , [location.pathname])
+
+  // firebase
+  
   return (
     <div className='App'>
       <header className='App-header'>

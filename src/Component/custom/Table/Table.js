@@ -67,6 +67,7 @@ function Table({data , headers , keys  , renderAction , loader , searchValue=""}
                   <tr key={item.email}>
                     {keys?.map((key) => {
                       return (
+
                         <>
                           <td key={key}>
                             {key === "date"

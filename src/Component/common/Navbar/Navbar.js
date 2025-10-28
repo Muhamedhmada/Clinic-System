@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {ArrowRight, Bars, Exit} from "../../../Assets/SVGS";
+import { Bars } from "../../../Assets/SVGS";
 import "./Navbar.css";
 import Logo from "../Logo/Logo";
 import isTokenSlice from "../../../zustand/TokenSlice";
@@ -12,10 +12,8 @@ function Navbar() {
   const navBarRef = useRef();
   const [isFixed, setIsFixed] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-
   const {isToken} = isTokenSlice();
 
-  // const [isToken , setisToken] = useState(localStorage.getItem("newAcc")||false)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -92,16 +90,20 @@ function Navbar() {
                 {isToken ? "dashboard" : "login"}
               </button>
             </div>
-            <img
-              className='userImage'
-              onClick={() => setIsUserMenuOpen((prev) => !prev)}
-              src={userImage}
-              alt=''
-            />
-            <UserMenu
-              isOpen={isUserMenuOpen}
-              func={() => setIsUserMenuOpen((prev) => !prev)}
-            />
+            {isToken && (
+              <>
+                <img
+                  className='userImage'
+                  onClick={() => setIsUserMenuOpen((prev) => !prev)}
+                  src={userImage}
+                  alt=''
+                />
+                <UserMenu
+                  isOpen={isUserMenuOpen}
+                  func={() => setIsUserMenuOpen((prev) => !prev)}
+                />
+              </>
+            )}
           </div>
           <div
             className='icon'

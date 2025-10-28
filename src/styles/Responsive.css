@@ -189,6 +189,11 @@
   select{
     padding:5px !important;
   }
+  /* display dark-mode container */
+  .darkMode-container,
+  .navbar-container .navbar-content img.userImage{
+    display: none;
+  }
 }
 
 /* ============= 📱 Extra Small devices (phones) ============= */

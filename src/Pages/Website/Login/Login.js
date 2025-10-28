@@ -12,6 +12,8 @@ import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
 import TokenSlice from '../../../zustand/TokenSlice.js'
 import UserDataSlice from '../../../zustand/UserDataSlice'
 import handleApiError from '../../../utils/handleApiError'
+import { sendTokenToBackend } from '../../../firebase/sendTokenToBackend';
+import { requestForFCMToken } from '../../../firebase/getFCMToken';
 function Login(){
   const [loader , setLoader] = useState(false)
   const nav = useNavigate()
@@ -40,6 +42,8 @@ function Login(){
           createAccountSlice(res.data.data.accessToken)
           createUserDataSlice(res.data.data.user)
           nav('/', {state:{success:true , msg:res.data.message}})
+          const token = await requestForFCMToken();
+          await sendTokenToBackend("userId", token);
         }
     }
     catch (error){

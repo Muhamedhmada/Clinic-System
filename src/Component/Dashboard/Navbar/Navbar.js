@@ -8,7 +8,7 @@ function Navbar(){
     <div className='dash-nav-container'>
       <div className="dash-nav-content content">
         <h2>clinic managmenet system</h2>
-        <SearchInput/>
+        {/* <SearchInput/> */}
         <div className="icons">
           <Icon icon={<Notification  width="20px"/>}/>
           <Icon icon={<Messages  width="20px"/>}/>
