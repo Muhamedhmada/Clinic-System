@@ -8,28 +8,46 @@ import {toast, ToastContainer} from "react-toastify";
 import getData from "../../../utils/getData";
 import axios from "axios";
 import base_url from "../../../config/base_url";
+import handleApiError from "../../../utils/handleApiError";
 function PendingAppointments() {
   const token = localStorage.getItem("token");
   const [addModal, setAddModal] = useState(false);
   const [appointment , setAppointment] = useState([])
   const [loader , setLoader] = useState(false)
 
-  const acceptAppointment = (id) => {
-    console.log("accept", id);
+  const acceptAppointment = async(id) => {
     console.log(id)
-    console.log(token)
-    id = 257
-    // return
-    axios.put(`${base_url}/appointment/accept/${id}`,{
-      headers:{
-        Authorization: `Bearer ${token} `,
-      }
-    })
-    .then((res)=>console.log(res))
-    .catch((error)=>console.log(error))
+    try{
+      const res = await axios.put(`${base_url}/appointment/accept/${id}` , {},{
+        headers:{
+          Authorization: `Bearer ${token} `,
+        }
+      })
+      console.log(res)
+    }
+    catch(error){
+      handleApiError(error)
+    }
+    finally{
+      // setLoader(true)
+    }
   };
-  const regectAppointment = (item) => {
-    console.log("reject", item.mobile);
+  const regectAppointment = async(id) => {
+    console.log(id)
+    try{
+      const res = await axios.put(`${base_url}/appointment/reject/${id}` , {},{
+        headers:{
+          Authorization: `Bearer ${token} `,
+        }
+      })
+      console.log(res)
+    }
+    catch(error){
+      handleApiError(error)
+    }
+    finally{
+      // setLoader(true)
+    }
   };
 
   const AddPaitent = () => {
@@ -40,7 +58,8 @@ function PendingAppointments() {
   const getAppointments = async () => {
     setLoader(true)
     const res = await getData(`appointment?status=pending`)
-    setAppointment(res.data.data)
+    console.log(res?.data?.data)
+    setAppointment(res?.data?.data)
     setLoader(false)
   };
   useEffect(() => {
@@ -76,17 +95,17 @@ function PendingAppointments() {
               <td>{item.appointment_type.price}</td>
               <td>{item.appointment_type.discount}</td>
               <td>{item.appointment_type.total_price}</td>
-              <td>{item.patient.gender}</td>
+              <td>{item.gender}</td>
               <td className='btns'>
                 <button
                   className='addBtn'
-                  onClick={() => acceptAppointment(item.slot.id)}
+                  onClick={() => acceptAppointment(item.id)}
                 >
                   accept
                 </button>
                 <button
                   className='cancelBtn'
-                  onClick={() => regectAppointment(item)}
+                  onClick={() => regectAppointment(item.id)}
                 >
                   regect
                 </button>

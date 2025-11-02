@@ -13,6 +13,7 @@ export const sendNotificationRequest = async (userId) => {
       console.log("Notification sent successfully:", data);
       toast.success("📩 تم إرسال الإشعار بنجاح");
     } else {
+      
       console.error("Error:", data);
       toast.error("❌ حدث خطأ أثناء الإرسال");
     }

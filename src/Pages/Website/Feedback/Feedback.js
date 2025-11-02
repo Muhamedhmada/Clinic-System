@@ -11,7 +11,6 @@ import Loader from "../../../Component/common/Loader/Loader";
 import axios from "axios";
 import base_url from "../../../config/base_url";
 import handleApiError from "../../../utils/handleApiError";
-import { async } from "@firebase/util";
 function Feedback() {
   const token = localStorage.getItem("token") || null
   const [userData , setUserData] = useState(localStorage.getItem("userData")|| null)
@@ -70,7 +69,7 @@ function Feedback() {
         <div className='feedback-content content'>
           <h2 className='h-after-effect'>feedbacks ({feedbackList.length})</h2>
 
-          {feedbackList.length > 0 ? (
+          { loader ? (
             <>
               <div className='feedbacks'>
                 {feedbackList?.map((item) => {

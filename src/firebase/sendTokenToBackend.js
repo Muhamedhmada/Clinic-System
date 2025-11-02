@@ -1,18 +1,21 @@
+import axios from "axios";
 import base_url from "../config/base_url";
 
-export const sendTokenToBackend = async (userId, token) => {
-  console.log(token)
+export const sendTokenToBackend = async (userId, fcmToken) => {
+  console.log(fcmToken)
+  const token = localStorage.getItem("token")
+  console.log("token in send Notification to backend file" , token)
+  localStorage.setItem("fcmToken" , fcmToken)
   // return
   try {
-    await fetch(`${base_url}/firebase/register-token`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: {
-        token:JSON
+    const res = await axios.post(`${base_url}/firebase/register-token`,{token:fcmToken},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`, // حط هنا التوكن اللي من الـ login
       },
-    });
-    localStorage.setItem("fcmToken", token)
-    console.log("Token sent to backend successfully");
+    })
+    console.log(res.data.data.message)  
+    localStorage.setItem("fcmToken" , fcmToken)
   } catch (error) {
     console.error("Error sending token to backend:", error);
   }

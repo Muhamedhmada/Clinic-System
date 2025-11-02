@@ -5,7 +5,7 @@ import Navbar from "../../../Component/common/Navbar/Navbar";
 import Topbar from "../../../Component/common/Topbar/Topbar";
 import Footer from "../../../Component/common/Footer/Footer";
 import Modal from "../../../Component/custom/Modal/Modal.jsx";
-import {AngleLeft, AngleRight, Angle_Left, Check, NotAvailable} from "../../../Assets/SVGS";
+import {AngleLeft, AngleRight, Check, NotAvailable} from "../../../Assets/SVGS";
 import Icon from "../../../Component/common/Icon/Icon";
 import SuccessModal from "../../../Component/custom/SuccessModal/SuccessModal";
 import MyAppointments from "../../../Component/sections/MyAppointments/MyAppointments";
@@ -69,9 +69,9 @@ function Booking() {
       name:appointmentData.name + appointment.id,
       phone:appointmentData.number,
       reason:"test",
-      type:"normal",
       time_slot_id:appointment.id,
-      appointment_type_id:1
+      appointment_type_id:2,
+      gender:"male",
     }
     console.log(dataSend)
     // return
@@ -165,7 +165,7 @@ function Booking() {
           {showBookingTable ? (
             schedule ? (
               <>
-                  <di className="select-day">
+                  <div className="select-day">
                     <p>number of day</p>
                     <select name="" id=""  value={dayPerPage} onChange={(e)=>{setdayPerPage(+e.target.value) ; console.log( e.target.value)}}>
                       <option value="2">2</option>
@@ -175,7 +175,7 @@ function Booking() {
                       <option value="6">6</option>
                       <option value="7">7</option>
                     </select>
-                  </di>
+                  </div>
                 <table>
                   <thead> 
                     <tr>
@@ -191,7 +191,7 @@ function Booking() {
                      animate={{translateX: 0, opacity: 1}}
                      transition={{duration: 0.5}}
                   >
-                    {schedule?.[0].slots?.slice(0,2).map((item, index) => {
+                    {schedule?.[1].slots?.slice(0,3).map((item, index) => {
                       return (
                         <tr key={index}>
                           <td className='hour'>

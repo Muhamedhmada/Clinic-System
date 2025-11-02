@@ -27,6 +27,9 @@ import Users from './Pages/Dashboard/Users/Users';
 import Payment from './Pages/Website/Payment/Payment';
 import PaymentReview from './Pages/Dashboard/PaymentReview/PaymentReview';
 // firebase
+import { getFCMToken } from "./firebase/getFCMToken";
+import { onMessageListener } from "./firebase/onMessageListener";
+import { toast } from "react-toastify";
 // import { requestForToken, onMessageListener } from "./config/firebase";
 
 
@@ -37,7 +40,24 @@ function App() {
   } , [location.pathname])
 
   // firebase
-  
+  useEffect(() => {
+    // 🟢 أول ما الصفحة تفتح، اطلب الإذن
+    Notification.requestPermission().then(permission => {
+      if(permission === 'granted'){
+        console.log("Notification permission granted.");
+      } else {
+        console.log("Notification permission denied.");
+      }
+    });
+
+    // 🟢 اسمع لأي إشعارات جديدة
+    onMessageListener()
+      .then((payload) => {
+        console.log("📩 إشعار جديد:", payload);
+        toast.info(`${payload.notification.title}: ${payload.notification.body}`);
+      })
+      .catch((err) => console.error("FCM Listener Error:", err));
+  }, []);
   return (
     <div className='App'>
       <header className='App-header'>

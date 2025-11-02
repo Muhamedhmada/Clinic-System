@@ -1,7 +1,7 @@
 import { getToken } from "firebase/messaging";
 import { messaging } from "./config";
 
-export const requestForFCMToken = async () => {
+export const getFCMToken = async () => {
   console.log("welocome to get fcm token")
   try {
     const token = await getToken(messaging, {
