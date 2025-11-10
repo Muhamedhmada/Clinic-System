@@ -20,7 +20,7 @@
 .navbar-container.animated{
   position: fixed;
   width: 100%;
-  top: 0;
+  top: 00px;
   z-index: 99999999 !important;
   box-shadow: 0px 0px 13px #00000054;
   animation: navbarAnimation .6s ease-in;

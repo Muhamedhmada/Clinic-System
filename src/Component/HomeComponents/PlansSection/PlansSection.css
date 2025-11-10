@@ -101,9 +101,11 @@
 .plansSection-container .plansSection-content .card:hover ul li .icon{
   color: var(--third-color) !important;
 }
-.plansSection-container .plansSection-content .card:hover p,
-.plansSection-container .plansSection-content .card:hover .cardHeader p span{
+.plansSection-container .plansSection-content .card:hover p{
   color: var(--secondary-color) !important;
+}
+.plansSection-container .plansSection-content .card:hover .cardHeader p span{
+  color: var(--third-color);
 }
 .plansSection-container .plansSection-content .card:hover button{
   background-color: var(--third-color);
