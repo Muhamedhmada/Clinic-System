@@ -8,8 +8,8 @@ function PlansSection(){
   const [types , setTypes] = useState([])
   const getMyTypes = async()=>{
     const res = await getData('appointment-type')
-    console.log(res.data.data)
-    setTypes(res.data.data)
+    console.log(res?.data?.data)
+    setTypes(res?.data?.data)
   }
   useEffect(()=>{
     getMyTypes()
@@ -19,7 +19,7 @@ function PlansSection(){
       <Header header="We Provide You The Best Treatment In Resonable Price" desc ="Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts"/>
       <div className="plansSection-content content">
         {
-          types.map((item)=>(
+          types?.map((item)=>(
             <PlansCard icon={<Teeth width="50px"/>} header={item.type} price={item.price} list={["Lorem ipsum dolor sit" , "Cubitur sollicitudin fentum" , "Nullam interdum enim" , "Donec ultricies metus" , "Pellentesque eget nibh"]} link="book-appointment"/>
             )
           )

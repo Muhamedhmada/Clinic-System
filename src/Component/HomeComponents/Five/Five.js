@@ -24,7 +24,7 @@ function Five(){
         <Swiper
            autoplay={{
             delay: 3000, // 3 ثواني بين كل سلايد
-            disableOnInteraction: false, // يكمل بعد ما المستخدم يتفاعل
+            disableOnInteraction: true, // يكمل بعد ما المستخدم يتفاعل
           }}
           modules={[Navigation, Pagination, Scrollbar, A11y , Autoplay]}
           spaceBetween={10}

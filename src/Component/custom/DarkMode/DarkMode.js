@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Moon, Sun } from "../../../Assets/SVGS";
 import darkModeSlice from "../../../zustand/DarkModeSlice";
 import './DarkMode.css'
@@ -8,7 +7,7 @@ function DarkMode(){
   return (
     <div className='darkMode-container'>
       <div className='moon-sun-icon' onClick={changeMode}>
-        {theme === "light" ? (
+        {theme === "dark" ? (
           <div className='sun'>
             <Sun width='25px' />
           </div>
@@ -18,7 +17,7 @@ function DarkMode(){
           </div>
         )}
         <p> 
-          {theme}
+          {theme==="dark"?"light":"dark"}
         </p>
       </div>
     </div>

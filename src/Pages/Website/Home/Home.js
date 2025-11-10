@@ -24,7 +24,7 @@ function Home(){
     }
     window.history.replaceState({}, document.title);
     console.log(window.history)
-  }, [])
+  }, [location])
   
   return(
     <>

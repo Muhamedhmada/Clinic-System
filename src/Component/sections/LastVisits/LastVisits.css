@@ -50,6 +50,9 @@
 .lastVisits-container .lastVisits-content .modal .images img{
   width: 100%;
   height: 100%;
+  max-width: 200px;
+  max-height: 200px;
+  aspect-ratio: square;
   border-radius: 10px;
 }
 .lastVisits-container .lastVisits-content .modal .images .image button{

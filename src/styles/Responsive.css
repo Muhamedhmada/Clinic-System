@@ -141,7 +141,7 @@
   .navbar-container .navbar-content .btns{
     display: none;
   }
-  .navbar-container .navbar-content .icon{
+  .navbar-container .navbar-content .icon.bars  {
     display: flex;
   }
   /* home land page */

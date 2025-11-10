@@ -1,0 +1,69 @@
+import Logo from "../Logo/Logo";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+import { Bars } from "../../../Assets/SVGS";
+import isTokenSlice from "../../../zustand/TokenSlice";
+import userImage from "../../../Assets/Images/doctor.jpeg";
+import UserMenu from "../UserMenu/UserMenu";
+import MobileNavMenu from "../MobileNavMenu/MobileNavMenu";
+import Notification from "../Notification/Notification";
+function NavbarC(){
+  const nav = useNavigate();
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const {isToken} = isTokenSlice();
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  return(
+        <div className='navbar-content content'>
+          <Logo />
+          <div className='links'>
+            <a href='/'>Home</a>
+            {/* <a href="/">doctors</a> */}
+            <a href='/book-appointment'>book appointment</a>
+            {/* <a href="/">pages</a> */}
+            <a href='/medical_history'>medical history</a>
+            <a href='/contact-us'>contact us</a>
+          </div>
+          <div style={{display: "flex", gap: "20px"}}>
+            <div className='btns'>
+              {/* <button onClick={() => nav("/booking")}>book appointment</button> */}
+              <button onClick={() => nav(isToken ? "/dashboard" : "/login")}>
+                {isToken ? "dashboard" : "login"}
+              </button>
+            </div>
+            {isToken && (
+              <div style={{display:"flex" , alignItems:"center" , gap:"20px"}}>
+                <Notification/>
+                <img
+                  className='userImage'
+                  onClick={() => setIsUserMenuOpen((prev) => !prev)}
+                  src={userImage}
+                  alt=''
+                />
+                <UserMenu
+                  isOpen={isUserMenuOpen}
+                  func={() => setIsUserMenuOpen((prev) => !prev)}
+                />
+              </div>
+            )}
+          </div>
+          <div
+            className='icon bars'
+            onClick={() => {
+              setShowMobileMenu((prev) => !prev);
+              console.log("ge");
+            }}
+          >
+            <Bars width='40px' />
+          </div>
+          {/* mobile nav menu */}
+          <MobileNavMenu
+            isNavMobileMenuOpen={showMobileMenu}
+            navMobileMenuFunc={() => setShowMobileMenu((prev) => !prev)}
+            // isUserMenuOpen={isUserMenuOpen}
+            // userMenuFunc={() => setIsUserMenuOpen((prev) => !prev)}
+          />
+        </div>
+  )
+}
+export default NavbarC

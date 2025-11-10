@@ -96,14 +96,14 @@
   transform: scale(1);
   background-color: var(--secondary-color);
 }
-.navbar-container .navbar-content .icon{
+.navbar-container .navbar-content .icon.bars{
   color: var(--primary-color);
   cursor: pointer !important;
   display: none;
   z-index: 99999999 !important;
   transition-duration: var(--transition-duration);
 }
-.navbar-container .navbar-content .icon:hover{
+.navbar-container .navbar-content .icon.bars:hover{
   transform: rotate(-180deg);
 }
 /* user image */

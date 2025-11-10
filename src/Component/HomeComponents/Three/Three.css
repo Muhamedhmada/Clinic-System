@@ -23,6 +23,11 @@
   background-size: cover;
   flex: 1;
   min-height: 400px;
+  transition-duration: var(--transition-duration);
+  border-radius: var(--btn-border-radius);
+}
+.three-container .three-content .information .image:hover{
+  transform: scale(.9);
 }
 .three-container .three-content .information .image img{
   width: 100%;

@@ -19,22 +19,16 @@ function SponserSection(){
           speed={5000} // كل ما تزود الرقم، يكون أبطأ و"أنعم"
           modules={[Navigation, Pagination, Scrollbar, A11y , Autoplay]}
           spaceBetween={10}
-          slidesPerView={1}
+          slidesPerView={2}
           navigation
           pagination={{clickable: true}}
           scrollbar={{draggable: true}}
           breakpoints={{
-            1200: {
-              slidesPerView: 4,
-            },
             992: {
-              slidesPerView: 3,
+              slidesPerView: 4
             },
-            768: {
-              slidesPerView: 2,
-            },
-            500:{
-              slidesPerView:1
+            676:{
+              slidesPerView:3
             }
           }}
         >

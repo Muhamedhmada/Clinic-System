@@ -8,6 +8,7 @@ import {ToastContainer} from "react-toastify";
 import getData from "../../../utils/getData.js";
 import donwloadImage from "../../../utils/downloadImage.js";
 import handleApiError from '../../../utils/handleApiError'
+import img from '../../../Assets/Images/rosheta1.jpg'
 function LastVisits() {
   const [loader, setLoader] = useState(false);
   const [patientRecords, setPatientRecords] = useState(null);
@@ -76,7 +77,9 @@ function LastVisits() {
                 attachments?.map((item) => {
                   return (
                     <div className='image'>
-                      <img src={item.url} alt='attachment' />
+                      {/* <img src={item.url} alt='attachment' /> */}
+                      <img src={img} alt='attachment' />
+
                       <Icon icon={<Download />} func={() => donwloadImage()} />
                     </div>
                   );

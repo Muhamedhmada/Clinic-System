@@ -2,6 +2,7 @@ import { onMessage } from "firebase/messaging";
 import { messaging } from "./config";
 
 import logo from '../Assets/Images/clinicLogo.png'
+import {toast} from 'react-toastify'
 
 export const onMessageListener = () =>
   new Promise((resolve) => {
@@ -15,11 +16,11 @@ export const onMessageListener = () =>
       if (Notification.permission === "granted") {
         new Notification(title || "New Message", {
           body: body || "You have a new notification",
-          icon: icon || {logo},
+          icon: icon || logo,
           vibrate: [100, 50, 100],// اهتزاز (في الموبايل)
         });
       } else {
-        console.warn("Notifications are not allowed by the user.");
+        toast.warn("Notifications are not allowed by the user.");
       }
     });
   });

@@ -1,0 +1,57 @@
+.notification-container{
+  position: relative;
+  background-color: red;
+}
+.notification-container .icon{
+  color: var(--primary-color);
+  height: 100%;
+}
+.notification-container .icon::after{
+  position: absolute;
+  content: "1";
+  border-radius:50% ;
+  width: 15px;
+  height: 15px;
+  top: -9px;
+  left: 12px;
+  color: var(--third-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: smaller;
+  background-color: var(--secondary-color);
+}
+.notification-container .notifications{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--third-color);
+  z-index: 1111;
+  position: absolute;
+  width: 300px;
+  height: 80vh;
+  border-radius: 10px;
+  top: 52px;
+  left: -300px;
+  overflow-y: scroll;
+  overscroll-behavior: contain; /* أو ممكن تستخدم none */
+}
+.notification-container .notifications h3{
+  padding: 10px;
+}
+.notification-container .notifications .notification{
+  align-items: center;
+  justify-content: space-between ;
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px;
+  display: flex;
+  align-content: flex-start;
+
+  gap: 5px;
+}
+.notification-container .notifications .notification .image img{
+  width: 50px;
+  height: 50px;
+}
+.notification-container .notifications .notification p{
+  font-size: 13px;
+}

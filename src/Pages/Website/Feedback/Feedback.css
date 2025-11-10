@@ -6,15 +6,40 @@
 }
 .feedback-container .feedback-content .feedbacks .feedback{
   position: relative;
-  padding: 30px;
+  padding: 20px 30px;
   background-color: var(--border-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+}
+.feedback-container .feedback-content .feedbacks .feedback textarea{
+  height: 100%;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+}
+.feedback-container .feedback-content .feedbacks .feedback .icons{
+  cursor: pointer;
+  align-self: flex-end;
+  display: flex;
+  gap: 5px;
+}
+.feedback-container .feedback-content .feedbacks .feedback:nth-child(2n) .icons{
+  color: var(--border-color) !important;
+  color: red;
+  align-self: flex-end;
+  cursor: pointer;
 }
 .feedback-container .feedback-content .feedbacks .feedback:nth-child(2n){
   background-color: var(--primary-color);
   color: var(--third-color);
+}
+.feedback-container .feedback-content .feedbacks .feedback .icons button{
+  padding:0;
+  background-color: transparent;
+  font-size: 14px;
 }
 .feedback-container .feedback-content .feedbacks .feedback .user{
   position: absolute;
@@ -34,8 +59,8 @@
   left: auto;
 }
 .feedback-container .feedback-content .feedbacks .feedback .user .image{
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 .feedback-container .feedback-content .feedbacks .feedback .user .image img{
   width: 100%;
@@ -47,9 +72,14 @@
   gap: 10px;
   flex-direction: column;
 }
+.feedback-container .feedback-content form textarea{
+  box-shadow: inset 0 0 5px var(--border-color);
+}
 .feedback-container .feedback-content form button{
   color: var(--third-color);
   background-color: var(--primary-color);
   display: flex;
+  align-items: center;
+  gap: 5px;
   align-self: flex-end;
 }

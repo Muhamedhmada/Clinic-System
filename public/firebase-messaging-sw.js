@@ -1,6 +1,5 @@
 // firebase-messaging-sw.js
 /* eslint-disable no-undef */
-import logo from '../Assets/Images/clinicLogo.png'
 
 importScripts('https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js');
@@ -25,7 +24,7 @@ messaging.onBackgroundMessage(function(payload) {
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body,
-    icon: icon || {logo},
+    icon: '/clinicLogo.png',
     vibrate: [100, 50, 100],// اهتزاز (في الموبايل)
   };
 
