@@ -21,6 +21,7 @@
   background-color: var(--secondary-color);
 }
 .notification-container .notifications{
+  color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   background-color: var(--third-color);
@@ -50,6 +51,7 @@
   align-content: flex-start;
 
   gap: 5px;
+  color: var(--secondary-color);
 }
 .notification-container .notifications .notification .image img{
   width: 50px;
