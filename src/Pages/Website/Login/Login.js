@@ -103,7 +103,7 @@ function Login(){
               (
                 <div style={{display:"flex",flexDirection:"column",gap:"10px"}}>
                   <button onClick={()=>createAccount()}>login</button>
-                  <button className='googleBtn' onClick={()=>handleGoogleLogin()}><Google width="60px" heigth="20px"/> </button>
+                  <button className='googleBtn' onClick={()=>handleGoogleLogin()} style={{display:"none"}}><Google width="60px" heigth="20px"/> </button>
                 </div>
               )
             }
