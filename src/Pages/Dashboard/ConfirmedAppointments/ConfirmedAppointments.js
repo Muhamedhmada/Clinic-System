@@ -10,10 +10,11 @@ import getData from "../../../utils/getData";
 function ConfirmedAppointments() {
   const [loader, setLoader] = useState(false);
   const [appointment, setAppointment] = useState([]);
+  const [searchValue , setSearchValue] = useState("")
   const getAppointments = async () => {
     setLoader(true);
     const res = await getData(`appointment?status=accepted`);
-    setAppointment(res.data.data);
+    setAppointment(res?.data?.data);
     setLoader(false);
   };
 
@@ -40,9 +41,11 @@ function ConfirmedAppointments() {
       <div className='appointments-container urgentReservations-container'>
         <div className='appointments-content urgentReservations-content'>
           <DashHeader
-            header={`Today'S Appointments (${appointment?.length})`}
+            header={`Today'S Appointments (${appointment?.length || 0})`}
+            getSearchValue = {(e)=>setSearchValue(e.target.value)}
           />
           <Table
+            searchValue={searchValue}
             loader={loader}
             headers={[
               "name",
@@ -67,7 +70,7 @@ function ConfirmedAppointments() {
               return (
                 <>
                   <td>{item.slot.date}</td>
-                  <td>{item.appointment_type.type}</td>
+                  <td>{item.appointment_type?.type}</td>
                   {/* <td>{item.reason}</td> */}
                   <td className='notify' onClick={() => handleNotify()}>
                     <Notification color='red' width='20px' />
@@ -87,9 +90,9 @@ function ConfirmedAppointments() {
                       />
                     </Space>
                   </td>
-                  <td>{item.appointment_type.price}</td>
-                  <td>{item.appointment_type.discount}</td>
-                  <td>{item.appointment_type.total_price}</td>
+                  <td>{item.appointment_type?.price}</td>
+                  <td>{item.appointment_type?.discount}</td>
+                  <td>{item.appointment_type?.total_price}</td>
                   <td>
                     <button className='detailsBtn'>
                       {item.is_paid === false ? "pay" : "paied"}

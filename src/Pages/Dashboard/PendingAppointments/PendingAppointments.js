@@ -14,6 +14,8 @@ function PendingAppointments() {
   const [addModal, setAddModal] = useState(false);
   const [appointment , setAppointment] = useState([])
   const [loader , setLoader] = useState(false)
+  const [searchValue , setSearchValue] = useState("")
+
 
   const acceptAppointment = async(id) => {
     console.log(id)
@@ -69,8 +71,9 @@ function PendingAppointments() {
     <div className='urgentReservations-container'>
       <div className='urgentReservations-content'>
         <ToastContainer />
-        <DashHeader header={`Pending Appointments (${appointment?.length})`} />
+        <DashHeader header={`Pending Appointments (${appointment?.length || 0})`} getSearchValue = {(e)=>setSearchValue(e.target.value)}/>
         <Table
+          searchValue={searchValue}
           headers={[
             "user name",
             "phone",

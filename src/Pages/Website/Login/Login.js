@@ -14,14 +14,15 @@ import UserDataSlice from '../../../zustand/UserDataSlice'
 import handleApiError from '../../../utils/handleApiError'
 import { sendTokenToBackend } from '../../../firebase/sendTokenToBackend';
 import { getFCMToken } from '../../../firebase/getFCMToken';
+import { Google } from '../../../Assets/SVGS';
 function Login(){
   const [loader , setLoader] = useState(false)
   const nav = useNavigate()
   const {createAccountSlice} = TokenSlice()
   const {createUserDataSlice} = UserDataSlice()
   const [data , setData] = useState({
-    email : "",
-    password :""
+    email : "ahmed.admin1@example.com",
+    password :"12345678"
   })
   // const clearInputValue = ()=>{
   //   setData((prev)=>({
@@ -53,6 +54,15 @@ function Login(){
       setLoader(false)
     }
   }
+
+  const handleGoogleLogin = ()=>{
+    window.open(
+      `${base_url}/auth/google`,
+      "_blank",
+      "noopener,noreferrer"
+    )
+  }
+  
 
   const location = useLocation()
   useEffect(() => {
@@ -91,10 +101,10 @@ function Login(){
                 <BtnLoader/>
               :
               (
-                <>
+                <div style={{display:"flex",flexDirection:"column",gap:"10px"}}>
                   <button onClick={()=>createAccount()}>login</button>
-                  {/* <button onClick={()=>nav('/dashboard')}>login as admin</button> */}
-                </>
+                  <button className='googleBtn' onClick={()=>handleGoogleLogin()}><Google width="60px" heigth="20px"/> </button>
+                </div>
               )
             }
           </div>

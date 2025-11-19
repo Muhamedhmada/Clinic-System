@@ -19,6 +19,9 @@
   max-height: 90%;
   overflow: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .lastVisits-container .lastVisits-content .modal .icon{
   color: var(--secondary-color);
@@ -55,6 +58,10 @@
   aspect-ratio: square;
   border-radius: 10px;
 }
+.lastVisits-container .lastVisits-content .btns{
+  display: flex;
+  gap: 5px;
+}
 .lastVisits-container .lastVisits-content .modal .images .image button{
   background-color: var(--secondary-color);
   color: var(--third-color);
@@ -79,4 +86,58 @@
   left: 10px;
   top: 10px;
   color: var(--third-color);
+}
+.lastVisits-container .lastVisits-content .uploadedModal{
+  display: flex;
+  /* gap: 10px; */
+  justify-content: center;
+}
+.lastVisits-container .lastVisits-content .upload{
+  flex: 1;
+  flex-shrink: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+}
+.lastVisits-container .lastVisits-content .upload .icon{
+  color: var(--primary-color);
+}
+.lastVisits-container .lastVisits-content .uploadedImages{
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  gap: 10px;
+}
+.lastVisits-container .lastVisits-content .uploadedImages .image{
+  position: relative;
+  width: 70px;
+}
+.lastVisits-container .lastVisits-content .uploadedImages .image:hover .imageOverLay{
+  opacity: .8;
+}
+.lastVisits-container .lastVisits-content .uploadedImages .image .imageOverLay{
+  cursor: pointer;
+  color: var(--third-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  position: absolute;
+  opacity: 0;
+  inset: 1;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+  transition-duration: var(--transition-duration);
+}
+.lastVisits-container .lastVisits-content .uploadedImages img{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }

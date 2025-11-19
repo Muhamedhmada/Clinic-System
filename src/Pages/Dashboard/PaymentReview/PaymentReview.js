@@ -9,6 +9,8 @@ import { Exit } from '../../../Assets/SVGS';
 import Icon from '../../../Component/common/Icon/Icon';
 import { AnimatePresence, motion } from 'framer-motion';
 function PaymentReview(){
+  const [searchValue , setSearchValue] = useState("")
+
   const paymentSubmissions = [
     {
       name: "Ahmed Mohamed",
@@ -63,6 +65,8 @@ function PaymentReview(){
       }
     }
   ];
+
+  
   
   
   const [showedImage , setShowedImage] = useState(null)
@@ -70,8 +74,9 @@ function PaymentReview(){
     <div className='paymentReview-container'>
       <div className='paymentReview-content'>
         <ToastContainer />
-        <DashHeader header='Payment Review' />
+        <DashHeader header='Payment Review' getSearchValue = {(e)=>setSearchValue(e.target.value)} />
         <Table
+          searchValue={searchValue}
           headers={["name", "mobile", "type", "payment Method" , "total amount", "proof" , "confirm payment"]}
           keys={["name", "phone", "bookingType" , "paymentMethod" , "amountDue" ]}
           data={paymentSubmissions}

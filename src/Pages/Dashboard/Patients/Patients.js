@@ -24,7 +24,7 @@ function Patients(){
     setLoader(true)
     try{
       const res = await getData("user")
-      setPaitents(res.data.data)
+      setPaitents(res?.data?.data)
     }
     finally{
       setLoader(false)
@@ -38,6 +38,8 @@ function Patients(){
     setAddModal(false)
     toast.success("patient add succesfully")
   }
+
+  console.log(patients)
   return (
     <div className='patients-container'>
       <div className='patients-content'>
