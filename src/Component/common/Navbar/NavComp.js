@@ -11,9 +11,9 @@ function NavbarC() {
   const nav = useNavigate();
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const {isToken} = isTokenSlice();
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userData = JSON.parse(localStorage.getItem("userData")) || null;
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  console.log(userData.role);
+  console.log(userData?.role);
 
   return (
     <div className='navbar-content content'>
@@ -27,7 +27,7 @@ function NavbarC() {
       <div style={{display: "flex", gap: "20px"}}>
         <div className='btns'>
           {isToken ? (
-            userData.role === "admin" ? (
+            userData?.role === "admin" ? (
               <button onClick={() => nav("/dashboard")}>dashboard</button>
             ) : (
               "no"
