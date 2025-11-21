@@ -12,7 +12,13 @@ import Url from '../../../config/base_url'
 import BtnLoader from '../../../Component/common/BtnLoader/BtnLoader'
 import { useState } from 'react'
 import TokenSlice from '../../../zustand/TokenSlice.js'
+import { sendTokenToBackend } from '../../../firebase/sendTokenToBackend';
+import UserDataSlice from '../../../zustand/UserDataSlice'
+import { getFCMToken } from '../../../firebase/getFCMToken';
+
 function SignUp(){
+  const {createUserDataSlice} = UserDataSlice()
+
   const handleSuccess = (credentialResponse)=>{
     const decoded = jwtDecode(credentialResponse.credential);
     console.log(decoded); // فيه name, email, picture
@@ -53,6 +59,9 @@ function SignUp(){
       console.log(res.data.data.accessToken)
         if(res.data.data.accessToken){
           createAccountSlice(res.data.data.accessToken)
+          createUserDataSlice(res.data.data.user)
+          const fcmToken = await getFCMToken();
+          await sendTokenToBackend("userId", fcmToken);
           nav('/' , {state:{success:true , msg:res.data.message}})
         }
     }
@@ -128,12 +137,12 @@ function SignUp(){
               :
             <button onClick={()=>createAccount()}>SignUp</button>
             }
-              <p>OR</p>
+              {/* <p>OR</p>
               <GoogleLogin
               onSuccess={handleSuccess}
               onError={handleError}
               >
-              </GoogleLogin>
+              </GoogleLogin> */}
             </div>
           </div>
         </div>
