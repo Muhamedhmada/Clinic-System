@@ -19,7 +19,7 @@ function LastVisits() {
   const [attachments, setAttachments] = useState();
   const [rowData , setRowData] = useState(null)
   const [attachmentsModal, setAttachmentsModal] = useState(false);
-  const [uploadModal , setUploadModal] = useState(true)
+  const [uploadModal , setUploadModal] = useState(false)
   const [uploadedImages , setUploadedImages] = useState([])
 
   const ShowAttachments = (attachment) => {

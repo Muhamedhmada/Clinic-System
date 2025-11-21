@@ -35,8 +35,6 @@ function SignUp(){
     gender:""
   })
   const createAccount = async()=>{
-    console.log(data.gender)
-    // return
     if (
       !data.first_name ||
       !data.last_name ||

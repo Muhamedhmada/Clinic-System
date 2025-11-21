@@ -102,9 +102,9 @@ function Booking() {
 
   const getAppointments = async () => {
     const res = await getData(`time-slot`);
-    setSchedule(res.data.data.data);
-    setTotalDays(res.data.data.paginationMeta.totalItems)
-    console.log(res.data.data.data)
+    setSchedule(res?.data?.data?.data);
+    setTotalDays(res?.data?.data?.paginationMeta?.totalItems)
+    console.log(res?.data?.data?.data)
   };
   // handle next page in table
   const handleNextPage = ()=>{
@@ -192,7 +192,7 @@ function Booking() {
                      animate={{translateX: 0, opacity: 1}}
                      transition={{duration: 0.5}}
                   >
-                    {schedule?.[0].slots?.slice(0,3).map((item, index) => {
+                    {schedule?.[1].slots?.slice(0,7).map((item, index) => {
                       return (
                         <tr key={index}>
                           <td className='hour'>
