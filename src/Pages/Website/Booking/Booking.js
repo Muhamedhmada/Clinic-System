@@ -61,9 +61,7 @@ function Booking() {
 
   const confirmAppointment = async() => {
     console.log("confirmed")
-    setModal((prev) => ({...prev, data: false, success: true}));
     console.log(appointmentData)
-
     console.log(appointment)
     let dataSend = {
       name:appointmentData.name + appointment.id,
@@ -83,7 +81,8 @@ function Booking() {
       }
       
       )
-      console.log(res)
+      console.log(res?.data?.data)
+      setModal((prev) => ({...prev, data: false, success: true}));
     }
     catch(error){
       handleApiError(error)

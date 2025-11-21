@@ -121,6 +121,7 @@ function MyAppointments() {
                             <BtnLoader/>
                             :(
                               <button
+                                disabled={!item.is_confirmed}
                                 className='detailsBtn'
                                 onClick={() => handlePay(item)}
                               >
