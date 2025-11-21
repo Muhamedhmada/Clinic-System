@@ -43,7 +43,7 @@ function Booking() {
   })
 
   const [rowData , setRowData] = useState([])
-
+  console.log(rowData)
   const [showBookingTable, setShowBookingTable] = useState(true);
   const [schedule, setSchedule] = useState();
 
@@ -60,29 +60,24 @@ function Booking() {
   };
 
   const confirmAppointment = async() => {
-    console.log("confirmed")
-    console.log(appointmentData)
-    console.log(appointment)
     let dataSend = {
-      name:appointmentData.name + appointment.id,
+      name:appointmentData.name,
       phone:appointmentData.number,
       reason:"test",
       time_slot_id:appointment.id,
       appointment_type_id:2,
       gender:"male",
     }
-    console.log(dataSend)
-    // return
     try{
       const res = await axios.post(`${base_url}/appointment/book`,dataSend,{
         headers:{
           Authorization: `Bearer ${token} `,
         }
       }
-      
       )
       console.log(res?.data?.data)
       setModal((prev) => ({...prev, data: false, success: true}));
+
     }
     catch(error){
       handleApiError(error)
@@ -269,7 +264,7 @@ function Booking() {
               </p>
               <div>
                 <p>
-                  <span>Date</span>: {appointment.day}
+                  <span>Date</span>: {rowData.slot_date}
                 </p>
                 <p>
                   <span>Time</span>:{" "}

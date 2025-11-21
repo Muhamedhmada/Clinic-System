@@ -137,6 +137,9 @@ a{
   color: inherit;
 }
 
+button:disabled{
+  cursor: not-allowed;
+}
 .addBtn{
   background-color: #3b82f6;
   color: #ffffff;
