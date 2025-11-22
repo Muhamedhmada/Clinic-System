@@ -22,13 +22,12 @@ function MyAppointments() {
     setMyAppointments(res.data.data);
   };
 
-  const handleCancelBtn = async () => {
-    console.log(rowData?.id);
+  const handleCancelBtn = async (id) => {
     // return
     setLoader(true);
     try {
       const res = await axios.put(
-        `${base_url}/appointment/cancel/${rowData?.id}`,
+        `${base_url}/appointment/cancel/${id}`,
         null,
         {
           headers: {
@@ -73,10 +72,11 @@ function MyAppointments() {
                     <th>mobile</th>
                     <th>day</th>
                     <th>time</th>
-                    <th>type</th>
                     <th>reason</th>
-                    <th>cance</th>
-                    <th>is confirmed</th>
+                    <th>type</th>
+                    <th>price</th>
+                    <th>cancel</th>
+                    <th>status</th>
                     <th>pay</th>
                   </tr>
                 </thead>
@@ -94,26 +94,23 @@ function MyAppointments() {
                             minute: "2-digit",
                           })}
                         </td>
-                        <td>{item.type}</td>
                         <td>{item.reason}</td>
+                        <td>{item.appointment_type.type}</td>
+                        <td>{item.appointment_type.price}</td>
                         <td className='btn'>
                           {loader && item.id === rowData.id ? (
                             <BtnLoader />
                           ) : (
                             <button
                               className='cancelBtn'
-                              onClick={() => {handleCancelBtn();setRowData(item)}}
+                              onClick={() => {handleCancelBtn(item.id);setRowData(item)}}
                             >
                               cancel
                             </button>
                           )}
                         </td>
                         <td>
-                          {item.is_confirmed ? (
-                            <Check width='32px' color='#1a76d1' />
-                          ) : (
-                            "not confirmed"
-                          )}
+                          {item.status}
                         </td>
                         <td>
                           {
@@ -121,7 +118,8 @@ function MyAppointments() {
                             <BtnLoader/>
                             :(
                               <button
-                                disabled={!item.is_confirmed}
+                                title={item.status === "accepted"?null:"wait for confirmation"}
+                                disabled={item.status !== "accepted" }
                                 className='detailsBtn'
                                 onClick={() => handlePay(item)}
                               >

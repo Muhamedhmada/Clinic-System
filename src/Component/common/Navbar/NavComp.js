@@ -28,34 +28,38 @@ function NavbarC() {
           {isToken ? (
             userData?.role === "admin" && (
               <button onClick={() => nav("/dashboard")}>dashboard</button>
-            )  ): (
+            )
+          ) : (
             <button onClick={() => nav("/login")}>login</button>
           )}
         </div>
-        {isToken && (
-          <div style={{display: "flex", alignItems: "center", gap: "20px"}}>
-            <Notification />
-            <div
-              className='icon bars'
-              onClick={() => {
-                setShowMobileMenu((prev) => !prev);
-                console.log("ge");
-              }}
-            >
-              <Bars width='40px' />
-            </div>
-            <img
-              className='userImage'
-              onClick={() => setIsUserMenuOpen((prev) => !prev)}
-              src={userImage}
-              alt=''
-            />
-            <UserMenu
-              isOpen={isUserMenuOpen}
-              func={() => setIsUserMenuOpen((prev) => !prev)}
-            />
+        <div style={{display: "flex", alignItems: "center", gap: "20px"}}>
+          {isToken && <Notification />}
+          <div
+            className='icon bars'
+            onClick={() => {
+              setShowMobileMenu((prev) => !prev);
+              console.log("ge");
+            }}
+          >
+            <Bars width='40px' />
           </div>
-        )}
+          {isToken && (
+            <>
+              <img
+                className='userImage'
+                onClick={() => setIsUserMenuOpen((prev) => !prev)}
+                src={userImage}
+                alt=''
+              />
+
+              <UserMenu
+                isOpen={isUserMenuOpen}
+                func={() => setIsUserMenuOpen((prev) => !prev)}
+              />
+            </>
+          )}
+        </div>
       </div>
 
       {/* mobile nav menu */}

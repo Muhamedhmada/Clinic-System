@@ -26,6 +26,7 @@ function PendingAppointments() {
         }
       })
       console.log(res)
+      getAppointments()
     }
     catch(error){
       handleApiError(error)
@@ -43,6 +44,7 @@ function PendingAppointments() {
         }
       })
       console.log(res)
+      getAppointments()
     }
     catch(error){
       handleApiError(error)

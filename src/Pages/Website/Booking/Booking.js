@@ -17,6 +17,7 @@ import axios from "axios";
 
 import base_url from "../../../config/base_url";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 function Booking() {
   const token = localStorage.getItem("token")
   const [totalDays , setTotalDays] = useState(0)
@@ -46,7 +47,6 @@ function Booking() {
   console.log(rowData)
   const [showBookingTable, setShowBookingTable] = useState(true);
   const [schedule, setSchedule] = useState();
-
   const selectAppointment = (day, hour , id , item) => {
     console.log(day , hour)
     setRowData(item)
@@ -68,6 +68,7 @@ function Booking() {
       appointment_type_id:2,
       gender:"male",
     }
+    setModal((prev) => ({...prev, data: false}));
     try{
       const res = await axios.post(`${base_url}/appointment/book`,dataSend,{
         headers:{
@@ -75,9 +76,8 @@ function Booking() {
         }
       }
       )
-      console.log(res?.data?.data)
-      setModal((prev) => ({...prev, data: false, success: true}));
-
+      toast.success(res?.data?.message)
+      setModal((prev) => ({...prev, success: true}));
     }
     catch(error){
       handleApiError(error)
@@ -85,6 +85,7 @@ function Booking() {
     finally{
       console.log("finaly of booked")
       setAppointmentData((prev) => ({...prev, name: "", number: true}));
+
     }
   };
   
@@ -281,7 +282,7 @@ function Booking() {
             isOpen={modal.data}
             onClose={() => setModal((prev) => ({...prev, data: false}))}
             handleCancel={CancelAppointment}
-            AcceptBtn='confrirm'
+            AcceptBtn='confrirmf'
             handleAdd={confirmAppointment}
             CancelBtn='cancel'
             showModalsBtns='true'

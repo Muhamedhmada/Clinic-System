@@ -24,7 +24,13 @@ function Notification(){
   },[ ])
   return(
     <div className="notification-container">
-      <Icon icon={<NotIcaon width="20px"/>} func={handleNotificationIcon}/>
+      <div className="icon">
+        {
+          myNotification?.length > 0  && 
+        <p className='NotificationLength'>{myNotification.length}</p>
+        }
+        <Icon icon={<NotIcaon width="20px"/>} func={handleNotificationIcon}/>
+      </div>
       <AnimatePresence>
       {
         isOpen && 

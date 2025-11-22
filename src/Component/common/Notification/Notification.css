@@ -5,9 +5,9 @@
   color: var(--primary-color);
   height: 100%;
 }
-.notification-container .icon::after{
+.notification-container >.icon p.NotificationLength{
   position: absolute;
-  content: "1";
+  content: "";
   border-radius:50% ;
   width: 15px;
   height: 15px;
