@@ -20,7 +20,7 @@ function PlansSection(){
       <div className="plansSection-content content">
         {
           types?.map((item)=>(
-            <PlansCard icon={<Teeth width="50px"/>} header={item.type} price={item.price} list={["Lorem ipsum dolor sit" , "Cubitur sollicitudin fentum" , "Nullam interdum enim" , "Donec ultricies metus" , "Pellentesque eget nibh"]} link="book-appointment"/>
+            <PlansCard icon={<Teeth width="50px"/>} header={item.type} price={item.price} list={["Lorem ipsum dolor sit" , "Cubitur sollicitudin fentum" , "Nullam interdum enim" , "Donec ultricies metus" , "Pellentesque eget nibh"]} link="booking"/>
             )
           )
         }
