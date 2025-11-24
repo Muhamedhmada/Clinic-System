@@ -37,6 +37,7 @@ function MyAppointments() {
       );
       toast.success("appointment canceled successfully");
       console.log(res);
+      getMyAppointments()
     } catch (error) {
       handleApiError(error);
     } finally {
@@ -102,6 +103,8 @@ function MyAppointments() {
                             <BtnLoader />
                           ) : (
                             <button
+                              // title={item.status === "pending"?null:"wa"}
+                              disabled={item.status !== "pending" }
                               className='cancelBtn'
                               onClick={() => {handleCancelBtn(item.id);setRowData(item)}}
                             >

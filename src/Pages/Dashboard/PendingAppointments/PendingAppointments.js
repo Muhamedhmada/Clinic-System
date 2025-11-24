@@ -91,7 +91,6 @@ function PendingAppointments() {
             "gender",
             "actions",
           ]}
-          searchValue=""
           keys={["name", "phone", "date", "time","status" , "reason"]}
           data={appointment&& appointment}
           renderAction={(item) => (

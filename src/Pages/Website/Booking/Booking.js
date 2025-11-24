@@ -282,7 +282,7 @@ function Booking() {
             isOpen={modal.data}
             onClose={() => setModal((prev) => ({...prev, data: false}))}
             handleCancel={CancelAppointment}
-            AcceptBtn='confrirmf'
+            AcceptBtn='confrirm'
             handleAdd={confirmAppointment}
             CancelBtn='cancel'
             showModalsBtns='true'

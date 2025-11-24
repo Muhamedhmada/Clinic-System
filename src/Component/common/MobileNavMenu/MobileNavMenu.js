@@ -25,7 +25,7 @@ function MobileNavMenu({isNavMobileMenuOpen, navMobileMenuFunc}) {
             <p>{userData?userData.role:"user"}</p>
           </div>
         </div>
-        <div className='icon' onClick={() => navMobileMenuFunc()}>
+        <div className='icon close' onClick={() => navMobileMenuFunc()}>
           <Exit width='40px' />
         </div>
       </div>
@@ -34,6 +34,13 @@ function MobileNavMenu({isNavMobileMenuOpen, navMobileMenuFunc}) {
           <Home width='20px' />
           Home 
         </a>
+        {
+          userData.role === "admin" &&
+        <a href='/dashoard'>
+          <Home width='20px' />
+          dashboard 
+        </a>
+        }
         <a href='/book-appointment'>
           <BookAppointment width='20px' />
           book appointment 

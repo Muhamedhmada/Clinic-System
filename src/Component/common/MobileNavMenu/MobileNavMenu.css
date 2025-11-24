@@ -41,6 +41,9 @@
   height: 50px;
   border-radius: 50%;
 }
+.menu-header .icon.close{
+  cursor: pointer;
+}
 .menu-header .userData >div h3{
   color: var(--primary-color);
   font-size: 19px;

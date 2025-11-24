@@ -6,6 +6,8 @@ export const sendTokenToBackend = async (userId, fcmToken) => {
   const token = localStorage.getItem("token")
   console.log("token in send Notification to backend file" , token)
   localStorage.setItem("fcmToken" , fcmToken)
+  console.log("FCM Token:", fcmToken, typeof fcmToken);
+  console.log("Auth Token:", token, typeof token)
   // return
   try {
     const res = await axios.post(`${base_url}/firebase/register-token`,{token:fcmToken},
