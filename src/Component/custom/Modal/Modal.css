@@ -1,11 +1,12 @@
 .modal-container {
-  z-index: 999999999999 !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
   position: fixed;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99999999  !important;
 }
 .modal{
   background-color: var(--third-color) ;
@@ -14,8 +15,8 @@
   border-radius: 6px;
   padding: 30px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* overflow-y: auto; */
   position: relative;
+  /* overflow: hidden; */
 }
 /* Close button */
 .modal .btnCloseModal {
@@ -27,7 +28,6 @@
   right: 20px;
   position: absolute;
   border-radius: 2px;
-  /* z-index: 9999999999999999999999999; */
 }
 .modal .btnCloseModal:hover{
   color: var(--third-color);
@@ -40,8 +40,6 @@
 .modal input{
   min-height: 50px;
   width: 100%;
-  /* border: 1px solid #eee; */
-  /* background-color: var(--background-color); */
 }
 .modal input , .modal textarea{
   font-size: 16px;
@@ -64,7 +62,6 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-  /* padding: 20px 0 0; */
   width: 100%;
 }
 .modal .btns button{
@@ -75,7 +72,6 @@
   transition-duration: var(--transition-duration);
 }
 .modal .btns button:nth-child(1){
-  /* background-color: var(--primary-color); */
   color: var(--third-color);
 }
 .modal .btns button:nth-child(2):hover{

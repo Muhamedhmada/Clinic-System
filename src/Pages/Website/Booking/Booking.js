@@ -14,12 +14,12 @@ import Loader from "../../../Component/common/Loader/Loader";
 import TwoInputs from "../../../Component/common/TwoInputs/TwoInputs";
 import handleApiError from "../../../utils/handleApiError";
 import axios from "axios";
-
 import base_url from "../../../config/base_url";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 function Booking() {
   const token = localStorage.getItem("token")
+  const [confirmationLoader , setConfirmationLoader] = useState(false)
   const [totalDays , setTotalDays] = useState(0)
   const [dayPerPage , setdayPerPage] = useState(7);
   const [ startIndex , setStartIndex] = useState(0)
@@ -55,11 +55,12 @@ function Booking() {
     setAppointment((prev)=>({...prev ,day:day , hour:hour , id:id}))
   };
 
-  const handleNextStep = () => {
-    setModal((prev) => ({...prev, confirmation: false, data: true}));
-  };
+  // const handleNextStep = () => {
+  // };
 
+  // confirm appointment
   const confirmAppointment = async() => {
+    setConfirmationLoader(true)
     let dataSend = {
       name:appointmentData.name,
       phone:appointmentData.number,
@@ -68,7 +69,6 @@ function Booking() {
       appointment_type_id:2,
       gender:"male",
     }
-    setModal((prev) => ({...prev, data: false}));
     try{
       const res = await axios.post(`${base_url}/appointment/book`,dataSend,{
         headers:{
@@ -83,25 +83,29 @@ function Booking() {
       handleApiError(error)
     }
     finally{
+      setConfirmationLoader(false)
       console.log("finaly of booked")
       setAppointmentData((prev) => ({...prev, name: "", number: true}));
-
+      setModal((prev) => ({...prev, data: false}));
     }
   };
   
+  // cancel appointment
   const CancelAppointment = () => {
     setModal((prev) => ({...prev, data: false}))
     setAppointmentData((prev) => ({...prev, name: "", number: true}));
   };
 
 
+  // get all appointments
   const getAppointments = async () => {
     const res = await getData(`time-slot`);
     setSchedule(res?.data?.data?.data);
     setTotalDays(res?.data?.data?.paginationMeta?.totalItems)
     console.log(res?.data?.data?.data)
   };
-  // handle next page in table
+
+  // handle next page button in table
   const handleNextPage = ()=>{
     if(lastIndex >= totalDays){
       return
@@ -109,7 +113,8 @@ function Booking() {
     setStartIndex(startIndex+dayPerPage)
     lastIndex = lastIndex+dayPerPage
   }
-  // handle prev page in table
+
+  // handle prev page button in table
   const handlePrevPage = ()=>{
     if(startIndex <= 0){
       return
@@ -118,22 +123,7 @@ function Booking() {
     lastIndex = (lastIndex - dayPerPage)
 
   }
-  // handle next page from number
-  // const handlePageNumber = (n)=>{
-  //   let currentPage = Math.ceil((startIndex-0)/dayPerPage)+1
-  //   let targetPage = n+1
-  //   console.log("prevPage" ,  currentPage)
-  //   console.log("targetPage" , targetPage)
-  //   console.log('startIndex' , startIndex)
-  //   if(currentPage < targetPage){
-  //     console.log("+++++++++++++++++++++++++")
-  //     setStartIndex((startIndex+dayPerPage)*((targetPage - currentPage)-2))
-  //     lastIndex = lastIndex+dayPerPage
-  //   }
-  //   if(currentPage > targetPage){
-  //     console.log("--------------------")
-  //   }
-  // }
+
   useEffect(() => {
     getAppointments();
   }, []);
@@ -250,7 +240,7 @@ function Booking() {
               setModal((prev) => ({...prev, confirmation: false}))
             }
             AcceptBtn=' next step'
-            handleAdd={() => handleNextStep()}
+            handleAdd={() =>setModal((prev) => ({...prev, confirmation: false, data: true}))}
             CancelBtn='cancel'
             showModalsBtns='true'
           >
@@ -258,7 +248,6 @@ function Booking() {
               <Check width='70px' color='#1a76d1' />
             </div>
             <h3>confirm your booking</h3>
-
             <div className='bookingInfo'>
               <p style={{textAlign: "center"}}>
                 are you sure you want to book this time
@@ -286,6 +275,7 @@ function Booking() {
             handleAdd={confirmAppointment}
             CancelBtn='cancel'
             showModalsBtns='true'
+            modalLoader={confirmationLoader}
           >
             <h3>confirm your booking</h3>
 

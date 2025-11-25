@@ -11,7 +11,7 @@ import BookAppointment from './Pages/Website/BookAppointment/BookAppointment';
 import Services from './Pages/Website/BookAppointment/BookAppointment';
 import ErrorPage from './Pages/Error/Error';
 import ToTop from './Component/custom/ToTop/ToTop';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import MedicalHistory from './Pages/Website/MedicalHistory/MedicalHistory';
 import FastBooking from './Pages/Website/FastBooking/FastBooking';
 import DarkMode from './Component/custom/DarkMode/DarkMode';
@@ -29,6 +29,7 @@ import PaymentReview from './Pages/Dashboard/PaymentReview/PaymentReview';
 // firebase
 import { onMessageListener } from "./firebase/onMessageListener";
 import { toast } from "react-toastify";
+import Preloader from './Component/custom/SiteLoader/SiteLoader';
 // import { requestForToken, onMessageListener } from "./config/firebase";
 
 
@@ -57,8 +58,30 @@ function App() {
   //     })
   //     .catch((err) => console.error("FCM Listener Error:", err));
   }, []);
+
+  // loader
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const handlePageLoad = () => {
+        setLoading(false);
+    };
+
+    if (document.readyState === "complete") {
+        setLoading(false);
+    } else {
+        window.addEventListener("load", handlePageLoad);
+    }
+
+    return () => window.removeEventListener("load", handlePageLoad);
+}, []);
+
   return (
     <div className='App'>
+      {
+        loading?
+        <Preloader/>:(
+
       <header className='App-header'>
         <ToTop />
         <DarkMode/>
@@ -73,7 +96,10 @@ function App() {
           <Route path='/users'element={<Layout children={<Users/>}/>}/>
           <Route path='/payment-review'element={<Layout children={<PaymentReview/>}/>}/>
 
-          {/* site */}
+          {/* site */}  
+          {/* mavbar */}
+          
+          {/*footer  */}
           <Route path='/' element={<Home />} />
           <Route path='/contact-us' element={<ContactUS />} />
           <Route path='/login' element={<Login />} />
@@ -88,6 +114,8 @@ function App() {
           <Route path='/payment' element={<Payment />} />
         </Routes>
       </header>
+        )
+      }
     </div>
   );
 }

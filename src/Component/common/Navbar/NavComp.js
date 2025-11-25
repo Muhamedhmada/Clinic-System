@@ -19,7 +19,7 @@ function NavbarC() {
       <Logo />
       <div className='links'>
         <a href='/'>Home</a>
-        <a href='/book-appointment'>book appointment</a>
+        <a href='/booking'>book appointment</a>
         <a href='/medical_history'>medical history</a>
         <a href='/contact-us'>contact us</a>
       </div>

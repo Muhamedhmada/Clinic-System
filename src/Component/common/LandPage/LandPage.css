@@ -1,5 +1,5 @@
 .landPage-container{
-  height: 40vh;
+  height:clamp(11.25rem, 9.1454rem + 8.9796vw, 18.125rem);
   background-image: url('../../../Assets/Images/hands.jpg');
   background-repeat: no-repeat;
   background-size: cover;
