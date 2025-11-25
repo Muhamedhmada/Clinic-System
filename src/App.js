@@ -78,15 +78,10 @@ function App() {
 
   return (
     <div className='App'>
-      {
-        loading?
-        <Preloader/>:(
-
       <header className='App-header'>
         <ToTop />
         <DarkMode/>
         <Routes>
-
           {/* dashboard */}
           <Route path='/dashboard'element={<Layout children={<Dashboard/>}/>}/>
           <Route path='/confirmed-appointments'element={<Layout children={<ConfirmedAppointments/>}/>}/>
@@ -98,7 +93,7 @@ function App() {
 
           {/* site */}  
           {/* mavbar */}
-          
+
           {/*footer  */}
           <Route path='/' element={<Home />} />
           <Route path='/contact-us' element={<ContactUS />} />
@@ -114,8 +109,6 @@ function App() {
           <Route path='/payment' element={<Payment />} />
         </Routes>
       </header>
-        )
-      }
     </div>
   );
 }
