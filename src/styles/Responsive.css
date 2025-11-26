@@ -42,7 +42,7 @@
   /* styles هنا */
   /* header in all component*/
   .header.content{
-    width: 100%;
+    width: 95%;
   }
   .header.content h2{
     font-size: 25px;
@@ -118,6 +118,7 @@
 }
 /* ============= 📱 Small devices (landscape phones) ============= */
 /* من 576px لـ 767px */
+/* the width that remove all hover action in it */
 @media (max-width: 768px) {
   /* styles هنا */
   /* p */
@@ -149,6 +150,14 @@
   .homeLandPage-container .homeLandPage-content p{
     width: 100%;
   }
+  .threeCards-container .threeCards-content .card:hover:after{
+    height: 0;
+  }
+  .one-container .one-content .cards .card .icon{
+    background-color: var(--primary-color);
+    color: var(--third-color);
+    border: 1px solid var(--primary-color);
+  }
    /* page number two in home page */
    .two-container .cards .card{
     width: 90%;
@@ -156,7 +165,7 @@
     text-align: center;
   }
   .homeLandPage-container{
-    min-height: 75vh;
+    min-height: 55vh;
   }
   /* error page */
   .error-container .error-content h2.error{

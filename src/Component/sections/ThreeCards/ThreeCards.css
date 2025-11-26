@@ -12,7 +12,8 @@
 .threeCards-container .threeCards-content .card{
   width: calc(95%/3);
   min-width:300px ;
-  min-height: 250px;
+  /* min-height: 250px; */
+  height: clamp(11.25rem, 10.1881rem + 4.5307vw, 15.625rem);
   display: flex;
   flex-direction: column;
   gap: 30px;
