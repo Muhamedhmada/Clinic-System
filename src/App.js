@@ -89,7 +89,7 @@ function App() {
       
       <header className='App-header'>
       {
-        // loading &&
+        loading &&
         <Preloader/>
       }
         <ToTop />
