@@ -128,8 +128,8 @@
   /* buttons */
   .container button,
   .modal .btns button{
-    font-size: 14px !important;
-    font-weight: 600;
+    font-size: 11px !important;
+    font-weight: 400;
     padding: 7px 15px;
   }
   /* topbar */
@@ -160,9 +160,9 @@
   }
    /* page number two in home page */
    .two-container .cards .card{
-    width: 90%;
+    /* width: 90%;
     flex-direction: column;
-    text-align: center;
+    text-align: center; */
   }
   .homeLandPage-container{
     min-height: 55vh;
@@ -210,6 +210,14 @@
 @media (max-width: 575.98px) {
   /* styles هنا */
 }
+@media (max-width: 541.98px) {
+  /* styles هنا */
+  .two-container .cards .card{
+    width: 100%;
+  }
+
+}
+
 @media (max-width: 447.98px) {
   /* styles هنا */
   /* home land page */

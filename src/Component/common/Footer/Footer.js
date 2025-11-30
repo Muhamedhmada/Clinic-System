@@ -27,7 +27,7 @@ function Footer(){
         </div>
       </div>
       <div className="copyRight">
-        <p>designed with love by M-hamada &copy; {date.getFullYear()}  </p>
+        <p>designed with love by M-hamada &copy; 2025 - {date.getFullYear()}  </p>
       </div>
     </>
   );

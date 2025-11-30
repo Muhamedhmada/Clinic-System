@@ -12,11 +12,11 @@
 .threeCards-container .threeCards-content .card{
   width: calc(95%/3);
   min-width:300px ;
-  /* min-height: 250px; */
   height: clamp(11.25rem, 10.1881rem + 4.5307vw, 15.625rem);
   display: flex;
   flex-direction: column;
   gap: 30px;
+  margin:0 !important;
   padding: 30px;
   border-radius: 7px;
   background-color: var(--primary-color);
@@ -27,7 +27,7 @@
   text-align: left;
   bottom: 0;
   position: relative;
-  transition: all var(--transition-duration) ease; /* أو خصص اللي بيتغير */
+  transition: all var(--transition-duration) ease;
   overflow: hidden;
   z-index: 1;
 }

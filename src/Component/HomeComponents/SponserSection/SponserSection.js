@@ -16,9 +16,9 @@ function SponserSection(){
             delay: 0, // 3 ثواني بين كل سلايد
             disableOnInteraction: false, // يكمل بعد ما المستخدم يتفاعل
           }}
-          speed={5000} // كل ما تزود الرقم، يكون أبطأ و"أنعم"
+          speed={10000} // كل ما تزود الرقم، يكون أبطأ و"أنعم"
           modules={[Navigation, Pagination, Scrollbar, A11y , Autoplay]}
-          spaceBetween={10}
+          spaceBetween={30}
           slidesPerView={2}
           navigation
           pagination={{clickable: true}}

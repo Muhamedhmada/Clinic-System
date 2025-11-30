@@ -35,10 +35,11 @@
 }
 .two-container .cards .card h2{
   color: var(--third-color) ;
+  font-size: clamp(1.5rem, 1.3786rem + 0.5178vw, 2rem);;
 }
 .two-container .cards .card .icon{
-  width: 70px;
-  height: 70px;
+  width: clamp(3.125rem, 2.8216rem + 1.2945vw, 4.375rem);;
+  height: clamp(3.125rem, 2.8216rem + 1.2945vw, 4.375rem);;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,4 +57,5 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  gap: 5px;
 }

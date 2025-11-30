@@ -184,3 +184,6 @@
 .tabs button::after{
   background-color: transparent !important;
 }
+.booking-container table{
+  margin-top: 10px;
+}

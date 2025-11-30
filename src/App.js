@@ -30,6 +30,7 @@ import PaymentReview from './Pages/Dashboard/PaymentReview/PaymentReview';
 import { onMessageListener } from "./firebase/onMessageListener";
 import { toast } from "react-toastify";
 import Preloader from './Component/custom/SiteLoader/SiteLoader';
+import Whatsapp from './Component/custom/Whatsapp/Whatsapp';
 // import { requestForToken, onMessageListener } from "./config/firebase";
 
 
@@ -63,24 +64,37 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handlePageLoad = () => {
-        setLoading(false);
+    const handleLoad = () => {
+      setLoading(false);
     };
+    console.log(document)
+    console.log(document.readyState)
 
-    if (document.readyState === "complete") {
-        setLoading(false);
+    // Check if the document is already loaded
+    if (document.readyState === 'complete') {
+      setLoading(false);
     } else {
-        window.addEventListener("load", handlePageLoad);
+      // Listen for the 'load' event on the window object
+      window.addEventListener('load', handleLoad);
     }
 
-    return () => window.removeEventListener("load", handlePageLoad);
-}, []);
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
 
   return (
     <div className='App'>
+      
       <header className='App-header'>
+      {
+        // loading &&
+        <Preloader/>
+      }
         <ToTop />
         <DarkMode/>
+        {/* <Whatsapp/> */}
         <Routes>
           {/* dashboard */}
           <Route path='/dashboard'element={<Layout children={<Dashboard/>}/>}/>
@@ -91,10 +105,7 @@ function App() {
           <Route path='/users'element={<Layout children={<Users/>}/>}/>
           <Route path='/payment-review'element={<Layout children={<PaymentReview/>}/>}/>
 
-          {/* site */}  
-          {/* mavbar */}
-
-          {/*footer  */}
+          {/* Website  */}
           <Route path='/' element={<Home />} />
           <Route path='/contact-us' element={<ContactUS />} />
           <Route path='/login' element={<Login />} />

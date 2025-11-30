@@ -1,0 +1,7 @@
+.whatsapp-container{
+  /* position: fixed; */
+  z-index: 99999999999999999;
+  /* bottom: 50px; */
+  /* left: 50px; */
+  cursor: grab;
+}
