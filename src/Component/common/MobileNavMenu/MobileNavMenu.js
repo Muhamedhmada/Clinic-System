@@ -10,7 +10,7 @@ import BtnLoader from "../BtnLoader/BtnLoader";
 
 function MobileNavMenu({isNavMobileMenuOpen, navMobileMenuFunc}) {
   const [loader , setLoader] = useState(false)
-  const userData = JSON.parse(localStorage.getItem("userData"))
+  const userData = JSON.parse(localStorage.getItem("userData")) || null
   const {theme , changeMode} = darkModeSlice()
   const nav = useNavigate();
   const [isLogoutModalOpen , setIsLogoutModalOpen] = useState(false)
@@ -22,7 +22,7 @@ function MobileNavMenu({isNavMobileMenuOpen, navMobileMenuFunc}) {
           <img src={userData?.img?userData.img:userImage} loading="lazy" alt="userimage"/>
           <div>
             <h3>{userData?(userData.first_name +" " + userData.last_name):"user name"}</h3>
-            <p>{userData?userData.role:"user"}</p>
+            <p>{userData?userData?.role:"user"}</p>
           </div>
         </div>
         <div className='icon close' onClick={() => navMobileMenuFunc()}>
@@ -35,7 +35,7 @@ function MobileNavMenu({isNavMobileMenuOpen, navMobileMenuFunc}) {
           Home 
         </a>
         {
-          userData.role === "admin" &&
+          userData?.role === "admin" &&
         <a href='/dashoard'>
           <Home width='20px' />
           dashboard 

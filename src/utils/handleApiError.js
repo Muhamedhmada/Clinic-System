@@ -28,24 +28,27 @@ const handleApiError = (error) => {
 
   // 2. لو الرسالة عبارة عن array (مثلاً validation errors)
   if (Array.isArray(message)) {
-    message.forEach((msg) => toast.error(msg));
+    message.forEach((msg) => console.log(msg));
     return;
   }
 
   // 3. لو الرسالة نص واحد (string)
   if (typeof message === "string") {
-    toast.error(message);
+    // toast.error(message);
+    console.log(message);
     return;
   }
 
   // 4. لو مفيش response (مثلاً المشكلة في الإنترنت أو السيرفر وقع)
   if (!error.response) {
-    toast.error("لا يوجد اتصال بالسيرفر. تأكد من الإنترنت.");
+    // toast.error("لا يوجد اتصال بالسيرفر. تأكد من الإنترنت.");
+    console.log("لا يوجد اتصال بالسيرفر. تأكد من الإنترنت.");
     return;
   }
 
   // 5. fallback عام لأي حالة غير متوقعة
-  toast.error("حدث خطأ غير متوقع. حاول مرة أخرى.");
+  // toast.error("حدث خطأ غير متوقع. حاول مرة أخرى.");
+  console.log("حدث خطأ غير متوقع. حاول مرة أخرى.");
 };
 
 export default handleApiError;

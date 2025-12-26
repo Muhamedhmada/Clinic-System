@@ -10,7 +10,7 @@ import Notification from "../Notification/Notification";
 function NavbarC() {
   const nav = useNavigate();
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const {isToken} = isTokenSlice();
+  const isToken = localStorage.getItem("token") || null;
   const userData = JSON.parse(localStorage.getItem("userData")) || null;
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   

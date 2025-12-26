@@ -20,7 +20,7 @@ function Feedback() {
   const [comment, setComment] = useState();
   const [feedbackList, setFeedbackList] = useState([]);
 
-  console.log(userData.id)
+  console.log(userData?.id)
   const getFeedbackList = async () => {
     setLoader(true);
     const res = await getData("feedback");
@@ -30,12 +30,15 @@ function Feedback() {
 
   const sendFeedback = async(e)=>{
     e.preventDefault();
+    if(!token){
+      toast.error("pls login first")
+    }
     if (!comment) {
       toast.error("enter comment field first");
       return;
     }
     const data = {
-      name: userData.first_name,
+      name: userData?.first_name,
       feedback:comment,
       image: "https://randomuser.me/api/portraits/men/1.jpg",
       timeAgo: "2 hours ago",
@@ -65,7 +68,7 @@ function Feedback() {
   const handleSave= async()=>{
     try {
       const res = await axios.put(
-        `${base_url}/feedback/${rowData.id}`,
+        `${base_url}/feedback/${rowData?.id}`,
         {
           feedback: rowData.feedback,
           rate: rowData.rate
@@ -139,7 +142,7 @@ function Feedback() {
 
                       }
                       {
-                        userData.id === item.user.id &&
+                        userData?.id === item.user.id &&
                       <div className="icons">
                         {
                           item.id === rowData?.id?(

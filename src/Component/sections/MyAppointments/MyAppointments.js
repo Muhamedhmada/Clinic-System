@@ -19,7 +19,7 @@ function MyAppointments() {
 
   const getMyAppointments = async () => {
     const res = await getData("appointment/my-appointments");
-    setMyAppointments(res.data.data);
+    setMyAppointments(res?.data?.data);
   };
 
   const handleCancelBtn = async (id) => {
@@ -61,7 +61,7 @@ function MyAppointments() {
   return (
     <div className='myAppointments container'>
       <ToastContainer />
-      {myAppointments?.length !== 0 ? (
+      {myAppointments? (
         <>
           {myAppointments ? (
             <>
