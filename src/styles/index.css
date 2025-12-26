@@ -81,6 +81,7 @@ textarea , input , select{
 textarea{
   resize: none;
   height: 200px;
+  height:clamp(6.25rem, 4.733rem + 6.4725vw, 12.5rem);;
   /* width: 100%; */
 }
 input:focus , textarea:focus , select:focus{

@@ -6,8 +6,15 @@ import TwoInputs from '../../../Component/common/TwoInputs/TwoInputs'
 import Footer from '../../../Component/common/Footer/Footer';
 import './FastBooking.css'
 function FastBooking(){
+  const token = localStorage.getItem("token")
+
   const sendForm = (e)=>{
     e.preventDefault()
+    if(!token){
+      toast.error("pls login first")
+      console.log("login frist")
+      return
+    }
     toast.success("form send successfully")
   }
   return(

@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import "./Booking.css";
+import {toast, ToastContainer} from "react-toastify";
 import LandPage from "../../../Component/common/LandPage/LandPage";
 import Navbar from "../../../Component/common/Navbar/Navbar";
 import Topbar from "../../../Component/common/Topbar/Topbar";
@@ -16,7 +17,6 @@ import handleApiError from "../../../utils/handleApiError";
 import axios from "axios";
 import base_url from "../../../config/base_url";
 import { motion } from "framer-motion";
-import { toast } from "react-toastify";
 function Booking() {
   const token = localStorage.getItem("token")
   const [confirmationLoader , setConfirmationLoader] = useState(false)
@@ -60,6 +60,13 @@ function Booking() {
 
   // confirm appointment
   const confirmAppointment = async() => {
+    if(!token){
+      toast.error("pls login first")
+      console.log("login frist")
+      setModal((prev) => ({...prev, data: false}));
+      setConfirmationLoader(false)
+      return
+    }
     setConfirmationLoader(true)
     let dataSend = {
       name:appointmentData.name,
@@ -129,6 +136,7 @@ function Booking() {
   }, []);
   return (
     <>
+      <ToastContainer />
       <Topbar />
       <Navbar />
       <LandPage header='booking' link='booking' href='/booking' />
